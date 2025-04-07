@@ -1,0 +1,30 @@
+# Ignore only the data folder and its contents
+/data/
+
+# Allow tracking of specific placeholder files inside ./data if needed
+!/data/.keep
+
+# Manually ignore common large file types (since Git doesn't support size-based rules)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.iso
+*.exe
+*.dmg
+*.bin
+*.pdf
+*.csv
+*.tsv
+*.h5
+*.pkl
+*.npy
+*.npz
+*.ckpt
+*.pt
+*.onnx
