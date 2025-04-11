@@ -17,7 +17,7 @@ torch.manual_seed(42)
 random.seed(42)
 np.random.seed(42)
 
-from model_def100 import CNN, EnhancedCNN, BaselineAdapter100, BigCNN
+from model_def_test10.model_def100 import CNN, EnhancedCNN, BaselineAdapter100, BigCNN
 
 # --------------------------
 # Data Loading for CIFAR-10 (Student)
@@ -91,7 +91,7 @@ def load_teacher_data(pretrain_size=2000, seed=42):
 # --------------------------
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    save_path = "./results/mismatch.json"
+    save_path = "./results_test10/mismatch.json"
     num_epochs = 30
     num_epoch_teacher = 60
     num_runs = 5
@@ -100,12 +100,19 @@ def main():
     # Train Teacher on CIFAR-100 Subset
     # Use pretrain_size samples (e.g., 2000).
     # ---------------------------
-    print("\n=== Training Teacher (BigCNN) on CIFAR-100 Subset ===")
     pretrain_size = 10000
-    teacher_train_subset, teacher_test = load_teacher_data(pretrain_size=pretrain_size, seed=42)
-    teacher_loader = DataLoader(teacher_train_subset, batch_size=32, shuffle=True)
-    teacher_model = BigCNN().to(device)
-    train_model(teacher_model, teacher_loader, num_epoch_teacher, device)
+    print("\n=== Training Teacher (BigCNN) on CIFAR-100 Subset ===")
+    mismatch_save_path = "./model_test10/mismatch.pt"
+    if os.path.exists(mismatch_save_path):
+        teacher_model = torch.load(mismatch_save_path).to(device)
+        print("Loaded teacher model from:", mismatch_save_path)
+    else:
+        teacher_train_subset, teacher_test = load_teacher_data(pretrain_size=pretrain_size, seed=42)
+        teacher_loader = DataLoader(teacher_train_subset, batch_size=32, shuffle=True)
+        teacher_model = BigCNN().to(device)
+        train_model(teacher_model, teacher_loader, num_epoch_teacher, device)
+        torch.save(teacher_model, mismatch_save_path)
+        print("Trained and saved teacher model to:", mismatch_save_path)
     # We use teacher_model.get_features() for transfer (ignoring its 100-class head).
 
     # ---------------------------

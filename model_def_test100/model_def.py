@@ -14,7 +14,7 @@ class CNN(nn.Module):
         )
         self.fc_layers = nn.Sequential(
             nn.Linear(64*4*4, 512), nn.ReLU(), nn.Dropout(0.5),
-            nn.Linear(512, 10)
+            nn.Linear(512, 100)  # Updated output to 100 classes
         )
     
     def forward(self, x):
@@ -47,9 +47,9 @@ class EnhancedCNN(nn.Module):
             nn.ReLU(),
             nn.Dropout(0.5)
         )
-        # Now, external features are 2560-dim from the modified BigCNN.
+        # External features remain 2560-dim from BigCNN.
         # Concatenation dimension = 512 + 2560 = 3072.
-        self.final_layer = nn.Linear(3072, 10)
+        self.final_layer = nn.Linear(3072, 100)  # Updated output to 100 classes
     
     def forward(self, x, external_features):
         x = self.conv_layers(x)
@@ -60,26 +60,25 @@ class EnhancedCNN(nn.Module):
 
 
 class BaselineAdapter(nn.Module):
-    def __init__(self, pretrain_model):
+    def __init__(self, pretrain_model, bottleneck_dim=128):
         super(BaselineAdapter, self).__init__()
         self.pretrained = pretrain_model
         for param in self.pretrained.parameters():
             param.requires_grad = False
         self.adapter = nn.Sequential(
-            nn.Linear(2560, 5120),
+            nn.Linear(2560, bottleneck_dim),  # down-project
             nn.ReLU(),
             nn.Dropout(0.5),
-            nn.Linear(5120, 2560),
+            nn.Linear(bottleneck_dim, 2560),  # up-project
             nn.ReLU(),
             nn.Dropout(0.5)
         )
-        self.classifier = nn.Linear(2560, 10)
+        self.classifier = nn.Linear(2560, 100)
     
     def forward(self, x):
-        features = self.pretrained.get_features(x)
-        adapted = self.adapter(features)
+        features = self.pretrained.get_features(x)  # get features
+        adapted = self.adapter(features)  # apply adapter
         return self.classifier(adapted)
-
 
 
 class BigCNN(nn.Module):
@@ -95,7 +94,7 @@ class BigCNN(nn.Module):
         )
         self.fc_layers = nn.Sequential(
             nn.Linear(768, 2560), nn.ReLU(), nn.Dropout(0.5),
-            nn.Linear(2560, 10)
+            nn.Linear(2560, 100)  # Updated output to 100 classes
         )
     
     def forward(self, x):

@@ -10,22 +10,34 @@ import json
 import os
 import copy
 
-from model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
+from model_def_test10.model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
 from train_eval import train_model, train_linear_prob, train_enhanced_model, train_distillation, evaluate_model
 
 torch.manual_seed(42)
 random.seed(42)
 np.random.seed(42)
 
-def load_data_split(seed, noise_sigma=0.0):
+def normalize_dict(d):
+    total = sum(d.values())
+    return {k: v / total for k, v in d.items()}
+
+def load_data_split_imbalanced(seed, imbalance_dict):
+    """
+    Loads CIFAR-10 data and splits the training set into:
+      - pretrain_set: first 10,000 samples, then re-sampled to follow the desired class distribution.
+      - raw_set: next 4,000 samples with true labels.
+    The imbalance_dict specifies the desired proportion for each class (keys 0-9).
+    All data is downloaded under ./data.
+    """
+    imbalance_dict = normalize_dict(imbalance_dict)
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+        transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5))
     ])
     trainset = torchvision.datasets.CIFAR10(
         root='./data', train=True, download=True, transform=transform
     )
-    testset = torchvision.datasets.CIFAR10(
+    testset  = torchvision.datasets.CIFAR10(
         root='./data', train=False, download=True, transform=transform
     )
     
@@ -33,48 +45,75 @@ def load_data_split(seed, noise_sigma=0.0):
     rng = np.random.RandomState(seed)
     rng.shuffle(total_indices)
     
+    # Use the first 10k indices for pretraining and next 4k for raw set.
     pretrain_indices = total_indices[:10000]
     raw_indices = total_indices[10000:10000+4000]
     
     pretrain_subset = Subset(trainset, pretrain_indices)
     raw_set = Subset(trainset, raw_indices)
-
-    class NoisyDataset(Dataset):
-        def __init__(self, subset, noise_sigma=0.0):
-            self.subset = subset
-            self.noise_sigma = noise_sigma
-
-        def __len__(self):
-            return len(self.subset)
-
-        def __getitem__(self, idx):
-            image, label = self.subset[idx]
-            # Additive Gaussian noise
-            if self.noise_sigma > 0:
-                noise = torch.randn_like(image) * self.noise_sigma
-                image = image + noise
-            return image, label
-
-    pretrain_dataset = NoisyDataset(pretrain_subset, noise_sigma=noise_sigma)
     
+    # Group indices in pretrain_subset by true label.
+    indices_by_label = {i: [] for i in range(10)}
+    for i in range(len(pretrain_subset)):
+        _, label = pretrain_subset[i]
+        indices_by_label[label].append(i)
+    
+    # Determine number of samples per class based on desired ratios.
+    total_pretrain = len(pretrain_subset)
+    desired_counts = {c: int(total_pretrain * imbalance_dict.get(c, 0)) for c in range(10)}
+    
+    # Sample indices from each class.
+    sampled_indices = []
+    for c in range(10):
+        available = indices_by_label[c]
+        count = desired_counts[c]
+        if len(available) >= count:
+            sampled = rng.choice(available, size=count, replace=False).tolist()
+        else:
+            # If not enough samples, sample with replacement.
+            sampled = rng.choice(available, size=count, replace=True).tolist()
+        sampled_indices.extend(sampled)
+    
+    # Create a new Subset for pretraining with the sampled indices.
+    pretrain_dataset = Subset(pretrain_subset, sampled_indices)
     return pretrain_dataset, raw_set, testset
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    pretrain_epochs = 60     # Epochs for pretraining phase
-    other_epochs = 30        # Epochs for the remaining training phases
+    pretrain_epochs = 60
+    num_epochs = 30
     num_runs = 5
-    noise_sigma = 0.5        # Control the noise level (adjust as desired)
-    save_path = "./results/noise_attr_{}.json".format(noise_sigma)
+    # Define the desired imbalance distribution.
+    # For example: class 0: 0.35, class 1: 0.3, class 2: 0.1, etc.
+    imbalance_dict = {
+        0: 0.35,
+        1: 0.3,
+        2: 0.1,
+        3: 0.07,
+        4: 0.06,
+        5: 0.045,
+        6: 0.03,
+        7: 0.02,
+        8: 0.015,
+        9: 0.01
+    }
+    save_path = "./results_test10/imb.json"
 
-    pretrain_dataset, raw_set, test_dataset = load_data_split(seed=42, noise_sigma=noise_sigma)
+    pretrain_dataset, raw_set, test_dataset = load_data_split_imbalanced(seed=42, imbalance_dict=imbalance_dict)
     pretrain_loader = DataLoader(pretrain_dataset, batch_size=64, shuffle=True, num_workers=2)
     raw_loader = DataLoader(raw_set, batch_size=64, shuffle=True, num_workers=2)
     test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=2)
 
-    print("\n=== Pretraining External Model (BigCNN) on 10k Noisy Samples ===")
-    external_model = BigCNN().to(device)
-    train_model(external_model, pretrain_loader, pretrain_epochs, device)
+    print("\n=== Pretraining External Model (BigCNN) on 10k Imbalanced Samples ===")
+    imb_save_path = "./model_test10/imb.pt"
+    if os.path.exists(imb_save_path):
+        external_model = torch.load(imb_save_path).to(device)
+        print("Loaded external model from:", imb_save_path)
+    else:
+        external_model = BigCNN().to(device)
+        train_model(external_model, pretrain_loader, pretrain_epochs, device)
+        torch.save(external_model, imb_save_path)
+        print("Trained and saved external model to:", imb_save_path)
     ext_acc, ext_auc, ext_f1, ext_minc = evaluate_model(external_model, test_loader, device)
     print(f"External Model Evaluation: Acc={ext_acc:.2f}%, AUC={ext_auc:.4f}, F1={ext_f1:.4f}, MinCAcc={ext_minc:.2f}%")
     
@@ -83,18 +122,19 @@ def main():
         "linear_prob": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
         "enhanced_concat": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
         "baseline_adapter": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
-        "distillation": {"acc": [], "auc": [], "f1": [], "min_cacc": []}
+        "distillation": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
+        "full_para": {"acc": [], "auc": [], "f1": [], "min_cacc": []}  # new benchmark
     }
     
     for run_idx in range(num_runs):
         run_seed = 42 + run_idx
         print(f"\n=== Run {run_idx+1}/{num_runs}, raw-set seed={run_seed} ===")
-        _, raw_set_run, _ = load_data_split(seed=run_seed, noise_sigma=0.0)  # raw set remains clean
+        _, raw_set_run, _ = load_data_split_imbalanced(seed=run_seed, imbalance_dict=imbalance_dict)
         run_loader = DataLoader(raw_set_run, batch_size=64, shuffle=True, num_workers=2)
         
         print("Training baseline model (CNN on raw set)...")
         baseline_model = CNN().to(device)
-        train_model(baseline_model, run_loader, other_epochs, device)
+        train_model(baseline_model, run_loader, num_epochs, device)
         acc_b, auc_b, f1_b, min_cacc_b = evaluate_model(baseline_model, test_loader, device)
         metrics["baseline"]["acc"].append(acc_b)
         metrics["baseline"]["auc"].append(auc_b)
@@ -107,7 +147,7 @@ def main():
             param.requires_grad = False
         for param in linear_model.fc_layers[-1].parameters():
             param.requires_grad = True
-        train_linear_prob(linear_model, run_loader, other_epochs, device)
+        train_linear_prob(linear_model, run_loader, num_epochs, device)
         acc_lp, auc_lp, f1_lp, min_cacc_lp = evaluate_model(linear_model, test_loader, device)
         metrics["linear_prob"]["acc"].append(acc_lp)
         metrics["linear_prob"]["auc"].append(auc_lp)
@@ -116,7 +156,7 @@ def main():
         
         print("Training enhanced model (concatenation)...")
         enhanced_concat_model = EnhancedCNN().to(device)
-        train_enhanced_model(enhanced_concat_model, run_loader, external_model, other_epochs, device)
+        train_enhanced_model(enhanced_concat_model, run_loader, external_model, num_epochs, device)
         acc_ec, auc_ec, f1_ec, min_cacc_ec = evaluate_model(enhanced_concat_model, test_loader, device, enhanced=True, external_model=external_model)
         metrics["enhanced_concat"]["acc"].append(acc_ec)
         metrics["enhanced_concat"]["auc"].append(auc_ec)
@@ -125,7 +165,7 @@ def main():
         
         print("Training baseline adapter model (external frozen with adapter)...")
         baseline_adapter_model = BaselineAdapter(copy.deepcopy(external_model)).to(device)
-        train_model(baseline_adapter_model, run_loader, other_epochs, device)
+        train_model(baseline_adapter_model, run_loader, num_epochs, device)
         acc_ba, auc_ba, f1_ba, min_cacc_ba = evaluate_model(baseline_adapter_model, test_loader, device)
         metrics["baseline_adapter"]["acc"].append(acc_ba)
         metrics["baseline_adapter"]["auc"].append(auc_ba)
@@ -133,21 +173,34 @@ def main():
         metrics["baseline_adapter"]["min_cacc"].append(min_cacc_ba)
         
         print("Training knowledge distillation model (CNN student with teacher external)...")
-        # For distillation, we use the same CNN architecture as the student
+        # For distillation, we use the same CNN architecture as the student.
         student_model = CNN().to(device)
-        train_distillation(student_model, external_model, run_loader, other_epochs, device, temperature=2.0, alpha=0.5)
+        train_distillation(student_model, external_model, run_loader, num_epochs, device, temperature=2.0, alpha=0.5)
         acc_kd, auc_kd, f1_kd, min_cacc_kd = evaluate_model(student_model, test_loader, device)
         metrics["distillation"]["acc"].append(acc_kd)
         metrics["distillation"]["auc"].append(auc_kd)
         metrics["distillation"]["f1"].append(f1_kd)
         metrics["distillation"]["min_cacc"].append(min_cacc_kd)
         
+        print("Training full parameter model (fine-tuning external model with all parameters)...")
+        full_para_model = copy.deepcopy(external_model).to(device)
+        # Unfreeze all parameters to allow fine-tuning
+        for param in full_para_model.parameters():
+            param.requires_grad = True
+        train_model(full_para_model, run_loader, num_epochs, device)
+        acc_fp, auc_fp, f1_fp, min_cacc_fp = evaluate_model(full_para_model, test_loader, device)
+        metrics["full_para"]["acc"].append(acc_fp)
+        metrics["full_para"]["auc"].append(auc_fp)
+        metrics["full_para"]["f1"].append(f1_fp)
+        metrics["full_para"]["min_cacc"].append(min_cacc_fp)
+        
         print(f"\n[Run {run_idx+1} Results]")
-        print(f"Baseline:            Acc={acc_b:.2f}% | AUC={auc_b:.4f} | F1={f1_b:.4f} | MinCAcc={min_cacc_b:.2f}%")
-        print(f"Linear Probe:        Acc={acc_lp:.2f}% | AUC={auc_lp:.4f} | F1={f1_lp:.4f} | MinCAcc={min_cacc_lp:.2f}%")
-        print(f"Enhanced (Concat):   Acc={acc_ec:.2f}% | AUC={auc_ec:.4f} | F1={f1_ec:.4f} | MinCAcc={min_cacc_ec:.2f}%")
-        print(f"Baseline Adapter:    Acc={acc_ba:.2f}% | AUC={auc_ba:.4f} | F1={f1_ba:.4f} | MinCAcc={min_cacc_ba:.2f}%")
-        print(f"Knowledge Distill:   Acc={acc_kd:.2f}% | AUC={auc_kd:.4f} | F1={f1_kd:.4f} | MinCAcc={min_cacc_kd:.2f}%")
+        print(f"Baseline:          Acc={acc_b:.2f}% | AUC={auc_b:.4f} | F1={f1_b:.4f} | MinCAcc={min_cacc_b:.2f}%")
+        print(f"Linear Probe:      Acc={acc_lp:.2f}% | AUC={auc_lp:.4f} | F1={f1_lp:.4f} | MinCAcc={min_cacc_lp:.2f}%")
+        print(f"Enhanced (Concat): Acc={acc_ec:.2f}% | AUC={auc_ec:.4f} | F1={f1_ec:.4f} | MinCAcc={min_cacc_ec:.2f}%")
+        print(f"Baseline Adapter:  Acc={acc_ba:.2f}% | AUC={auc_ba:.4f} | F1={f1_ba:.4f} | MinCAcc={min_cacc_ba:.2f}%")
+        print(f"Distillation:      Acc={acc_kd:.2f}% | AUC={auc_kd:.4f} | F1={f1_kd:.4f} | MinCAcc={min_cacc_kd:.2f}%")
+        print(f"Full Parameter:    Acc={acc_fp:.2f}% | AUC={auc_fp:.4f} | F1={f1_fp:.4f} | MinCAcc={min_cacc_fp:.2f}%")
     
     final_results = {}
     for method, m_dict in metrics.items():

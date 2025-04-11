@@ -30,15 +30,23 @@ run_sequential() {
 
 # Define an array of Python scripts to run sequentially
 PYTHON_SCRIPTS=(
-    # "adversarial.py"
-    # "imb.py"
-    # "mismatch.py"
-    # "noise.py"
-    # "noise_tf.py"
 
-    "mismatch_tf.py"
-    "imb_tf.py"
-    "adversarial_tf.py"
+    "adversarial.py"
+    "imb.py"
+    "mismatch.py"
+    "noise.py"
+
+    "match.py"
+    "adversarial_test100.py"
+    "imb_test100.py"
+    "mismatch_test100.py"
+    "noise_test100.py"
+
+
+    # "noise_tf.py"
+    # "mismatch_tf.py"
+    # "imb_tf.py"
+    # "adversarial_tf.py"
 )
 
 # Iterate over the array and run each script sequentially

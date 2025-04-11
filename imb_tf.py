@@ -10,7 +10,7 @@ import json
 import os
 import copy
 
-from model_def_tf import (
+from model_def_test10.model_def_tf import (
     TransformerClassifier,
     EnhancedTransformer,
     BaselineAdapterTransformer,
@@ -96,7 +96,7 @@ def main():
         8: 0.015,
         9: 0.01
     }
-    save_path = "./results/imb_tf.json"
+    save_path = "./results_test10/imb_tf.json"
 
     pretrain_dataset, raw_set, test_dataset = load_data_split_imbalanced(seed=42, imbalance_dict=imbalance_dict)
     pretrain_loader = DataLoader(pretrain_dataset, batch_size=64, shuffle=True, num_workers=2)
@@ -104,10 +104,18 @@ def main():
     test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=2)
 
     print("\n=== Pretraining External Model (BigTransformer) on 10k Imbalanced Samples ===")
-    external_model = BigTransformer().to(device)
-    train_model(external_model, pretrain_loader, pretrain_epochs, device)
+    imb_tf_save_path = "./model_test10/imb_tf.pt"
+    if os.path.exists(imb_tf_save_path):
+        external_model = torch.load(imb_tf_save_path).to(device)
+        print("Loaded external model from:", imb_tf_save_path)
+    else:
+        external_model = BigTransformer().to(device)
+        train_model(external_model, pretrain_loader, pretrain_epochs, device)
+        torch.save(external_model, imb_tf_save_path)
+        print("Trained and saved external model to:", imb_tf_save_path)
     ext_acc, ext_auc, ext_f1, ext_minc = evaluate_model(external_model, test_loader, device)
     print(f"External Model Evaluation: Acc={ext_acc:.2f}%, AUC={ext_auc:.4f}, F1={ext_f1:.4f}, MinCAcc={ext_minc:.2f}%")
+
     
     metrics = {
         "baseline": {"acc": [], "auc": [], "f1": [], "min_cacc": []},

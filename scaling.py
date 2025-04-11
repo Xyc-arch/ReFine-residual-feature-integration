@@ -10,9 +10,9 @@ import os
 import json
 
 # Import the enhanced model and evaluation function.
-from model_def_scaling import EnhancedScalingCNN, evaluate_enhanced
+from model_def_test10.model_def_scaling import EnhancedScalingCNN, evaluate_enhanced
 # Import the simple CNN for external models.
-from model_def import CNN
+from model_def_test10.model_def import CNN
 
 # Set seeds for reproducibility.
 torch.manual_seed(42)

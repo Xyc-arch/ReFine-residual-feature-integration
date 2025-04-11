@@ -74,18 +74,22 @@ class BigCNN(nn.Module):
         return features
 
 class BaselineAdapter100(nn.Module):
-    def __init__(self, teacher_model):
+    def __init__(self, teacher_model, bottleneck_dim=128):
         super(BaselineAdapter100, self).__init__()
         self.teacher = teacher_model
         for param in self.teacher.parameters():
             param.requires_grad = False
         self.adapter = nn.Sequential(
-            nn.Linear(2560, 2560), nn.ReLU(), nn.Dropout(0.5),
-            nn.Linear(2560, 2560), nn.ReLU(), nn.Dropout(0.5)
+            nn.Linear(2560, bottleneck_dim),  # down
+            nn.ReLU(),
+            nn.Dropout(0.5),
+            nn.Linear(bottleneck_dim, 2560),  # up
+            nn.ReLU(),
+            nn.Dropout(0.5)
         )
         self.classifier = nn.Linear(2560, 10)
     
     def forward(self, x):
-        features = self.teacher.get_features(x)
-        adapted = self.adapter(features)
+        features = self.teacher.get_features(x)  # get features
+        adapted = self.adapter(features)  # apply adapter
         return self.classifier(adapted)

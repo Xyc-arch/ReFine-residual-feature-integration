@@ -10,19 +10,8 @@ import json
 import os
 import copy
 
-from model_def_test10.model_def_tf import (
-    TransformerClassifier,
-    EnhancedTransformer,
-    BaselineAdapterTransformer,
-    BigTransformer
-)
-from train_eval import (
-    train_model,
-    train_linear_prob,
-    train_enhanced_model,
-    train_distillation,
-    evaluate_model
-)
+from model_def_test10.model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
+from train_eval import train_model, train_linear_prob, train_enhanced_model, train_distillation, evaluate_model
 
 torch.manual_seed(42)
 random.seed(42)
@@ -68,42 +57,46 @@ def load_data_split(seed, flip_ratio=1.0):
                 return image, true_label
 
     pretrain_dataset = RandomLabelDataset(pretrain_subset, flip_ratio=flip_ratio)
+    
     return pretrain_dataset, raw_set, testset
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     pretrain_epochs = 60     # Epochs for pretraining phase
-    other_epochs = 30        # Epochs for subsequent training phases
+    other_epochs = 30        # Epochs for the remaining training phases
     num_runs = 5
-    flip_ratio = 0.8
+    flip_ratio = 0
     
     for flip_ratio in [0.8, 0]:
-        save_path = "./results_test10/noise_tf_{}.json".format(flip_ratio)
+        
+        save_path = "./results_test10/noise_{}.json".format(flip_ratio)
 
         pretrain_dataset, raw_set, test_dataset = load_data_split(seed=42, flip_ratio=flip_ratio)
         pretrain_loader = DataLoader(pretrain_dataset, batch_size=64, shuffle=True, num_workers=2)
         raw_loader = DataLoader(raw_set, batch_size=64, shuffle=True, num_workers=2)
         test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=2)
 
-        print("\n=== Pretraining External Model (BigTransformer) on 10k Random (Corrupted) Samples ===")
-        model_save_path = "./model_test10/noise_tf_{}.pt".format(flip_ratio)
+        print("\n=== Pretraining External Model (BigCNN) on 10k Random (Corrupted) Samples ===")
+        model_save_path = "./model_test10/noise_{}.pt".format(flip_ratio)
         if os.path.exists(model_save_path):
             external_model = torch.load(model_save_path).to(device)
             print("Loaded external model from:", model_save_path)
         else:
-            external_model = BigTransformer().to(device)
+            external_model = BigCNN().to(device)
             train_model(external_model, pretrain_loader, pretrain_epochs, device)
             torch.save(external_model, model_save_path)
             print("Trained and saved external model to:", model_save_path)
+
         ext_acc, ext_auc, ext_f1, ext_minc = evaluate_model(external_model, test_loader, device)
-        print(f"External Model Evaluation: Acc={ext_acc:.2f}% | AUC={ext_auc:.4f} | F1={ext_f1:.4f} | MinCAcc={ext_minc:.2f}%")
+        print(f"External Model Evaluation: Acc={ext_acc:.2f}%, AUC={ext_auc:.4f}, F1={ext_f1:.4f}, MinCAcc={ext_minc:.2f}%")
                 
         metrics = {
             "baseline": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
             "linear_prob": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
             "enhanced_concat": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
             "baseline_adapter": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
-            "distillation": {"acc": [], "auc": [], "f1": [], "min_cacc": []}
+            "distillation": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
+            "full_para": {"acc": [], "auc": [], "f1": [], "min_cacc": []}  # new benchmark
         }
         
         for run_idx in range(num_runs):
@@ -112,8 +105,8 @@ def main():
             _, raw_set_run, _ = load_data_split(seed=run_seed, flip_ratio=flip_ratio)
             run_loader = DataLoader(raw_set_run, batch_size=64, shuffle=True, num_workers=2)
             
-            print("Training baseline model (TransformerClassifier on raw set)...")
-            baseline_model = TransformerClassifier().to(device)
+            print("Training baseline model (CNN on raw set)...")
+            baseline_model = CNN().to(device)
             train_model(baseline_model, run_loader, other_epochs, device)
             acc_b, auc_b, f1_b, min_cacc_b = evaluate_model(baseline_model, test_loader, device)
             metrics["baseline"]["acc"].append(acc_b)
@@ -125,7 +118,8 @@ def main():
             linear_model = copy.deepcopy(external_model)
             for param in linear_model.parameters():
                 param.requires_grad = False
-            for param in linear_model.classifier.parameters():
+            # Make sure that the final fc layer is trainable
+            for param in linear_model.fc_layers[-1].parameters():
                 param.requires_grad = True
             train_linear_prob(linear_model, run_loader, other_epochs, device)
             acc_lp, auc_lp, f1_lp, min_cacc_lp = evaluate_model(linear_model, test_loader, device)
@@ -135,7 +129,7 @@ def main():
             metrics["linear_prob"]["min_cacc"].append(min_cacc_lp)
             
             print("Training enhanced model (concatenation)...")
-            enhanced_concat_model = EnhancedTransformer().to(device)
+            enhanced_concat_model = EnhancedCNN().to(device)
             train_enhanced_model(enhanced_concat_model, run_loader, external_model, other_epochs, device)
             acc_ec, auc_ec, f1_ec, min_cacc_ec = evaluate_model(enhanced_concat_model, test_loader, device, enhanced=True, external_model=external_model)
             metrics["enhanced_concat"]["acc"].append(acc_ec)
@@ -144,7 +138,7 @@ def main():
             metrics["enhanced_concat"]["min_cacc"].append(min_cacc_ec)
             
             print("Training baseline adapter model (external frozen with adapter)...")
-            baseline_adapter_model = BaselineAdapterTransformer(copy.deepcopy(external_model)).to(device)
+            baseline_adapter_model = BaselineAdapter(copy.deepcopy(external_model)).to(device)
             train_model(baseline_adapter_model, run_loader, other_epochs, device)
             acc_ba, auc_ba, f1_ba, min_cacc_ba = evaluate_model(baseline_adapter_model, test_loader, device)
             metrics["baseline_adapter"]["acc"].append(acc_ba)
@@ -152,8 +146,9 @@ def main():
             metrics["baseline_adapter"]["f1"].append(f1_ba)
             metrics["baseline_adapter"]["min_cacc"].append(min_cacc_ba)
             
-            print("Training knowledge distillation model (Transformer student with teacher external)...")
-            student_model = TransformerClassifier().to(device)
+            print("Training knowledge distillation model (CNN student with teacher external)...")
+            # For distillation, we use the same CNN architecture as the student
+            student_model = CNN().to(device)
             train_distillation(student_model, external_model, run_loader, other_epochs, device, temperature=2.0, alpha=0.5)
             acc_kd, auc_kd, f1_kd, min_cacc_kd = evaluate_model(student_model, test_loader, device)
             metrics["distillation"]["acc"].append(acc_kd)
@@ -161,12 +156,25 @@ def main():
             metrics["distillation"]["f1"].append(f1_kd)
             metrics["distillation"]["min_cacc"].append(min_cacc_kd)
             
+            print("Training full parameter model (fine-tuning external model with all parameters)...")
+            full_para_model = copy.deepcopy(external_model).to(device)
+            # Ensure that all parameters are trainable
+            for param in full_para_model.parameters():
+                param.requires_grad = True
+            train_model(full_para_model, run_loader, other_epochs, device)
+            acc_fp, auc_fp, f1_fp, min_cacc_fp = evaluate_model(full_para_model, test_loader, device)
+            metrics["full_para"]["acc"].append(acc_fp)
+            metrics["full_para"]["auc"].append(auc_fp)
+            metrics["full_para"]["f1"].append(f1_fp)
+            metrics["full_para"]["min_cacc"].append(min_cacc_fp)
+            
             print(f"\n[Run {run_idx+1} Results]")
             print(f"Baseline:            Acc={acc_b:.2f}% | AUC={auc_b:.4f} | F1={f1_b:.4f} | MinCAcc={min_cacc_b:.2f}%")
             print(f"Linear Probe:        Acc={acc_lp:.2f}% | AUC={auc_lp:.4f} | F1={f1_lp:.4f} | MinCAcc={min_cacc_lp:.2f}%")
             print(f"Enhanced (Concat):   Acc={acc_ec:.2f}% | AUC={auc_ec:.4f} | F1={f1_ec:.4f} | MinCAcc={min_cacc_ec:.2f}%")
             print(f"Baseline Adapter:    Acc={acc_ba:.2f}% | AUC={auc_ba:.4f} | F1={f1_ba:.4f} | MinCAcc={min_cacc_ba:.2f}%")
             print(f"Knowledge Distill:   Acc={acc_kd:.2f}% | AUC={auc_kd:.4f} | F1={f1_kd:.4f} | MinCAcc={min_cacc_kd:.2f}%")
+            print(f"Full Parameter:      Acc={acc_fp:.2f}% | AUC={auc_fp:.4f} | F1={f1_fp:.4f} | MinCAcc={min_cacc_fp:.2f}%")
         
         final_results = {}
         for method, m_dict in metrics.items():

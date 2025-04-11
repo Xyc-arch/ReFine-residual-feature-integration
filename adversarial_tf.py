@@ -11,7 +11,7 @@ import json
 import os
 import copy
 
-from model_def_tf import (
+from model_def_test10.model_def_tf import (
     TransformerClassifier,
     EnhancedTransformer,
     BaselineAdapterTransformer,
@@ -124,7 +124,7 @@ def load_and_split_data(seed_for_split, use_adversarial=False, p_flip=0.5, noise
 # --------------------------
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    save_path = "./results/adversarial_tf.json"
+    save_path = "./results_test10/adversarial_tf.json"
     num_epochs = 30
     pretrain_epochs = 60
     num_runs = 5
@@ -141,13 +141,20 @@ def main():
     # Pretrain external model (BigTransformer) on adversarial pretraining data
     # ---------------------------
     print("\n=== Training External Model (BigTransformer) on Adversarial Pretraining Data ===")
-    # Set use_adversarial=True to apply paired label flipping and noise.
-    _, augment_set_ext, _ = load_and_split_data(seed_for_split=42, use_adversarial=True, p_flip=p_flip, noise_std=noise_std)
-    augment_loader_ext = DataLoader(augment_set_ext, batch_size=32, shuffle=True)
-    external_model = BigTransformer().to(device)
-    train_model(external_model, augment_loader_ext, pretrain_epochs, device)
+    adv_tf_save_path = "./model_test10/adversarial_tf.pt"
+    if os.path.exists(adv_tf_save_path):
+        external_model = torch.load(adv_tf_save_path).to(device)
+        print("Loaded external model from:", adv_tf_save_path)
+    else:
+        _, augment_set_ext, _ = load_and_split_data(seed_for_split=42, use_adversarial=True, p_flip=p_flip, noise_std=noise_std)
+        augment_loader_ext = DataLoader(augment_set_ext, batch_size=32, shuffle=True)
+        external_model = BigTransformer().to(device)
+        train_model(external_model, augment_loader_ext, pretrain_epochs, device)
+        torch.save(external_model, adv_tf_save_path)
+        print("Trained and saved external model to:", adv_tf_save_path)
     ext_acc, ext_auc, ext_f1, ext_minc = evaluate_model(external_model, test_loader, device)
     print(f"External Model (Pretrained) Evaluation: Acc={ext_acc:.2f}%, AUC={ext_auc:.4f}, F1={ext_f1:.4f}, MinCAcc={ext_minc:.2f}%")
+
     
     # Prepare metrics containers for different training methods.
     metrics = {

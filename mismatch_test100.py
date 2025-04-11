@@ -10,22 +10,23 @@ import random
 import json
 import os
 import copy
-from train_eval import *
+from train_eval_test100 import *
 
 # For reproducibility
 torch.manual_seed(42)
 random.seed(42)
 np.random.seed(42)
 
-from model_def_test10.model_def100_tf import TransformerClassifier, EnhancedTransformer, BaselineAdapter100, BigTransformer
+# Import models from the new model_def10.py file.
+from model_def_test100.model_def10 import CNN, EnhancedCNN, BaselineAdapter, BigCNN
 
 # --------------------------
-# Data Loading for CIFAR-10 (Student)
+# Data Loading for CIFAR-100 (Student)
 # --------------------------
-def load_and_split_data(seed_for_split, raw_size=2000, augment_size=4000):
+def load_student_data(seed_for_split, raw_size=2000, augment_size=4000):
     """
-    Splits CIFAR-10 training data into:
-      - raw_set: uncorrupted samples (size=raw_size)
+    Splits CIFAR-100 training data (for student) into:
+      - raw_set: clean samples (size=raw_size)
       - augment_set: samples with random (corrupted) labels (size=augment_size)
     All data is downloaded under ./data.
     """
@@ -34,49 +35,37 @@ def load_and_split_data(seed_for_split, raw_size=2000, augment_size=4000):
         transforms.ToTensor(),
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
-    trainset = torchvision.datasets.CIFAR10(
+    trainset = torchvision.datasets.CIFAR100(
         root='./data', train=True, download=True, transform=transform
     )
-    testset = torchvision.datasets.CIFAR10(
+    testset = torchvision.datasets.CIFAR100(
         root='./data', train=False, download=True, transform=transform
     )
     total_size = len(trainset)
     indices = list(range(total_size))
     rand_gen.shuffle(indices)
     raw_indices = indices[:raw_size]
-    augment_indices = indices[raw_size:raw_size+augment_size]
+
+    # We define a dataset for the raw (clean) training set.
     raw_set = Subset(trainset, raw_indices)
-
-    class CorruptedSubset(Subset):
-        def __init__(self, dataset, indices, seed_for_split=42):
-            super().__init__(dataset, indices)
-            self.random_labels = []
-            rand_gen = random.Random(seed_for_split)
-            for _ in indices:
-                self.random_labels.append(rand_gen.choice(range(10)))
-        def __getitem__(self, idx):
-            image, _ = super().__getitem__(idx)
-            return image, self.random_labels[idx]
-
-    augment_set = CorruptedSubset(trainset, augment_indices, seed_for_split=seed_for_split)
-    return raw_set, augment_set, testset
+    return raw_set, testset
 
 # --------------------------
-# Data Loading for CIFAR-100 (Teacher)
+# Data Loading for CIFAR-10 (Teacher)
 # --------------------------
 def load_teacher_data(pretrain_size=2000, seed=42):
     """
-    Loads CIFAR-100 training data and creates a subset of pretrain_size samples.
+    Loads CIFAR-10 training data and creates a subset of size pretrain_size.
     All data is downloaded under ./data.
     """
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5))
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
-    teacher_train = torchvision.datasets.CIFAR100(
+    teacher_train = torchvision.datasets.CIFAR10(
         root='./data', train=True, download=True, transform=transform
     )
-    teacher_test = torchvision.datasets.CIFAR100(
+    teacher_test = torchvision.datasets.CIFAR10(
         root='./data', train=False, download=True, transform=transform
     )
     total_size = len(teacher_train)
@@ -91,34 +80,34 @@ def load_teacher_data(pretrain_size=2000, seed=42):
 # --------------------------
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    save_path = "./results_test10/mismatch_tf.json"
+    save_path = "./results_test100/mismatch_reverse.json"
     num_epochs = 30
     num_epoch_teacher = 60
     num_runs = 5
 
     # ---------------------------
-    # Train Teacher on CIFAR-100 Subset using BigTransformer (num_classes=100).
+    # Train Teacher on CIFAR-10 Subset
     # ---------------------------
-    pretrain_size = 10000
-    print("\n=== Training Teacher (BigTransformer) on CIFAR-100 Subset ===")
-    mismatch_save_path = "./model_test10/mismatch_tf.pt"
-    if os.path.exists(mismatch_save_path):
-        teacher_model = torch.load(mismatch_save_path).to(device)
-        print("Loaded teacher model from:", mismatch_save_path)
+    print("\n=== Training Teacher (BigCNN) on CIFAR-10 Subset ===")
+    teacher_model_save_path = "./model_test100/mismatch_reverse.pt"
+    if os.path.exists(teacher_model_save_path):
+        teacher_model = torch.load(teacher_model_save_path).to(device)
+        print("Loaded teacher model from:", teacher_model_save_path)
     else:
+        pretrain_size = 10000
         teacher_train_subset, teacher_test = load_teacher_data(pretrain_size=pretrain_size, seed=42)
-        teacher_loader = DataLoader(teacher_train_subset, batch_size=32, shuffle=True)
-        teacher_model = BigTransformer().to(device)
+        teacher_loader = DataLoader(teacher_train_subset, batch_size=32, shuffle=True, num_workers=2)
+        teacher_model = BigCNN().to(device)
         train_model(teacher_model, teacher_loader, num_epoch_teacher, device)
-        torch.save(teacher_model, mismatch_save_path)
-        print("Trained and saved teacher model to:", mismatch_save_path)
-    # We use teacher_model.get_features() for transfer.
-
+        torch.save(teacher_model, teacher_model_save_path)
+        print("Trained and saved teacher model to:", teacher_model_save_path)
+    # Teacher is trained to classify 10 classes. We will use teacher_model.get_features() to extract features.
+    
     # ---------------------------
-    # Load CIFAR-10 Testset for Student Evaluation
+    # Load CIFAR-100 Testset for Student Evaluation
     # ---------------------------
-    _, _, testset = load_and_split_data(seed_for_split=42)
-    test_loader = DataLoader(testset, batch_size=32, shuffle=False)
+    _, testset = load_student_data(seed_for_split=42, raw_size=4000)
+    test_loader = DataLoader(testset, batch_size=32, shuffle=False, num_workers=2)
     
     # Prepare metrics containers for four experiments:
     # baseline, linear probe, enhanced (concatenation), and adapter.
@@ -129,17 +118,17 @@ def main():
         "baseline_adapter": {"acc": [], "auc": [], "f1": [], "min_cacc": []}
     }
     
-    # Run experiments over different raw_set splits (CIFAR-10)
+    # Run experiments over different raw_set splits (CIFAR-100)
     for run_idx in range(num_runs):
         seed_for_split = 42 + run_idx
         print(f"\n=== Run {run_idx+1}/{num_runs}, seed={seed_for_split} ===")
-        # Use raw_set (e.g. raw_size=4000, augment_size=4000)
-        raw_set, _, _ = load_and_split_data(seed_for_split, raw_size=4000, augment_size=4000)
-        raw_loader = DataLoader(raw_set, batch_size=32, shuffle=True)
+        # Load student raw set (using CIFAR-100)
+        raw_set, _ = load_student_data(seed_for_split, raw_size=4000)
+        raw_loader = DataLoader(raw_set, batch_size=32, shuffle=True, num_workers=2)
         
-        # 1. Baseline: Train TransformerClassifier (CIFAR-10 model) on raw_set only.
-        print("Training baseline transformer model (raw only)...")
-        baseline_model = TransformerClassifier().to(device)
+        # 1. Baseline: Train CNN (student CIFAR-100 model) on raw_set only.
+        print("Training baseline model (raw only)...")
+        baseline_model = CNN().to(device)
         train_model(baseline_model, raw_loader, num_epochs, device)
         acc_b, auc_b, f1_b, min_cacc_b = evaluate_model(baseline_model, test_loader, device)
         metrics["baseline"]["acc"].append(acc_b)
@@ -147,14 +136,14 @@ def main():
         metrics["baseline"]["f1"].append(f1_b)
         metrics["baseline"]["min_cacc"].append(min_cacc_b)
         
-        # 2. Linear Probe: Replace teacher's head with a new 10-class head and fine-tune on raw_set.
-        print("Training linear probe transformer model (teacher fine-tuned on raw_set)...")
+        # 2. Linear Probe: Replace teacher's head with a new 100-class head and fine-tune on raw_set.
+        print("Training linear probe model (teacher fine-tuned on raw_set)...")
         linear_model = copy.deepcopy(teacher_model)
         for param in linear_model.parameters():
             param.requires_grad = False
-        # Replace the teacher's final classification layer (100 classes) with a new one for 10 classes.
-        linear_model.classifier = nn.Linear(2560, 10)
-        for param in linear_model.classifier.parameters():
+        # Replace teacher's final classification layer (originally 10 classes) with new layer for 100 classes.
+        linear_model.fc_layers[-1] = nn.Linear(2560, 100)
+        for param in linear_model.fc_layers[-1].parameters():
             param.requires_grad = True
         linear_model = linear_model.to(device)
         train_linear_prob(linear_model, raw_loader, num_epochs, device)
@@ -164,9 +153,9 @@ def main():
         metrics["linear_prob"]["f1"].append(f1_lp)
         metrics["linear_prob"]["min_cacc"].append(min_cacc_lp)
         
-        # 3. Enhanced (Concatenation): Train EnhancedTransformer on raw_set using teacher features.
-        print("Training enhanced transformer model (concatenation)...")
-        enhanced_concat_model = EnhancedTransformer().to(device)
+        # 3. Enhanced (Concatenation): Train EnhancedCNN on raw_set using teacher features.
+        print("Training enhanced model (concatenation)...")
+        enhanced_concat_model = EnhancedCNN().to(device)
         train_enhanced_model(enhanced_concat_model, raw_loader, teacher_model, num_epochs, device)
         acc_ec, auc_ec, f1_ec, min_cacc_ec = evaluate_model(
             enhanced_concat_model, test_loader, device, enhanced=True, external_model=teacher_model
@@ -177,8 +166,8 @@ def main():
         metrics["enhanced_concat"]["min_cacc"].append(min_cacc_ec)
         
         # 4. Baseline Adapter: Use teacher's frozen feature extractor with an adapter and a new head.
-        print("Training baseline adapter transformer model (teacher frozen with adapter) on raw_set...")
-        adapter_model = BaselineAdapter100(copy.deepcopy(teacher_model)).to(device)
+        print("Training baseline adapter model (teacher frozen with adapter) on raw_set...")
+        adapter_model = BaselineAdapter(copy.deepcopy(teacher_model)).to(device)
         train_model(adapter_model, raw_loader, num_epochs, device)
         acc_ba, auc_ba, f1_ba, min_cacc_ba = evaluate_model(adapter_model, test_loader, device)
         metrics["baseline_adapter"]["acc"].append(acc_ba)
@@ -187,10 +176,10 @@ def main():
         metrics["baseline_adapter"]["min_cacc"].append(min_cacc_ba)
         
         print(f"\n[Run {run_idx+1} Results]")
-        print(f"Baseline:           Acc={acc_b:.2f}% | AUC={auc_b:.4f} | F1={f1_b:.4f} | MinCAcc={min_cacc_b:.2f}%")
-        print(f"Linear Probe:       Acc={acc_lp:.2f}% | AUC={auc_lp:.4f} | F1={f1_lp:.4f} | MinCAcc={min_cacc_lp:.2f}%")
-        print(f"Enhanced (Concat):  Acc={acc_ec:.2f}% | AUC={auc_ec:.4f} | F1={f1_ec:.4f} | MinCAcc={min_cacc_ec:.2f}%")
-        print(f"Baseline Adapter:   Acc={acc_ba:.2f}% | AUC={auc_ba:.4f} | F1={f1_ba:.4f} | MinCAcc={min_cacc_ba:.2f}%")
+        print(f"Baseline:         Acc={acc_b:.2f}% | AUC={auc_b:.4f} | F1={f1_b:.4f} | MinCAcc={min_cacc_b:.2f}%")
+        print(f"Linear Probe:     Acc={acc_lp:.2f}% | AUC={auc_lp:.4f} | F1={f1_lp:.4f} | MinCAcc={min_cacc_lp:.2f}%")
+        print(f"Enhanced (Concat):Acc={acc_ec:.2f}% | AUC={auc_ec:.4f} | F1={f1_ec:.4f} | MinCAcc={min_cacc_ec:.2f}%")
+        print(f"Baseline Adapter: Acc={acc_ba:.2f}% | AUC={auc_ba:.4f} | F1={f1_ba:.4f} | MinCAcc={min_cacc_ba:.2f}%")
     
     # Compute final mean and standard deviation of metrics across runs.
     final_results = {}

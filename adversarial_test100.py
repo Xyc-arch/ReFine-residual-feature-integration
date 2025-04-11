@@ -11,7 +11,7 @@ import json
 import os
 import copy
 
-from model_def_test10.model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
+from model_def_test100.model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
 from train_eval import train_model, train_linear_prob, train_enhanced_model, train_distillation, evaluate_model
 
 torch.manual_seed(42)
@@ -19,45 +19,62 @@ random.seed(42)
 np.random.seed(42)
 
 # --------------------------
-# 1. Custom PairedLabelCorruptedDataset
+# 1. Custom PairedLabelCorruptedDataset for CIFAR-100 with confusion-based pairs
 # --------------------------
 class PairedLabelCorruptedDataset(Dataset):
     """
-    A dataset wrapper that applies adversarial label flipping for paired classes
-    and adds white noise to the images.
+    A dataset wrapper that applies paired label flipping and adds white noise to the images.
+
+    Instead of pairing classes sequentially, this version uses a custom mapping based on classes
+    that are known to be confused. For example, if samples of class A (e.g. "dolphin") are often mis‐
+    classified as class B (e.g. "whale"), then with probability `p_flip` the label A is flipped to B.
+
+    The custom mapping should be provided as a dictionary where each key-value pair indicates that
+    the label should flip to its paired value and vice versa.
     
-    For CIFAR-10 the paired classes are:
-      - Cat (3) <-> Dog (5)
-      - Deer (4) <-> Horse (7)
-      - Automobile (1) <-> Truck (9)
-      - Airplane (0) <-> Ship (8)
-      
-    With probability `p_flip` (default 0.5), samples belonging to a paired class
-    have their label flipped to the corresponding pair. Other classes remain unchanged.
+    Note: The custom mapping below assumes the CIFAR-100 canonical ordering. For example:
+      - "dolphin" is assumed to have index 30 and "whale" index 93.
+      - "shark" (index 73) and "ray" (index 67) are paired.
+      - "rose" (index 70) and "tulip" (index 90) are paired.
+      - "bottle" (index 9) and "cup" (index 28) are paired.
+      - "apple" (index 0) and "orange" (index 53) are paired.
+      - "telephone" (index 84) and "television" (index 85) are paired.
+      - "bed" (index 5) and "couch" (index 25) are paired.
+      - "caterpillar" (index 18) and "butterfly" (index 14) are paired.
+      - "lion" (index 43) and "tiger" (index 86) are paired.
+      - "castle" (index 17) and "house" (index 37) are paired.
+      - "chimpanzee" (index 21) and "man" (index 46) are paired.
+      - "fox" (index 34) and "raccoon" (index 66) are paired.
+      - "crab" (index 26) and "lobster" (index 45) are paired.
+      - "boy" (index 11) and "girl" (index 35) are paired.
+      - "lizard" (index 44) and "snake" (index 76) are paired.
+      - "hamster" (index 36) and "mouse" (index 50) are paired.
+      - "maple_tree" (index 47) and "oak_tree" (index 52) are paired.
+      - "bicycle" (index 8) and "motorcycle" (index 48) are paired.
+      - "bus" (index 13) and "pickup_truck" (index 58) are paired.
     
-    Additionally, white Gaussian noise is added to each image with standard deviation `noise_std`.
+    With probability `p_flip`, if the sample’s label is in this mapping, its label is replaced by the paired label.
+    Additionally, white Gaussian noise (std: noise_std) is added to the image.
     """
-    def __init__(self, dataset, p_flip=0.5, noise_std=0.5, seed=42):
+    def __init__(self, dataset, p_flip=0.5, noise_std=0.5, seed=42, num_classes=100, custom_mapping=None):
         self.dataset = dataset
         self.p_flip = p_flip
         self.noise_std = noise_std
         self.rng = random.Random(seed)
-        self.paired_mapping = {
-            3: 5,  # cat -> dog
-            5: 3,  # dog -> cat
-            4: 7,  # deer -> horse
-            7: 4,  # horse -> deer
-            1: 9,  # automobile -> truck
-            9: 1,  # truck -> automobile
-            0: 8,  # airplane -> ship
-            8: 0   # ship -> airplane
-        }
-    
+        self.num_classes = num_classes
+
+        # Use the supplied custom_mapping if provided; otherwise, raise an error.
+        if custom_mapping is None:
+            raise ValueError("For CIFAR-100 please supply a custom mapping of confusing class pairs.")
+        else:
+            self.paired_mapping = custom_mapping
+
     def __len__(self):
         return len(self.dataset)
-    
+
     def __getitem__(self, idx):
         image, label = self.dataset[idx]
+        # Flip the label if it is in our custom mapping and the random chance hits.
         if label in self.paired_mapping and self.rng.random() < self.p_flip:
             label = self.paired_mapping[label]
         noise = torch.randn(image.size()) * self.noise_std
@@ -65,32 +82,84 @@ class PairedLabelCorruptedDataset(Dataset):
         return noisy_image, label
 
 # --------------------------
-# 2. Data Loading & Splitting Functions
+# 2. Define a custom confusion mapping for CIFAR-100
 # --------------------------
-def load_and_split_data(seed_for_split, use_adversarial=False, p_flip=0.5, noise_std=0.1):
+custom_confusion_mapping = {
+    0: 52,   52: 0,    # apple  ↔ orange
+    1: 31,   31: 1,    # aquarium_fish  ↔ flatfish
+    2: 99,   99: 2,    # baby  ↔ bat
+    3: 96,   96: 3,    # bear  ↔ wolf
+    4: 54,   54: 4,    # beaver  ↔ otter
+    5: 24,   24: 5,    # bed  ↔ couch
+    6: 7,    7: 6,     # bee  ↔ beetle
+    8: 47,   47: 8,    # bicycle  ↔ motorcycle
+    9: 27,   27: 9,    # bottle  ↔ cup
+    10: 60,  60: 10,   # bowl  ↔ plate
+    11: 34,  34: 11,   # boy  ↔ girl
+    12: 16,  16: 12,   # bridge  ↔ can
+    14: 18,  18: 14,   # butterfly  ↔ caterpillar
+    17: 36,  36: 17,   # castle  ↔ house
+    19: 37,  37: 19,   # cattle  ↔ kangaroo
+    20: 45,  45: 20,   # chimpanzee  ↔ man
+    23: 78,  78: 23,   # cockroach  ↔ spider
+    25: 44,  44: 25,   # crab  ↔ lobster
+    26: 28,  28: 26,   # dinosaur  ↔ crocodile
+    29: 94,  94: 29,   # dolphin  ↔ whale
+    30: 15,  15: 30,   # elephant  ↔ camel
+    32: 48,  48: 32,   # forest  ↔ mountain
+    33: 65,  65: 33,   # fox  ↔ raccoon
+    35: 49,  49: 35,   # hamster  ↔ mouse
+    38: 39,  39: 38,   # keyboard  ↔ lamp
+    40: 88,  88: 40,   # lawn_mower  ↔ tractor
+    42: 87,  87: 42,   # lion  ↔ tiger
+    41: 97,  97: 41,   # leopard  ↔ woman
+    43: 77,  77: 43,   # lizard  ↔ snake
+    46: 51,  51: 46,   # maple_tree  ↔ oak_tree
+    53: 61,  61: 53,   # orchid  ↔ poppy
+    55: 56,  56: 55,   # palm_tree  ↔ pear
+    57: 13,  13: 57,   # pickup_truck  ↔ bus
+    58: 59,  59: 58,   # pine_tree  ↔ plain
+    62: 63,  63: 62,   # porcupine  ↔ possum
+    64: 79,  79: 64,   # rabbit  ↔ squirrel
+    66: 72,  72: 66,   # ray  ↔ shark
+    67: 68,  68: 67,   # road  ↔ rocket
+    69: 91,  91: 69,   # rose  ↔ tulip
+    70: 71,  71: 70,   # sea  ↔ seal
+    73: 74,  74: 73,   # shrew  ↔ skunk
+    75: 80,  80: 75,   # skyscraper  ↔ streetcar
+    76: 98,  98: 76,   # snail  ↔ worm
+    81: 82,  82: 81,   # sunflower  ↔ sweet_pepper
+    83: 84,  84: 83,   # table  ↔ tank
+    89: 90,  90: 89,   # train  ↔ trout
+    93: 95,  95: 93    # wardrobe  ↔ willow_tree
+}
+
+# --------------------------
+# 3. Data Loading & Splitting Functions for CIFAR-100
+# --------------------------
+def load_and_split_data(seed_for_split, use_adversarial=False, p_flip=0.5, noise_std=0.1, custom_mapping=None):
     """
-    Loads CIFAR-10 data and splits the training set into:
+    Loads CIFAR-100 data and splits the training set into:
       - raw_set: uncorrupted samples (size=4000)
       - augment_set: pretraining samples (size=10000)
     
-    If use_adversarial is True, the augment_set is wrapped with PairedLabelCorruptedDataset,
-    which applies paired label flipping with probability p_flip and adds white noise with std noise_std.
-    Data is always downloaded under './data'.
+    When use_adversarial is True, the augment_set is wrapped with PairedLabelCorruptedDataset,
+    which applies paired label flipping with probability p_flip and adds white noise (std: noise_std).
     """
     rand_gen = random.Random(seed_for_split)
     
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5))
+        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
-    
-    trainset = torchvision.datasets.CIFAR10(
+
+    trainset = torchvision.datasets.CIFAR100(
         root='./data',
         train=True,
         download=True,
         transform=transform
     )
-    testset = torchvision.datasets.CIFAR10(
+    testset = torchvision.datasets.CIFAR100(
         root='./data',
         train=False,
         download=True,
@@ -110,16 +179,24 @@ def load_and_split_data(seed_for_split, use_adversarial=False, p_flip=0.5, noise
     augment_set = Subset(trainset, augment_indices)
     
     if use_adversarial:
-        augment_set = PairedLabelCorruptedDataset(augment_set, p_flip=p_flip, noise_std=noise_std, seed=seed_for_split)
+        # For CIFAR-100, we supply the custom confusion mapping.
+        augment_set = PairedLabelCorruptedDataset(
+            augment_set,
+            p_flip=p_flip,
+            noise_std=noise_std,
+            seed=seed_for_split,
+            num_classes=100,
+            custom_mapping=custom_mapping
+        )
     
     return raw_set, augment_set, testset
 
 # --------------------------
-# 5. Main Experiment Loop
+# 4. Main Experiment Loop for CIFAR-100 (using confusion-based paired corruption)
 # --------------------------
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    save_path = "./results_test10/adversarial.json"
+    save_path = "./results_test100/adversarial_cifar100_confusion.json"
     num_epochs = 30
     pretrain_epochs = 60
     num_runs = 5
@@ -128,29 +205,35 @@ def main():
     p_flip = 0.5    # 50% chance to flip paired class labels
     noise_std = 0.1 # Noise standard deviation
 
-    # Load test set once (common to all runs)
+    # Load the test set once (common to all runs)
     _, _, testset = load_and_split_data(seed_for_split=42)
     test_loader = DataLoader(testset, batch_size=32, shuffle=False)
 
     # ---------------------------
-    # Pretrain external model (BigCNN) on adversarial pretraining data
+    # Pretrain external model (BigCNN) on adversarial pretraining data (using confusion pairs)
     # ---------------------------
-    print("\n=== Training External Model (BigCNN) on Adversarial Pretraining Data ===")
-    adversarial_save_path = "./model_test10/adversarial.pt"
-    if os.path.exists(adversarial_save_path):
-        external_model = torch.load(adversarial_save_path).to(device)
-        print("Loaded external model from:", adversarial_save_path)
+    print("\n=== Training External Model (BigCNN) on Adversarial Pretraining Data (CIFAR-100) ===")
+    mismatch_save_path = "./model_test100/mismatch.pt"
+    if os.path.exists(mismatch_save_path):
+        external_model = torch.load(mismatch_save_path).to(device)
+        print("Loaded external model from:", mismatch_save_path)
     else:
-        _, augment_set_ext, _ = load_and_split_data(seed_for_split=42, use_adversarial=True, p_flip=p_flip, noise_std=noise_std)
+        _, augment_set_ext, _ = load_and_split_data(
+            seed_for_split=42,
+            use_adversarial=True,
+            p_flip=p_flip,
+            noise_std=noise_std,
+            custom_mapping=custom_confusion_mapping
+        )
         augment_loader_ext = DataLoader(augment_set_ext, batch_size=32, shuffle=True)
         external_model = BigCNN().to(device)
         train_model(external_model, augment_loader_ext, pretrain_epochs, device)
-        torch.save(external_model, adversarial_save_path)
-        print("Trained and saved external model to:", adversarial_save_path)
+        torch.save(external_model, mismatch_save_path)
+        print("Trained and saved external model to:", mismatch_save_path)
     ext_acc, ext_auc, ext_f1, ext_minc = evaluate_model(external_model, test_loader, device)
-    print(f"External Model (Pretrained) Evaluation: Acc={ext_acc:.2f}%, AUC={ext_auc:.4f}, F1={ext_f1:.4f}, MinCAcc={ext_minc:.2f}%")
+    print(f"External Model (Pretrained) Evaluation: Acc={ext_acc:.2f}% | AUC={ext_auc:.4f} | F1={ext_f1:.4f} | MinCAcc={ext_minc:.2f}%")
 
-        
+    
     # Prepare metrics containers for different training methods.
     metrics = {
         "baseline": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
@@ -162,10 +245,10 @@ def main():
     
     # Run experiments over different raw_set splits.
     for run_idx in range(num_runs):
-        seed_for_split = 42 + run_idx
-        print(f"\n=== Run {run_idx+1}/{num_runs}, seed={seed_for_split} ===")
+        seed_for_split_run = 42 + run_idx
+        print(f"\n=== Run {run_idx+1}/{num_runs}, seed={seed_for_split_run} ===")
         # Load raw_set (uncorrupted) for student training.
-        raw_set, _, _ = load_and_split_data(seed_for_split)
+        raw_set, _, _ = load_and_split_data(seed_for_split_run)
         raw_loader = DataLoader(raw_set, batch_size=32, shuffle=True)
         
         # 1. Baseline: Train CNN on raw_set only.
@@ -196,7 +279,9 @@ def main():
         print("Training enhanced model (concatenation)...")
         enhanced_concat_model = EnhancedCNN().to(device)
         train_enhanced_model(enhanced_concat_model, raw_loader, external_model, num_epochs, device)
-        acc_ec, auc_ec, f1_ec, min_cacc_ec = evaluate_model(enhanced_concat_model, test_loader, device, enhanced=True, external_model=external_model)
+        acc_ec, auc_ec, f1_ec, min_cacc_ec = evaluate_model(
+            enhanced_concat_model, test_loader, device, enhanced=True, external_model=external_model
+        )
         metrics["enhanced_concat"]["acc"].append(acc_ec)
         metrics["enhanced_concat"]["auc"].append(auc_ec)
         metrics["enhanced_concat"]["f1"].append(f1_ec)

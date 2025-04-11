@@ -1,22 +1,22 @@
 import torch
 import torch.nn as nn
-import math
+import torch.nn.functional as F
 
-# Baseline transformer classifier (replacing the CNN baseline)
+# Baseline transformer classifier (for CIFAR-10) similar to TransformerClassifier in model_def_tf.py.
 class TransformerClassifier(nn.Module):
     def __init__(self, patch_size=4, emb_dim=128, num_layers=2, num_classes=10):
         super(TransformerClassifier, self).__init__()
         self.patch_size = patch_size
-        # Create patch embeddings using a convolution.
+        # Patch embedding using a convolution.
         self.patch_embed = nn.Conv2d(3, emb_dim, kernel_size=patch_size, stride=patch_size)
-        # For CIFAR10 (32x32), patch_size=4 gives 8x8=64 patches.
+        # CIFAR-10 (32x32) -> 8x8 patches.
         self.num_patches = (32 // patch_size) ** 2
         
         # Learnable class token and positional embeddings.
         self.cls_token = nn.Parameter(torch.zeros(1, 1, emb_dim))
         self.pos_embed = nn.Parameter(torch.zeros(1, self.num_patches + 1, emb_dim))
         
-        # Use built-in TransformerEncoderLayer with batch_first=True.
+        # Transformer encoder layer.
         encoder_layer = nn.TransformerEncoderLayer(
             d_model=emb_dim, 
             nhead=8, 
@@ -27,7 +27,7 @@ class TransformerClassifier(nn.Module):
         )
         self.transformer_encoder = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
         
-        # MLP head mapping transformer output to a 512-dim feature space.
+        # MLP head to produce 512-dim features.
         self.mlp_head = nn.Sequential(
             nn.Linear(emb_dim, 512),
             nn.ReLU(),
@@ -44,24 +44,22 @@ class TransformerClassifier(nn.Module):
     
     def forward(self, x):
         # x: (B, 3, 32, 32)
-        x = self.patch_embed(x)  # (B, emb_dim, H, W) where H=W=32/patch_size
+        x = self.patch_embed(x)  # (B, emb_dim, H, W)
         B, C, H, W = x.shape
-        # Flatten spatial dimensions: (B, num_patches, emb_dim)
-        x = x.flatten(2).transpose(1, 2)
+        x = x.flatten(2).transpose(1, 2)  # (B, num_patches, emb_dim)
         
-        # Append the class token.
+        # Append class token.
         cls_tokens = self.cls_token.expand(B, -1, -1)
         x = torch.cat((cls_tokens, x), dim=1)
-        x = x + self.pos_embed  # (B, num_patches+1, emb_dim)
+        x = x + self.pos_embed
         
-        # Transformer encoder expects input shape (B, seq_len, emb_dim)
         x = self.transformer_encoder(x)
-        cls_out = x[:, 0]  # Use the class token.
+        cls_out = x[:, 0]
         features = self.mlp_head(cls_out)
         return self.classifier(features)
     
     def get_features(self, x):
-        # Return 512-dim features from the MLP head (before classification).
+        # Return 512-dim features (before the final classifier)
         x = self.patch_embed(x)
         B, C, H, W = x.shape
         x = x.flatten(2).transpose(1, 2)
@@ -72,7 +70,7 @@ class TransformerClassifier(nn.Module):
         cls_out = x[:, 0]
         return self.mlp_head(cls_out)
 
-# Enhanced transformer model that concatenates its own features with external ones.
+# Enhanced transformer model that concatenates its own features with external (teacher) features.
 class EnhancedTransformer(nn.Module):
     def __init__(self, patch_size=4, emb_dim=128, num_layers=2, num_classes=10, external_dim=2560):
         super(EnhancedTransformer, self).__init__()
@@ -98,7 +96,7 @@ class EnhancedTransformer(nn.Module):
             nn.ReLU(),
             nn.Dropout(0.5)
         )
-        # Final classification layer takes concatenated features.
+        # Final layer takes concatenated features: (512 + external_dim) -> 10 classes.
         self.final_layer = nn.Linear(512 + external_dim, num_classes)
         
         self._init_weights()
@@ -120,36 +118,14 @@ class EnhancedTransformer(nn.Module):
         combined = torch.cat((features, external_features), dim=1)
         return self.final_layer(combined)
 
-# Baseline adapter model that uses a frozen pretrained external transformer.
-class BaselineAdapterTransformer(nn.Module):
-    def __init__(self, pretrain_model):
-        super(BaselineAdapterTransformer, self).__init__()
-        self.pretrained = pretrain_model
-        for param in self.pretrained.parameters():
-            param.requires_grad = False
-        self.adapter = nn.Sequential(
-            nn.Linear(2560, 5120),
-            nn.ReLU(),
-            nn.Dropout(0.5),
-            nn.Linear(5120, 2560),
-            nn.ReLU(),
-            nn.Dropout(0.5)
-        )
-        self.classifier = nn.Linear(2560, 10)
-    
-    def forward(self, x):
-        features = self.pretrained.get_features(x)
-        adapted = self.adapter(features)
-        return self.classifier(adapted)
-
-# A larger transformer model (replacing BigTransformer) for pretraining.
-# Configured to have at least 20x more parameters than EnhancedTransformer.
+# BigTransformer teacher model for CIFAR-100.
+# This model is similar to BigTransformer from model_def_tf.py but with num_classes=100.
 class BigTransformer(nn.Module):
-    def __init__(self, patch_size=2, emb_dim=512, num_layers=6, num_classes=10):
+    def __init__(self, patch_size=2, emb_dim=512, num_layers=6, num_classes=100):
         """
         For 32x32 images with patch_size=2, there are 16x16=256 patches.
-        The larger embedding dimension (512), more layers, and larger feedforward dimension (1024)
-        ensure a high parameter count.
+        The larger embedding dimension (512), multiple layers, and a larger feedforward network
+        yield a high parameter count.
         """
         super(BigTransformer, self).__init__()
         self.patch_size = patch_size
@@ -169,12 +145,13 @@ class BigTransformer(nn.Module):
         )
         self.transformer_encoder = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
         
-        # Fully connected mapping to 2560 dimensions.
+        # Map to 2560 dimensions.
         self.fc = nn.Sequential(
             nn.Linear(emb_dim, 2560),
             nn.ReLU(),
             nn.Dropout(0.5)
         )
+        # Teacher classification head: outputs 100 classes.
         self.classifier = nn.Linear(2560, num_classes)
         
         self._init_weights()
@@ -205,3 +182,25 @@ class BigTransformer(nn.Module):
         x = self.transformer_encoder(x)
         cls_out = x[:, 0]
         return self.fc(cls_out)
+
+# Baseline adapter model for transformer (using teacher features).
+class BaselineAdapter100(nn.Module):
+    def __init__(self, teacher_model, bottleneck_dim=128):
+        super(BaselineAdapter100, self).__init__()
+        self.teacher = teacher_model
+        for param in self.teacher.parameters():
+            param.requires_grad = False
+        self.adapter = nn.Sequential(
+            nn.Linear(2560, bottleneck_dim),  # down
+            nn.ReLU(),
+            nn.Dropout(0.5),
+            nn.Linear(bottleneck_dim, 2560),  # up
+            nn.ReLU(),
+            nn.Dropout(0.5)
+        )
+        self.classifier = nn.Linear(2560, 10)
+    
+    def forward(self, x):
+        features = self.teacher.get_features(x)  # get features
+        adapted = self.adapter(features)  # apply adapter
+        return self.classifier(adapted)

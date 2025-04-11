@@ -10,7 +10,7 @@ import json
 import os
 import copy
 
-from model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
+from model_def_test10.model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
 from train_eval import train_model, train_linear_prob, train_enhanced_model, train_distillation, evaluate_model
 
 torch.manual_seed(42)
@@ -69,7 +69,7 @@ def main():
     
     for flip_ratio in [0.8, 0]:
         
-        save_path = "./results/noise_{}.json".format(flip_ratio)
+        save_path = "./results_test10/noise_{}.json".format(flip_ratio)
 
         pretrain_dataset, raw_set, test_dataset = load_data_split(seed=42, flip_ratio=flip_ratio)
         pretrain_loader = DataLoader(pretrain_dataset, batch_size=64, shuffle=True, num_workers=2)
@@ -77,11 +77,19 @@ def main():
         test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=2)
 
         print("\n=== Pretraining External Model (BigCNN) on 10k Random (Corrupted) Samples ===")
-        external_model = BigCNN().to(device)
-        train_model(external_model, pretrain_loader, pretrain_epochs, device)
+        model_save_path = "./model_test10/noise_{}.pt".format(flip_ratio)
+        if os.path.exists(model_save_path):
+            external_model = torch.load(model_save_path).to(device)
+            print("Loaded external model from:", model_save_path)
+        else:
+            external_model = BigCNN().to(device)
+            train_model(external_model, pretrain_loader, pretrain_epochs, device)
+            torch.save(external_model, model_save_path)
+            print("Trained and saved external model to:", model_save_path)
+
         ext_acc, ext_auc, ext_f1, ext_minc = evaluate_model(external_model, test_loader, device)
         print(f"External Model Evaluation: Acc={ext_acc:.2f}%, AUC={ext_auc:.4f}, F1={ext_f1:.4f}, MinCAcc={ext_minc:.2f}%")
-        
+                
         metrics = {
             "baseline": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
             "linear_prob": {"acc": [], "auc": [], "f1": [], "min_cacc": []},
