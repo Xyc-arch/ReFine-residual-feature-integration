@@ -11,7 +11,7 @@ import os
 import copy
 
 from model_def_test100.model_def import CNN, EnhancedCNN, BaselineAdapter, BigCNN
-from train_eval import train_model, train_linear_prob, train_enhanced_model, train_distillation, evaluate_model
+from train_eval_test100 import train_model, train_linear_prob, train_enhanced_model, train_distillation, evaluate_model
 
 torch.manual_seed(42)
 random.seed(42)
@@ -68,7 +68,7 @@ def main():
     num_runs = 5
     flip_ratio = 0
     
-    for flip_ratio in [0.4, 0]:
+    for flip_ratio in [0.8]:
         
         save_path = "./results_test100/noise_cifar100_{}.json".format(flip_ratio)
 
