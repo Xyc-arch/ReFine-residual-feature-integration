@@ -1,6 +1,6 @@
 # Ignore only the data folder and its contents
 /data/
-/model_scaling/
+# /model_scaling/
 
 # Allow tracking of specific placeholder files inside ./data if needed
 !/data/.keep

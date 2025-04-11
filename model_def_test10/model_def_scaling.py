@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from sklearn.metrics import roc_auc_score, f1_score
 from sklearn.preprocessing import label_binarize
 
+
 class EnhancedScalingCNN(nn.Module):
     def __init__(self, num_external=0):
         super(EnhancedScalingCNN, self).__init__()
@@ -69,8 +70,8 @@ def evaluate_enhanced(model, external_models, dataloader, device):
             all_preds.extend(predicted.cpu().numpy())
             all_probs.extend(probs.cpu().numpy())
     accuracy = correct / total
-    f1 = f1_score(all_labels, all_preds, average='macro')
+    f1 = f1_score(all_labels, all_preds, average='weighted')
     all_labels_binarized = label_binarize(all_labels, classes=list(range(10)))
-    auc = roc_auc_score(all_labels_binarized, all_probs, average='macro', multi_class='ovr')
+    auc = roc_auc_score(all_labels_binarized, all_probs, average='weighted', multi_class='ovr')
     avg_time = total_time / len(dataloader)
     return accuracy, avg_time, auc, f1
