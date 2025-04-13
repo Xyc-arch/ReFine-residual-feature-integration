@@ -53,9 +53,18 @@ def load_test_sets():
 class CorruptedDataset(torch.utils.data.Dataset):
     def __init__(self, dataset):
         self.dataset = dataset
+        # Define partner pairs as a dictionary.
+        self.partner_map = {0: 1, 1: 0, 2: 3, 3: 2, 4: 5, 5: 4, 6: 7, 7: 6, 8: 9, 9: 8}
+
     def __getitem__(self, index):
         img, label = self.dataset[index]
-        return img, (label + 1) % 10
+        # With 50% probability, flip the label to its partner.
+        if random.random() < 0.5:
+            new_label = self.partner_map[label]
+        else:
+            new_label = label
+        return img, new_label
+
     def __len__(self):
         return len(self.dataset)
 
@@ -65,7 +74,7 @@ class CorruptedDataset(torch.utils.data.Dataset):
 ###############################################################################
 def train_model(model, dataloader, epochs, device):
     model.train()
-    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
     for epoch in range(epochs):
         for inputs, labels in dataloader:
@@ -78,7 +87,7 @@ def train_model(model, dataloader, epochs, device):
 
 def train_enhanced(model, external_models, dataloader, epochs, device):
     model.train()
-    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
     # Set external models to eval mode.
     for ext_model in external_models:
@@ -160,19 +169,24 @@ class FeatureDatasetConcat(torch.utils.data.Dataset):
         return len(self.labels)
 
 class NaiveClassifier(nn.Module):
-    def __init__(self, input_dim, hidden_dim=128, num_classes=10):
+    def __init__(self, input_dim, num_classes=10):
         super(NaiveClassifier, self).__init__()
         self.fc = nn.Sequential(
-            nn.Linear(input_dim, hidden_dim),
+            nn.Linear(input_dim, 256),
             nn.ReLU(),
-            nn.Linear(hidden_dim, num_classes)
+            nn.Linear(256, 256),
+            nn.ReLU(),
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Linear(128, num_classes)
         )
+
     def forward(self, x):
         return self.fc(x)
 
 def train_naive(model, dataloader, epochs, device):
     model.train()
-    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
     for epoch in range(epochs):
         for feats, labels in dataloader:
@@ -292,12 +306,13 @@ def main():
     
     # Dataset splitting.
     base0_dataset = load_subset(full_trainset, 0, train_size)
+    # External datasets: create 8 subsets, and now all are corrupted.
     external_datasets = []
     for i in range(8):
         start_idx = train_size + i * train_size
         subset = load_subset(full_trainset, start_idx, train_size)
-        if (i % 2) == 0:
-            subset = CorruptedDataset(subset)
+        # All external subsets are wrapped with the corrupted dataset.
+        subset = CorruptedDataset(subset)
         external_datasets.append(subset)
     
     # Base model.

@@ -69,28 +69,32 @@ for i in model_nums:
         enhanced_f1_mean.append(None)
         enhanced_f1_std.append(None)
 
-# Function to plot the metric with error bars and save the figure.
 def plot_metric(metric_name, naive_means, naive_stds, enhanced_means, enhanced_stds, base_mean, filename):
     plt.figure(figsize=(8, 6))
-    
-    # Plot error bars for naive models.
+
+    # Plot error bars
     plt.errorbar(model_nums, naive_means, yerr=naive_stds, marker='o', linestyle='-', capsize=5, label='Naive')
-    
-    # Plot error bars for ReFine models.
     plt.errorbar(model_nums, enhanced_means, yerr=enhanced_stds, marker='s', linestyle='-', capsize=5, label='ReFine')
-    
-    # Draw the horizontal line for the base model mean.
-    plt.axhline(y=base_mean, color='r', linestyle='--', label='Base Model')
-    
-    plt.xlabel("Model Number (1-8)")
-    plt.ylabel(metric_name.capitalize())
-    plt.title(f"{metric_name.capitalize()} Comparison for Naive and ReFine Models")
-    plt.legend()
+
+    # Baseline
+    plt.axhline(y=base_mean, color='r', linestyle='--', label='NoTrans')
+
+    # Axis labels
+    plt.xlabel("Model Number (1-8)", fontsize=14)
+    plt.ylabel(metric_name.capitalize(), fontsize=14)
+
+    # Tick label font sizes
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+
+    # Legend
+    plt.legend(fontsize=13)
     plt.grid(True)
-    
-    # Save the plot to the designated folder.
+
+    # Save the plot
     plt.savefig(os.path.join(plots_folder, filename))
     plt.close()
+
 
 # Plot and save for each metric.
 plot_metric("accuracy", naive_accuracy_mean, naive_accuracy_std, enhanced_accuracy_mean, enhanced_accuracy_std, base_accuracy_mean, "scaling_ablate_accuracy.png")
