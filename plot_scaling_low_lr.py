@@ -3,8 +3,8 @@ import json
 import matplotlib.pyplot as plt
 
 # Define paths
-plots_folder = "./plots/scaling_ablate"
-json_file = "./results_ablate/scaling_ablate.json"
+plots_folder = "./plots/scaling_low_lr"
+json_file = "./results_ablate/scaling_low_lr.json"
 
 # Check if the directory exists; if not, create it.
 if not os.path.exists(plots_folder):

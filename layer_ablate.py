@@ -66,7 +66,8 @@ def load_data_split(seed, flip_ratio=1.0):
 
 def train_enhanced_ablate(model, train_loader, external_model, epochs, device):
     model.train()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+    # Replace Adam with SGD with lr 0.01 and momentum 0.9.
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
     external_model.eval()  # BigCNN remains fixed
     
@@ -154,7 +155,8 @@ def main():
             print(f"Loaded pretrained BigCNN from: {noise_model_path}")
         else:
             external_model = BigCNN().to(device)
-            optimizer = torch.optim.Adam(external_model.parameters(), lr=0.01)
+            # Replace Adam with SGD with lr 0.01 and momentum 0.9.
+            optimizer = torch.optim.SGD(external_model.parameters(), lr=0.01, momentum=0.9)
             criterion = nn.CrossEntropyLoss()
             external_model.train()
             for epoch in range(pretrain_epochs):

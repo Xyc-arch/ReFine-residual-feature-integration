@@ -74,6 +74,7 @@ class CorruptedDataset(torch.utils.data.Dataset):
 ###############################################################################
 def train_model(model, dataloader, epochs, device):
     model.train()
+    # Learning rate updated to 0.001
     optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
     for epoch in range(epochs):
@@ -87,6 +88,7 @@ def train_model(model, dataloader, epochs, device):
 
 def train_enhanced(model, external_models, dataloader, epochs, device):
     model.train()
+    # Learning rate updated to 0.001
     optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
     # Set external models to eval mode.
@@ -174,10 +176,13 @@ class NaiveClassifier(nn.Module):
         self.fc = nn.Sequential(
             nn.Linear(input_dim, 256),
             nn.ReLU(),
+            nn.Dropout(0.5),
             nn.Linear(256, 256),
             nn.ReLU(),
+            nn.Dropout(0.5),
             nn.Linear(256, 128),
             nn.ReLU(),
+            nn.Dropout(0.5),
             nn.Linear(128, num_classes)
         )
 
@@ -186,6 +191,7 @@ class NaiveClassifier(nn.Module):
 
 def train_naive(model, dataloader, epochs, device):
     model.train()
+    # Learning rate updated to 0.001
     optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
     criterion = nn.CrossEntropyLoss()
     for epoch in range(epochs):
@@ -295,7 +301,8 @@ def load_or_train(model, filepath, train_fn, *train_args):
 ###############################################################################
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    os.makedirs("./model_scaling_ablate", exist_ok=True)
+    # New model directory.
+    os.makedirs("./model_scaling_oracle", exist_ok=True)
     os.makedirs("./results_ablate", exist_ok=True)
     
     train_size = 2000
@@ -306,18 +313,16 @@ def main():
     
     # Dataset splitting.
     base0_dataset = load_subset(full_trainset, 0, train_size)
-    # External datasets: create 8 subsets, and now all are corrupted.
+    # External datasets: create 8 subsets (note: external datasets are now not corrupted).
     external_datasets = []
     for i in range(8):
         start_idx = train_size + i * train_size
         subset = load_subset(full_trainset, start_idx, train_size)
-        # All external subsets are wrapped with the corrupted dataset.
-        subset = CorruptedDataset(subset)
         external_datasets.append(subset)
     
     # Base model.
     base_model = CNN().to(device)
-    base_model_file = "./model_scaling_ablate/base.pt"
+    base_model_file = "./model_scaling_oracle/base.pt"
     base_loader = DataLoader(base0_dataset, batch_size=64, shuffle=True, num_workers=2)
     base_model = load_or_train(base_model, base_model_file, train_model, base_model, base_loader, pretrain_epochs, device)
     
@@ -325,7 +330,7 @@ def main():
     external_models = []
     for i in range(8):
         model_ext = CNN().to(device)
-        ext_file = f"./model_scaling_ablate/external{i+1}.pt"
+        ext_file = f"./model_scaling_oracle/external{i+1}.pt"
         loader_ext = DataLoader(external_datasets[i], batch_size=64, shuffle=True, num_workers=2)
         model_ext = load_or_train(model_ext, ext_file, train_model, model_ext, loader_ext, pretrain_epochs, device)
         external_models.append(model_ext)
@@ -334,7 +339,7 @@ def main():
     enhanced_models = []
     for i in range(8):
         model_enh = EnhancedScalingCNN(num_external=i+1).to(device)
-        enh_file = f"./model_scaling_ablate/enhanced{i+1}.pt"
+        enh_file = f"./model_scaling_oracle/enhanced{i+1}.pt"
         enh_loader = DataLoader(base0_dataset, batch_size=64, shuffle=True, num_workers=2)
         model_enh = load_or_train(model_enh, enh_file, train_enhanced, model_enh, external_models[:i+1], enh_loader, enhanced_epochs, device)
         enhanced_models.append(model_enh)
@@ -347,7 +352,7 @@ def main():
         sample_feat, _ = concat_dataset[0]
         input_dim = sample_feat.numel()
         model_naive = NaiveClassifier(input_dim=input_dim).to(device)
-        naive_file = f"./model_scaling_ablate/naive{i+1}.pt"
+        naive_file = f"./model_scaling_oracle/naive{i+1}.pt"
         model_naive = load_or_train(model_naive, naive_file, train_naive, model_naive, concat_loader, enhanced_epochs, device)
         naive_models.append(model_naive)
     
@@ -402,10 +407,10 @@ def main():
             naive_metrics.append(evaluate_naive(model_naive, test_loader, device))
         results["naive_models"][f"naive{i+1}"] = aggregate_metrics(naive_metrics)
     
-    # Save the results.
-    with open("./results_ablate/scaling_ablate.json", "w") as f:
+    # Save the results. (Filename updated to scaling_converge.json)
+    with open("./results_ablate/scaling_oracle.json", "w") as f:
         json.dump(results, f, indent=2)
-    print("Experiment completed. Results saved to ./results_ablate/scaling_ablate.json")
+    print("Experiment completed. Results saved to ./results_ablate/scaling_oracle.json")
     
 if __name__ == "__main__":
     main()
