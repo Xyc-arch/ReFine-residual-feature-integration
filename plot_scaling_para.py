@@ -102,7 +102,7 @@ plt.legend()
 plt.grid(True)
 
 # Make sure the destination directory exists.
-save_dir = "plots/scaling_ablate"
+save_dir = "plots/scaling_hard"
 os.makedirs(save_dir, exist_ok=True)
 save_path = os.path.join(save_dir, "scaling_para.png")
 plt.savefig(save_path)
