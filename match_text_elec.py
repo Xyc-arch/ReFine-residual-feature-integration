@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# text.py  (domain_transfer_books_to_kitchen_local.py)
+# domain_transfer_dvd_to_electronics.py
 
 import os
 import sys
@@ -15,19 +15,19 @@ from sklearn.metrics import roc_auc_score, f1_score
 # ─────────────────────────────────────────────────────────────────────────────
 # 0) USER‐CONFIGURABLE HYPERPARAMETERS
 # ─────────────────────────────────────────────────────────────────────────────
-PRETRAIN_EPOCHS   = 20   # epochs to pretrain external on Books
-FINETUNE_EPOCHS   = 10   # epochs to finetune on Kitchen
+PRETRAIN_EPOCHS   = 20   # epochs to pretrain external on DVD
+FINETUNE_EPOCHS   = 10   # epochs to finetune on Electronics
 
 # sample counts (adjust as needed)
-BOOK_PRE_POS      = 1000
-BOOK_PRE_NEG      = 1000
-KITCH_FT_POS      = 200
-KITCH_FT_NEG      = 200
-KITCH_TEST_POS    = 500
-KITCH_TEST_NEG    = 500
+DVD_PRE_POS       = 1000
+DVD_PRE_NEG       = 1000
+ELEC_FT_POS       = 200
+ELEC_FT_NEG       = 200
+ELEC_TEST_POS     = 500
+ELEC_TEST_NEG     = 500
 
 # ─────────────────────────────────────────────────────────────────────────────
-# 1) TRAIN / EVAL ROUTINES (inlined)
+# 1) TRAIN / EVAL ROUTINES
 # ─────────────────────────────────────────────────────────────────────────────
 def train_model(model, loader, epochs, device, lr=0.01, momentum=0.9):
     criterion = torch.nn.CrossEntropyLoss()
@@ -147,18 +147,19 @@ def load_jhu(domain):
     texts, labels = [], []
     base = os.path.join(DATA_DIR, domain)
     for fname, lbl in [("positive.review",1),("negative.review",0)]:
-        with open(os.path.join(base,fname), encoding="utf8") as f:
+        with open(os.path.join(base, fname), encoding="utf8") as f:
             for line in f:
                 toks = [tc.split(":",1)[0] for tc in line.strip().split()[:-1]]
                 texts.append(toks); labels.append(lbl)
     return texts, labels
 
-books_texts, books_labels = load_jhu("books")
-kitch_texts, kitch_labels = load_jhu("kitchen")
+# switch domains: DVD → electronics
+dvd_texts, dvd_labels = load_jhu("dvd")
+elec_texts, elec_labels = load_jhu("electronics")
 
 # build vocab
-vocab = {"<pad>":0,"<unk>":1,"<cls>":2}
-for seq in books_texts + kitch_texts:
+vocab = {"<pad>":0, "<unk>":1, "<cls>":2}
+for seq in dvd_texts + elec_texts:
     for t in seq:
         if t not in vocab:
             vocab[t] = len(vocab)
@@ -168,35 +169,33 @@ def seq2tensor(seq, max_len=256):
     toks = toks[:max_len] + ["<pad>"]*(max_len-len(toks))
     return torch.tensor([vocab.get(t,1) for t in toks], dtype=torch.long)
 
-books_t = [seq2tensor(s) for s in books_texts]
-kitch_t = [seq2tensor(s) for s in kitch_texts]
+dvd_t  = [seq2tensor(s) for s in dvd_texts]
+elec_t = [seq2tensor(s) for s in elec_texts]
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 3) SPLITS & SANITY CHECK
 # ─────────────────────────────────────────────────────────────────────────────
-book_pos = [i for i,y in enumerate(books_labels) if y==1]
-book_neg = [i for i,y in enumerate(books_labels) if y==0]
-kit_pos  = [i for i,y in enumerate(kitch_labels) if y==1]
-kit_neg  = [i for i,y in enumerate(kitch_labels) if y==0]
+dvd_pos = [i for i,y in enumerate(dvd_labels) if y==1]
+dvd_neg = [i for i,y in enumerate(dvd_labels) if y==0]
+elec_pos = [i for i,y in enumerate(elec_labels) if y==1]
+elec_neg = [i for i,y in enumerate(elec_labels) if y==0]
 
 random.seed(42); np.random.seed(42)
-random.shuffle(book_pos); random.shuffle(book_neg)
-random.shuffle(kit_pos); random.shuffle(kit_neg)
+random.shuffle(dvd_pos); random.shuffle(dvd_neg)
+random.shuffle(elec_pos); random.shuffle(elec_neg)
 
-pre_idx  = book_pos[:BOOK_PRE_POS] + book_neg[:BOOK_PRE_NEG]
-ft_idx   = kit_pos [:KITCH_FT_POS] + kit_neg [:KITCH_FT_NEG]
-test_idx = kit_pos [KITCH_FT_POS:KITCH_FT_POS+KITCH_TEST_POS] \
-         + kit_neg [KITCH_FT_NEG:KITCH_FT_NEG+KITCH_TEST_NEG]
+pre_idx  = dvd_pos[:DVD_PRE_POS] + dvd_neg[:DVD_PRE_NEG]
+ft_idx   = elec_pos[:ELEC_FT_POS] + elec_neg[:ELEC_FT_NEG]
+test_idx = elec_pos[ELEC_FT_POS:ELEC_FT_POS+ELEC_TEST_POS] \
+         + elec_neg[ELEC_FT_NEG:ELEC_FT_NEG+ELEC_TEST_NEG]
 
-# ensure enough
-if len(kit_pos)<KITCH_FT_POS+KITCH_TEST_POS or len(kit_neg)<KITCH_FT_NEG+KITCH_TEST_NEG:
-    print(f"Not enough kitchen data: pos {len(kit_pos)}, neg {len(kit_neg)}")
+if len(elec_pos)<ELEC_FT_POS+ELEC_TEST_POS or len(elec_neg)<ELEC_FT_NEG+ELEC_TEST_NEG:
+    print(f"Not enough electronics data: pos {len(elec_pos)}, neg {len(elec_neg)}")
     sys.exit(1)
 
-# assert test counts
-lbls = [kitch_labels[i] for i in test_idx]
+lbls = [elec_labels[i] for i in test_idx]
 cnts = {lbl: lbls.count(lbl) for lbl in set(lbls)}
-if cnts.get(1,0)!=KITCH_TEST_POS or cnts.get(0,0)!=KITCH_TEST_NEG:
+if cnts.get(1,0)!=ELEC_TEST_POS or cnts.get(0,0)!=ELEC_TEST_NEG:
     print("Test split mismatch:", cnts)
     sys.exit(1)
 
@@ -205,21 +204,21 @@ random.shuffle(ft_idx)
 random.shuffle(test_idx)
 
 class TextDS(Dataset):
-    def __init__(self,xs,ys): self.x, self.y = xs, ys
-    def __len__(self):      return len(self.y)
-    def __getitem__(self,i): return self.x[i], self.y[i]
+    def __init__(self, xs, ys): self.x, self.y = xs, ys
+    def __len__(self):       return len(self.y)
+    def __getitem__(self, i): return self.x[i], self.y[i]
 
-pre_ds   = Subset(TextDS(books_t, books_labels), pre_idx)
-ft_ds    = Subset(TextDS(kitch_t, kitch_labels),   ft_idx)
-test_ds  = Subset(TextDS(kitch_t, kitch_labels), test_idx)
+pre_ds  = Subset(TextDS(dvd_t,  dvd_labels),  pre_idx)
+ft_ds   = Subset(TextDS(elec_t, elec_labels), ft_idx)
+test_ds = Subset(TextDS(elec_t, elec_labels), test_idx)
 
 # ─────────────────────────────────────────────────────────────────────────────
-# 4) PRETRAIN external model on Books
+# 4) PRETRAIN external model on DVD
 # ─────────────────────────────────────────────────────────────────────────────
 device    = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-pre_loader= DataLoader(pre_ds, batch_size=32, shuffle=True)
+pre_loader = DataLoader(pre_ds, batch_size=32, shuffle=True)
 
-ckpt = "./models/big_books_pre.pt"
+ckpt = "./models/big_dvd_pre.pt"
 if os.path.exists(ckpt):
     external = torch.load(ckpt, map_location=device)
 else:
@@ -241,7 +240,7 @@ for seed in range(42, 47):
     print(f"\n=== Seed {seed} ===")
 
     # a) NoTrans
-    m0 = TextTransformerClassifier(len(vocab),2).to(device)
+    m0 = TextTransformerClassifier(len(vocab), 2).to(device)
     train_model(m0, ft_loader, FINETUNE_EPOCHS, device)
     res0 = evaluate_model(m0, test_loader, device=device)
     print(f"NoTrans    → Acc={res0[0]:.2f}, AUC={res0[1]:.4f}, F1={res0[2]:.4f}, MinCAcc={res0[3]:.2f}")
@@ -250,15 +249,15 @@ for seed in range(42, 47):
     # b) LinearProb
     m1 = BigTransformer(len(vocab)).to(device)
     m1.load_state_dict(external.state_dict())
-    for p in m1.parameters(): p.requires_grad=False
-    for p in m1.classifier.parameters(): p.requires_grad=True
+    for p in m1.parameters(): p.requires_grad = False
+    for p in m1.classifier.parameters(): p.requires_grad = True
     train_linear_prob(m1, ft_loader, FINETUNE_EPOCHS, device)
     res1 = evaluate_model(m1, test_loader, device=device)
     print(f"LinearProb → Acc={res1[0]:.2f}, AUC={res1[1]:.4f}, F1={res1[2]:.4f}, MinCAcc={res1[3]:.2f}")
     results["linearprob"].append(res1)
 
     # c) Refine
-    m2 = EnhancedTransformer(len(vocab),2).to(device)
+    m2 = EnhancedTransformer(len(vocab), 2).to(device)
     train_enhanced_model(m2, ft_loader, external, FINETUNE_EPOCHS, device)
     res2 = evaluate_model(m2, test_loader, device=device, enhanced=True, external=external)
     print(f"Refine      → Acc={res2[0]:.2f}, AUC={res2[1]:.4f}, F1={res2[2]:.4f}, MinCAcc={res2[3]:.2f}")
@@ -282,7 +281,7 @@ for b in baselines:
         "min_class_acc": {"mean": float(arr[:,3].mean()), "std": float(arr[:,3].std())},
     }
 
-with open("./results/text.json", "w") as f:
+with open("./results/text_dvd2elec.json", "w") as f:
     json.dump(summary, f, indent=2)
 
-print("\nSaved aggregated results to text.json")
+print("\nSaved aggregated results to text_dvd2elec.json")
