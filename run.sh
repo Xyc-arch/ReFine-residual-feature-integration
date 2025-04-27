@@ -31,7 +31,7 @@ run_sequential() {
 # Define an array of Python scripts to run sequentially
 PYTHON_SCRIPTS=(
 
-    "mismatch_tf_test100.py"
+    # "mismatch_tf_test100.py"
     "imb_tf_test100.py"
     "adversarial_tf_test100.py"
     "noise_tf_test100.py"

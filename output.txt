@@ -1,140 +1,2608 @@
-Starting mismatch_tf_test100.py...
+Starting imb_tf_test100.py...
 Files already downloaded and verified
 Files already downloaded and verified
-[Epoch 1] Loss: 2.1474
-[Epoch 2] Loss: 2.0165
-[Epoch 3] Loss: 1.9237
-[Epoch 4] Loss: 1.8371
-[Epoch 5] Loss: 1.7774
-[Epoch 6] Loss: 1.7387
-[Epoch 7] Loss: 1.6685
-[Epoch 8] Loss: 1.6106
-[Epoch 9] Loss: 1.5422
-[Epoch 10] Loss: 1.5115
-[Epoch 11] Loss: 1.4554
-[Epoch 12] Loss: 1.3998
-[Epoch 13] Loss: 1.3356
-[Epoch 14] Loss: 1.2863
-[Epoch 15] Loss: 1.2400
-[Epoch 16] Loss: 1.1866
-[Epoch 17] Loss: 1.1423
-[Epoch 18] Loss: 1.0848
-[Epoch 19] Loss: 1.0737
-[Epoch 20] Loss: 1.0444
-[Epoch 21] Loss: 0.9999
-[Epoch 22] Loss: 0.9828
-[Epoch 23] Loss: 0.9336
-[Epoch 24] Loss: 0.9263
-[Epoch 25] Loss: 0.8917
-[Epoch 26] Loss: 0.8778
-[Epoch 27] Loss: 0.8404
-[Epoch 28] Loss: 0.8123
-[Epoch 29] Loss: 0.8047
-[Epoch 30] Loss: 0.7697
-[Epoch 31] Loss: 0.7368
-[Epoch 32] Loss: 0.7172
-[Epoch 33] Loss: 0.7087
-[Epoch 34] Loss: 0.6847
-[Epoch 35] Loss: 0.6884
-[Epoch 36] Loss: 0.6378
-[Epoch 37] Loss: 0.6219
-[Epoch 38] Loss: 0.6158
-[Epoch 39] Loss: 0.5784
-[Epoch 40] Loss: 0.5872
-[Epoch 41] Loss: 0.5738
-[Epoch 42] Loss: 0.5709
-[Epoch 43] Loss: 0.5391
-[Epoch 44] Loss: 0.5266
-[Epoch 45] Loss: 0.5225
-[Epoch 46] Loss: 0.4867
-[Epoch 47] Loss: 0.5111
-[Epoch 48] Loss: 0.4940
-[Epoch 49] Loss: 0.4478
-[Epoch 50] Loss: 0.4464
-[Epoch 51] Loss: 0.4006
-[Epoch 52] Loss: 0.4264
-[Epoch 53] Loss: 0.3900
-[Epoch 54] Loss: 0.3819
-[Epoch 55] Loss: 0.3684
-[Epoch 56] Loss: 0.3670
-[Epoch 57] Loss: 0.3392
-[Epoch 58] Loss: 0.3566
-[Epoch 59] Loss: 0.3777
-[Epoch 60] Loss: 0.3270
-Files already downloaded and verified
-Files already downloaded and verified
-Files already downloaded and verified
-Files already downloaded and verified
-[Epoch 1] Loss: 4.4964
-[Epoch 2] Loss: 4.3244
-[Epoch 3] Loss: 4.2504
-[Epoch 4] Loss: 4.1748
-[Epoch 5] Loss: 4.0908
-[Epoch 6] Loss: 4.0260
-[Epoch 7] Loss: 3.9455
-[Epoch 8] Loss: 3.9004
-[Epoch 9] Loss: 3.8238
-[Epoch 10] Loss: 3.7650
-[Epoch 11] Loss: 3.7230
-[Epoch 12] Loss: 3.6669
-[Epoch 13] Loss: 3.6129
-[Epoch 14] Loss: 3.5729
-[Epoch 15] Loss: 3.5300
-[Epoch 16] Loss: 3.4602
-[Epoch 17] Loss: 3.4132
-[Epoch 18] Loss: 3.3698
-[Epoch 19] Loss: 3.3321
-[Epoch 20] Loss: 3.2845
-[Epoch 21] Loss: 3.2353
-[Epoch 22] Loss: 3.1783
-[Epoch 23] Loss: 3.1479
-[Epoch 24] Loss: 3.1303
-[Epoch 25] Loss: 3.0806
-[Epoch 26] Loss: 3.0166
-[Epoch 27] Loss: 2.9618
-[Epoch 28] Loss: 2.9182
-[Epoch 29] Loss: 2.8882
-[Epoch 30] Loss: 2.8323
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [1,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [2,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [3,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [4,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [5,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [6,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [7,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [8,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [9,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [10,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [11,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [12,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [13,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [15,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [16,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [18,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [19,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [20,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [21,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [22,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [23,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [24,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [25,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [26,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [27,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [28,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [29,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [30,0,0] Assertion `t >= 0 && t < n_classes` failed.
-/opt/conda/conda-bld/pytorch_1729647327489/work/aten/src/ATen/native/cuda/Loss.cu:250: nll_loss_forward_reduce_cuda_kernel_2d: block: [0,0,0], thread: [31,0,0] Assertion `t >= 0 && t < n_classes` failed.
-Traceback (most recent call last):
-  File "/home/ubuntu/repaug/mismatch_tf_test100.py", line 166, in <module>
-    main()
-  File "/home/ubuntu/repaug/mismatch_tf_test100.py", line 114, in main
-    train_linear_prob(lp, raw_loader, num_epochs_student, device)
-  File "/home/ubuntu/repaug/train_eval_test100.py", line 40, in train_linear_prob
-    running_loss += loss.item()
-RuntimeError: CUDA error: device-side assert triggered
-CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
-For debugging consider passing CUDA_LAUNCH_BLOCKING=1
-Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+[Epoch 1] Loss: 3.9142
+[Epoch 2] Loss: 3.6675
+[Epoch 3] Loss: 3.5241
+[Epoch 4] Loss: 3.3929
+[Epoch 5] Loss: 3.2830
+[Epoch 6] Loss: 3.2013
+[Epoch 7] Loss: 3.0971
+[Epoch 8] Loss: 3.0115
+[Epoch 9] Loss: 2.8989
+[Epoch 10] Loss: 2.8037
+[Epoch 11] Loss: 2.7380
+[Epoch 12] Loss: 2.6272
+[Epoch 13] Loss: 2.5575
+[Epoch 14] Loss: 2.4991
+[Epoch 15] Loss: 2.3983
+[Epoch 16] Loss: 2.3190
+[Epoch 17] Loss: 2.2322
+[Epoch 18] Loss: 2.1766
+[Epoch 19] Loss: 2.0939
+[Epoch 20] Loss: 1.9968
+[Epoch 21] Loss: 1.9257
+[Epoch 22] Loss: 1.8358
+[Epoch 23] Loss: 1.7782
+[Epoch 24] Loss: 1.6647
+[Epoch 25] Loss: 1.6464
+[Epoch 26] Loss: 1.5238
+[Epoch 27] Loss: 1.4069
+[Epoch 28] Loss: 1.3740
+[Epoch 29] Loss: 1.3021
+[Epoch 30] Loss: 1.1896
+[Epoch 31] Loss: 1.1168
+[Epoch 32] Loss: 1.0469
+[Epoch 33] Loss: 1.0188
+[Epoch 34] Loss: 0.9269
+[Epoch 35] Loss: 0.9167
+[Epoch 36] Loss: 0.8425
+[Epoch 37] Loss: 0.7885
+[Epoch 38] Loss: 0.7260
+[Epoch 39] Loss: 0.6648
+[Epoch 40] Loss: 0.6247
+[Epoch 41] Loss: 0.5814
+[Epoch 42] Loss: 0.5181
+[Epoch 43] Loss: 0.5431
+[Epoch 44] Loss: 0.4847
+[Epoch 45] Loss: 0.4683
+[Epoch 46] Loss: 0.4565
+[Epoch 47] Loss: 0.4048
+[Epoch 48] Loss: 0.4488
+[Epoch 49] Loss: 0.3541
+[Epoch 50] Loss: 0.3594
+[Epoch 51] Loss: 0.3893
+[Epoch 52] Loss: 0.3617
+[Epoch 53] Loss: 0.2895
+[Epoch 54] Loss: 0.2648
+[Epoch 55] Loss: 0.2854
+[Epoch 56] Loss: 0.2587
+[Epoch 57] Loss: 0.3069
+[Epoch 58] Loss: 0.2472
+[Epoch 59] Loss: 0.2710
+[Epoch 60] Loss: 0.2148
+Trained and saved external transformer to: ./model_test100/imbalance_tf_cifar100.pt
+External Transformer (Pretrained on Imbalanced Data): Acc=20.63% | AUC=0.7744 | F1=0.1682 | MinCAcc=0.00%
 
-mismatch_tf_test100.py failed with exit status 1.
+=== Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5324
+[Epoch 2] Loss: 4.3473
+[Epoch 3] Loss: 4.2494
+[Epoch 4] Loss: 4.1774
+[Epoch 5] Loss: 4.1296
+[Epoch 6] Loss: 4.1072
+[Epoch 7] Loss: 4.0687
+[Epoch 8] Loss: 4.0145
+[Epoch 9] Loss: 3.9523
+[Epoch 10] Loss: 3.9033
+[Epoch 11] Loss: 3.8527
+[Epoch 12] Loss: 3.8094
+[Epoch 13] Loss: 3.7568
+[Epoch 14] Loss: 3.6971
+[Epoch 15] Loss: 3.6570
+[Epoch 16] Loss: 3.6170
+[Epoch 17] Loss: 3.6015
+[Epoch 18] Loss: 3.5412
+[Epoch 19] Loss: 3.4937
+[Epoch 20] Loss: 3.4670
+[Epoch 21] Loss: 3.4289
+[Epoch 22] Loss: 3.3692
+[Epoch 23] Loss: 3.3335
+[Epoch 24] Loss: 3.2900
+[Epoch 25] Loss: 3.2539
+[Epoch 26] Loss: 3.2252
+[Epoch 27] Loss: 3.1611
+[Epoch 28] Loss: 3.1366
+[Epoch 29] Loss: 3.0994
+[Epoch 30] Loss: 3.0632
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 6.1875
+[Linear Prob Epoch 2] Loss: 3.2222
+[Linear Prob Epoch 3] Loss: 2.6217
+[Linear Prob Epoch 4] Loss: 2.3517
+[Linear Prob Epoch 5] Loss: 2.1522
+[Linear Prob Epoch 6] Loss: 1.9546
+[Linear Prob Epoch 7] Loss: 1.8069
+[Linear Prob Epoch 8] Loss: 1.6761
+[Linear Prob Epoch 9] Loss: 1.5476
+[Linear Prob Epoch 10] Loss: 1.4662
+[Linear Prob Epoch 11] Loss: 1.3788
+[Linear Prob Epoch 12] Loss: 1.2920
+[Linear Prob Epoch 13] Loss: 1.1947
+[Linear Prob Epoch 14] Loss: 1.1609
+[Linear Prob Epoch 15] Loss: 1.0883
+[Linear Prob Epoch 16] Loss: 1.0340
+[Linear Prob Epoch 17] Loss: 0.9951
+[Linear Prob Epoch 18] Loss: 0.9336
+[Linear Prob Epoch 19] Loss: 0.8919
+[Linear Prob Epoch 20] Loss: 0.8843
+[Linear Prob Epoch 21] Loss: 0.8172
+[Linear Prob Epoch 22] Loss: 0.7876
+[Linear Prob Epoch 23] Loss: 0.7756
+[Linear Prob Epoch 24] Loss: 0.7563
+[Linear Prob Epoch 25] Loss: 0.7030
+[Linear Prob Epoch 26] Loss: 0.6830
+[Linear Prob Epoch 27] Loss: 0.6773
+[Linear Prob Epoch 28] Loss: 0.6555
+[Linear Prob Epoch 29] Loss: 0.6374
+[Linear Prob Epoch 30] Loss: 0.6206
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 3.7539
+[Enhanced Epoch 2] Loss: 2.4774
+[Enhanced Epoch 3] Loss: 2.0215
+[Enhanced Epoch 4] Loss: 1.7231
+[Enhanced Epoch 5] Loss: 1.4940
+[Enhanced Epoch 6] Loss: 1.3057
+[Enhanced Epoch 7] Loss: 1.1492
+[Enhanced Epoch 8] Loss: 1.0080
+[Enhanced Epoch 9] Loss: 0.8937
+[Enhanced Epoch 10] Loss: 0.7908
+[Enhanced Epoch 11] Loss: 0.7076
+[Enhanced Epoch 12] Loss: 0.6377
+[Enhanced Epoch 13] Loss: 0.5715
+[Enhanced Epoch 14] Loss: 0.5119
+[Enhanced Epoch 15] Loss: 0.4646
+[Enhanced Epoch 16] Loss: 0.4227
+[Enhanced Epoch 17] Loss: 0.3859
+[Enhanced Epoch 18] Loss: 0.3539
+[Enhanced Epoch 19] Loss: 0.3252
+[Enhanced Epoch 20] Loss: 0.3010
+[Enhanced Epoch 21] Loss: 0.2787
+[Enhanced Epoch 22] Loss: 0.2607
+[Enhanced Epoch 23] Loss: 0.2434
+[Enhanced Epoch 24] Loss: 0.2287
+[Enhanced Epoch 25] Loss: 0.2155
+[Enhanced Epoch 26] Loss: 0.2031
+[Enhanced Epoch 27] Loss: 0.1924
+[Enhanced Epoch 28] Loss: 0.1818
+[Enhanced Epoch 29] Loss: 0.1739
+[Enhanced Epoch 30] Loss: 0.1660
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5907
+[Epoch 2] Loss: 4.3433
+[Epoch 3] Loss: 3.8254
+[Epoch 4] Loss: 3.4780
+[Epoch 5] Loss: 3.3098
+[Epoch 6] Loss: 3.1809
+[Epoch 7] Loss: 3.0599
+[Epoch 8] Loss: 2.9689
+[Epoch 9] Loss: 2.8841
+[Epoch 10] Loss: 2.8195
+[Epoch 11] Loss: 2.7688
+[Epoch 12] Loss: 2.6788
+[Epoch 13] Loss: 2.6645
+[Epoch 14] Loss: 2.6083
+[Epoch 15] Loss: 2.5295
+[Epoch 16] Loss: 2.5260
+[Epoch 17] Loss: 2.4589
+[Epoch 18] Loss: 2.4100
+[Epoch 19] Loss: 2.3781
+[Epoch 20] Loss: 2.4004
+[Epoch 21] Loss: 2.3299
+[Epoch 22] Loss: 2.3385
+[Epoch 23] Loss: 2.3080
+[Epoch 24] Loss: 2.2399
+[Epoch 25] Loss: 2.2608
+[Epoch 26] Loss: 2.2100
+[Epoch 27] Loss: 2.2335
+[Epoch 28] Loss: 2.1434
+[Epoch 29] Loss: 2.1643
+[Epoch 30] Loss: 2.0886
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 7.4179
+[Distillation Epoch 2] Loss: 6.9463
+[Distillation Epoch 3] Loss: 6.7665
+[Distillation Epoch 4] Loss: 6.6515
+[Distillation Epoch 5] Loss: 6.5020
+[Distillation Epoch 6] Loss: 6.3200
+[Distillation Epoch 7] Loss: 6.1724
+[Distillation Epoch 8] Loss: 6.0306
+[Distillation Epoch 9] Loss: 5.9321
+[Distillation Epoch 10] Loss: 5.8539
+[Distillation Epoch 11] Loss: 5.7339
+[Distillation Epoch 12] Loss: 5.6573
+[Distillation Epoch 13] Loss: 5.5494
+[Distillation Epoch 14] Loss: 5.4748
+[Distillation Epoch 15] Loss: 5.3626
+[Distillation Epoch 16] Loss: 5.3067
+[Distillation Epoch 17] Loss: 5.2416
+[Distillation Epoch 18] Loss: 5.1740
+[Distillation Epoch 19] Loss: 5.1345
+[Distillation Epoch 20] Loss: 5.0701
+[Distillation Epoch 21] Loss: 5.0115
+[Distillation Epoch 22] Loss: 4.9339
+[Distillation Epoch 23] Loss: 4.9010
+[Distillation Epoch 24] Loss: 4.8361
+[Distillation Epoch 25] Loss: 4.7868
+[Distillation Epoch 26] Loss: 4.7381
+[Distillation Epoch 27] Loss: 4.6887
+[Distillation Epoch 28] Loss: 4.6831
+[Distillation Epoch 29] Loss: 4.6008
+[Distillation Epoch 30] Loss: 4.5470
+[Run 1 results] Base=15.50% | LP=25.81% | ENH=25.21% | ADP=25.02% | DIST=16.14%
+
+=== Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5649
+[Epoch 2] Loss: 4.3800
+[Epoch 3] Loss: 4.2857
+[Epoch 4] Loss: 4.2318
+[Epoch 5] Loss: 4.1786
+[Epoch 6] Loss: 4.1321
+[Epoch 7] Loss: 4.1019
+[Epoch 8] Loss: 4.0633
+[Epoch 9] Loss: 3.9919
+[Epoch 10] Loss: 3.9510
+[Epoch 11] Loss: 3.8914
+[Epoch 12] Loss: 3.8611
+[Epoch 13] Loss: 3.7938
+[Epoch 14] Loss: 3.7611
+[Epoch 15] Loss: 3.7153
+[Epoch 16] Loss: 3.6792
+[Epoch 17] Loss: 3.6427
+[Epoch 18] Loss: 3.5806
+[Epoch 19] Loss: 3.5589
+[Epoch 20] Loss: 3.5001
+[Epoch 21] Loss: 3.4680
+[Epoch 22] Loss: 3.4230
+[Epoch 23] Loss: 3.4050
+[Epoch 24] Loss: 3.3331
+[Epoch 25] Loss: 3.3253
+[Epoch 26] Loss: 3.2855
+[Epoch 27] Loss: 3.2491
+[Epoch 28] Loss: 3.2018
+[Epoch 29] Loss: 3.1870
+[Epoch 30] Loss: 3.1475
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 6.1457
+[Linear Prob Epoch 2] Loss: 3.2619
+[Linear Prob Epoch 3] Loss: 2.6584
+[Linear Prob Epoch 4] Loss: 2.3757
+[Linear Prob Epoch 5] Loss: 2.1400
+[Linear Prob Epoch 6] Loss: 1.9861
+[Linear Prob Epoch 7] Loss: 1.8292
+[Linear Prob Epoch 8] Loss: 1.6844
+[Linear Prob Epoch 9] Loss: 1.5671
+[Linear Prob Epoch 10] Loss: 1.4695
+[Linear Prob Epoch 11] Loss: 1.3800
+[Linear Prob Epoch 12] Loss: 1.2931
+[Linear Prob Epoch 13] Loss: 1.1938
+[Linear Prob Epoch 14] Loss: 1.1587
+[Linear Prob Epoch 15] Loss: 1.0704
+[Linear Prob Epoch 16] Loss: 1.0150
+[Linear Prob Epoch 17] Loss: 0.9982
+[Linear Prob Epoch 18] Loss: 0.9524
+[Linear Prob Epoch 19] Loss: 0.9102
+[Linear Prob Epoch 20] Loss: 0.8697
+[Linear Prob Epoch 21] Loss: 0.8265
+[Linear Prob Epoch 22] Loss: 0.8185
+[Linear Prob Epoch 23] Loss: 0.7712
+[Linear Prob Epoch 24] Loss: 0.7504
+[Linear Prob Epoch 25] Loss: 0.7424
+[Linear Prob Epoch 26] Loss: 0.7039
+[Linear Prob Epoch 27] Loss: 0.7084
+[Linear Prob Epoch 28] Loss: 0.6619
+[Linear Prob Epoch 29] Loss: 0.6458
+[Linear Prob Epoch 30] Loss: 0.6256
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 3.7831
+[Enhanced Epoch 2] Loss: 2.5107
+[Enhanced Epoch 3] Loss: 2.0538
+[Enhanced Epoch 4] Loss: 1.7425
+[Enhanced Epoch 5] Loss: 1.5119
+[Enhanced Epoch 6] Loss: 1.3175
+[Enhanced Epoch 7] Loss: 1.1550
+[Enhanced Epoch 8] Loss: 1.0257
+[Enhanced Epoch 9] Loss: 0.9072
+[Enhanced Epoch 10] Loss: 0.8043
+[Enhanced Epoch 11] Loss: 0.7161
+[Enhanced Epoch 12] Loss: 0.6384
+[Enhanced Epoch 13] Loss: 0.5734
+[Enhanced Epoch 14] Loss: 0.5188
+[Enhanced Epoch 15] Loss: 0.4676
+[Enhanced Epoch 16] Loss: 0.4251
+[Enhanced Epoch 17] Loss: 0.3898
+[Enhanced Epoch 18] Loss: 0.3574
+[Enhanced Epoch 19] Loss: 0.3295
+[Enhanced Epoch 20] Loss: 0.3042
+[Enhanced Epoch 21] Loss: 0.2830
+[Enhanced Epoch 22] Loss: 0.2631
+[Enhanced Epoch 23] Loss: 0.2454
+[Enhanced Epoch 24] Loss: 0.2320
+[Enhanced Epoch 25] Loss: 0.2170
+[Enhanced Epoch 26] Loss: 0.2044
+[Enhanced Epoch 27] Loss: 0.1940
+[Enhanced Epoch 28] Loss: 0.1849
+[Enhanced Epoch 29] Loss: 0.1758
+[Enhanced Epoch 30] Loss: 0.1670
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5976
+[Epoch 2] Loss: 4.3945
+[Epoch 3] Loss: 3.8897
+[Epoch 4] Loss: 3.5412
+[Epoch 5] Loss: 3.3429
+[Epoch 6] Loss: 3.1942
+[Epoch 7] Loss: 3.0740
+[Epoch 8] Loss: 3.0013
+[Epoch 9] Loss: 2.8926
+[Epoch 10] Loss: 2.8763
+[Epoch 11] Loss: 2.7857
+[Epoch 12] Loss: 2.7676
+[Epoch 13] Loss: 2.7036
+[Epoch 14] Loss: 2.6263
+[Epoch 15] Loss: 2.5749
+[Epoch 16] Loss: 2.5565
+[Epoch 17] Loss: 2.5002
+[Epoch 18] Loss: 2.4553
+[Epoch 19] Loss: 2.4259
+[Epoch 20] Loss: 2.3901
+[Epoch 21] Loss: 2.3801
+[Epoch 22] Loss: 2.3837
+[Epoch 23] Loss: 2.3694
+[Epoch 24] Loss: 2.2870
+[Epoch 25] Loss: 2.2929
+[Epoch 26] Loss: 2.2347
+[Epoch 27] Loss: 2.2441
+[Epoch 28] Loss: 2.1820
+[Epoch 29] Loss: 2.1475
+[Epoch 30] Loss: 2.1518
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 7.3902
+[Distillation Epoch 2] Loss: 6.9505
+[Distillation Epoch 3] Loss: 6.7747
+[Distillation Epoch 4] Loss: 6.6577
+[Distillation Epoch 5] Loss: 6.5276
+[Distillation Epoch 6] Loss: 6.3369
+[Distillation Epoch 7] Loss: 6.2012
+[Distillation Epoch 8] Loss: 6.1155
+[Distillation Epoch 9] Loss: 6.0000
+[Distillation Epoch 10] Loss: 5.8558
+[Distillation Epoch 11] Loss: 5.7294
+[Distillation Epoch 12] Loss: 5.6466
+[Distillation Epoch 13] Loss: 5.5679
+[Distillation Epoch 14] Loss: 5.5012
+[Distillation Epoch 15] Loss: 5.4456
+[Distillation Epoch 16] Loss: 5.3413
+[Distillation Epoch 17] Loss: 5.2876
+[Distillation Epoch 18] Loss: 5.2125
+[Distillation Epoch 19] Loss: 5.1796
+[Distillation Epoch 20] Loss: 5.1160
+[Distillation Epoch 21] Loss: 5.0228
+[Distillation Epoch 22] Loss: 4.9576
+[Distillation Epoch 23] Loss: 4.9111
+[Distillation Epoch 24] Loss: 4.8999
+[Distillation Epoch 25] Loss: 4.8225
+[Distillation Epoch 26] Loss: 4.7696
+[Distillation Epoch 27] Loss: 4.6873
+[Distillation Epoch 28] Loss: 4.6378
+[Distillation Epoch 29] Loss: 4.6499
+[Distillation Epoch 30] Loss: 4.5617
+[Run 2 results] Base=15.41% | LP=25.86% | ENH=25.55% | ADP=24.38% | DIST=15.99%
+
+=== Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5437
+[Epoch 2] Loss: 4.3478
+[Epoch 3] Loss: 4.2761
+[Epoch 4] Loss: 4.2106
+[Epoch 5] Loss: 4.1575
+[Epoch 6] Loss: 4.1286
+[Epoch 7] Loss: 4.0743
+[Epoch 8] Loss: 4.0215
+[Epoch 9] Loss: 3.9789
+[Epoch 10] Loss: 3.9230
+[Epoch 11] Loss: 3.8610
+[Epoch 12] Loss: 3.8350
+[Epoch 13] Loss: 3.7842
+[Epoch 14] Loss: 3.7135
+[Epoch 15] Loss: 3.6702
+[Epoch 16] Loss: 3.6548
+[Epoch 17] Loss: 3.5992
+[Epoch 18] Loss: 3.5629
+[Epoch 19] Loss: 3.5003
+[Epoch 20] Loss: 3.4796
+[Epoch 21] Loss: 3.4325
+[Epoch 22] Loss: 3.4018
+[Epoch 23] Loss: 3.3320
+[Epoch 24] Loss: 3.2569
+[Epoch 25] Loss: 3.2342
+[Epoch 26] Loss: 3.2140
+[Epoch 27] Loss: 3.1728
+[Epoch 28] Loss: 3.1341
+[Epoch 29] Loss: 3.1070
+[Epoch 30] Loss: 3.0352
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 6.1158
+[Linear Prob Epoch 2] Loss: 3.2085
+[Linear Prob Epoch 3] Loss: 2.6758
+[Linear Prob Epoch 4] Loss: 2.3326
+[Linear Prob Epoch 5] Loss: 2.1324
+[Linear Prob Epoch 6] Loss: 1.9590
+[Linear Prob Epoch 7] Loss: 1.7924
+[Linear Prob Epoch 8] Loss: 1.6801
+[Linear Prob Epoch 9] Loss: 1.5422
+[Linear Prob Epoch 10] Loss: 1.4574
+[Linear Prob Epoch 11] Loss: 1.3485
+[Linear Prob Epoch 12] Loss: 1.2860
+[Linear Prob Epoch 13] Loss: 1.1955
+[Linear Prob Epoch 14] Loss: 1.1402
+[Linear Prob Epoch 15] Loss: 1.0698
+[Linear Prob Epoch 16] Loss: 1.0358
+[Linear Prob Epoch 17] Loss: 0.9874
+[Linear Prob Epoch 18] Loss: 0.9344
+[Linear Prob Epoch 19] Loss: 0.8967
+[Linear Prob Epoch 20] Loss: 0.8600
+[Linear Prob Epoch 21] Loss: 0.8343
+[Linear Prob Epoch 22] Loss: 0.7980
+[Linear Prob Epoch 23] Loss: 0.7552
+[Linear Prob Epoch 24] Loss: 0.7475
+[Linear Prob Epoch 25] Loss: 0.7101
+[Linear Prob Epoch 26] Loss: 0.6750
+[Linear Prob Epoch 27] Loss: 0.6803
+[Linear Prob Epoch 28] Loss: 0.6391
+[Linear Prob Epoch 29] Loss: 0.6391
+[Linear Prob Epoch 30] Loss: 0.6179
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 3.7411
+[Enhanced Epoch 2] Loss: 2.4593
+[Enhanced Epoch 3] Loss: 2.0075
+[Enhanced Epoch 4] Loss: 1.7209
+[Enhanced Epoch 5] Loss: 1.4880
+[Enhanced Epoch 6] Loss: 1.2957
+[Enhanced Epoch 7] Loss: 1.1370
+[Enhanced Epoch 8] Loss: 1.0014
+[Enhanced Epoch 9] Loss: 0.8834
+[Enhanced Epoch 10] Loss: 0.7872
+[Enhanced Epoch 11] Loss: 0.7014
+[Enhanced Epoch 12] Loss: 0.6227
+[Enhanced Epoch 13] Loss: 0.5568
+[Enhanced Epoch 14] Loss: 0.5048
+[Enhanced Epoch 15] Loss: 0.4545
+[Enhanced Epoch 16] Loss: 0.4140
+[Enhanced Epoch 17] Loss: 0.3769
+[Enhanced Epoch 18] Loss: 0.3452
+[Enhanced Epoch 19] Loss: 0.3181
+[Enhanced Epoch 20] Loss: 0.2922
+[Enhanced Epoch 21] Loss: 0.2734
+[Enhanced Epoch 22] Loss: 0.2546
+[Enhanced Epoch 23] Loss: 0.2380
+[Enhanced Epoch 24] Loss: 0.2225
+[Enhanced Epoch 25] Loss: 0.2093
+[Enhanced Epoch 26] Loss: 0.1982
+[Enhanced Epoch 27] Loss: 0.1883
+[Enhanced Epoch 28] Loss: 0.1775
+[Enhanced Epoch 29] Loss: 0.1688
+[Enhanced Epoch 30] Loss: 0.1606
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5930
+[Epoch 2] Loss: 4.3365
+[Epoch 3] Loss: 3.8252
+[Epoch 4] Loss: 3.5159
+[Epoch 5] Loss: 3.3015
+[Epoch 6] Loss: 3.1734
+[Epoch 7] Loss: 3.0532
+[Epoch 8] Loss: 2.9932
+[Epoch 9] Loss: 2.9227
+[Epoch 10] Loss: 2.8367
+[Epoch 11] Loss: 2.7324
+[Epoch 12] Loss: 2.6980
+[Epoch 13] Loss: 2.6476
+[Epoch 14] Loss: 2.5646
+[Epoch 15] Loss: 2.5317
+[Epoch 16] Loss: 2.4994
+[Epoch 17] Loss: 2.5001
+[Epoch 18] Loss: 2.4698
+[Epoch 19] Loss: 2.4235
+[Epoch 20] Loss: 2.3572
+[Epoch 21] Loss: 2.3476
+[Epoch 22] Loss: 2.2955
+[Epoch 23] Loss: 2.2814
+[Epoch 24] Loss: 2.2866
+[Epoch 25] Loss: 2.2540
+[Epoch 26] Loss: 2.2363
+[Epoch 27] Loss: 2.2045
+[Epoch 28] Loss: 2.1569
+[Epoch 29] Loss: 2.1178
+[Epoch 30] Loss: 2.1372
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 7.4497
+[Distillation Epoch 2] Loss: 6.9569
+[Distillation Epoch 3] Loss: 6.7791
+[Distillation Epoch 4] Loss: 6.6198
+[Distillation Epoch 5] Loss: 6.4974
+[Distillation Epoch 6] Loss: 6.3862
+[Distillation Epoch 7] Loss: 6.2242
+[Distillation Epoch 8] Loss: 6.0844
+[Distillation Epoch 9] Loss: 6.0078
+[Distillation Epoch 10] Loss: 5.8876
+[Distillation Epoch 11] Loss: 5.7627
+[Distillation Epoch 12] Loss: 5.6672
+[Distillation Epoch 13] Loss: 5.6258
+[Distillation Epoch 14] Loss: 5.5217
+[Distillation Epoch 15] Loss: 5.4269
+[Distillation Epoch 16] Loss: 5.3241
+[Distillation Epoch 17] Loss: 5.2825
+[Distillation Epoch 18] Loss: 5.2031
+[Distillation Epoch 19] Loss: 5.1248
+[Distillation Epoch 20] Loss: 5.0723
+[Distillation Epoch 21] Loss: 4.9903
+[Distillation Epoch 22] Loss: 4.9099
+[Distillation Epoch 23] Loss: 4.8868
+[Distillation Epoch 24] Loss: 4.8309
+[Distillation Epoch 25] Loss: 4.7403
+[Distillation Epoch 26] Loss: 4.6988
+[Distillation Epoch 27] Loss: 4.6537
+[Distillation Epoch 28] Loss: 4.6081
+[Distillation Epoch 29] Loss: 4.5860
+[Distillation Epoch 30] Loss: 4.5453
+[Run 3 results] Base=15.98% | LP=26.20% | ENH=25.99% | ADP=24.28% | DIST=15.79%
+
+=== Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5484
+[Epoch 2] Loss: 4.3503
+[Epoch 3] Loss: 4.2665
+[Epoch 4] Loss: 4.1920
+[Epoch 5] Loss: 4.1518
+[Epoch 6] Loss: 4.1077
+[Epoch 7] Loss: 4.0415
+[Epoch 8] Loss: 3.9860
+[Epoch 9] Loss: 3.9184
+[Epoch 10] Loss: 3.8702
+[Epoch 11] Loss: 3.8390
+[Epoch 12] Loss: 3.8053
+[Epoch 13] Loss: 3.7678
+[Epoch 14] Loss: 3.7275
+[Epoch 15] Loss: 3.6947
+[Epoch 16] Loss: 3.6324
+[Epoch 17] Loss: 3.6064
+[Epoch 18] Loss: 3.5731
+[Epoch 19] Loss: 3.5058
+[Epoch 20] Loss: 3.4805
+[Epoch 21] Loss: 3.4521
+[Epoch 22] Loss: 3.4050
+[Epoch 23] Loss: 3.3506
+[Epoch 24] Loss: 3.3126
+[Epoch 25] Loss: 3.3061
+[Epoch 26] Loss: 3.2688
+[Epoch 27] Loss: 3.2136
+[Epoch 28] Loss: 3.1792
+[Epoch 29] Loss: 3.1424
+[Epoch 30] Loss: 3.0669
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 6.1669
+[Linear Prob Epoch 2] Loss: 3.3091
+[Linear Prob Epoch 3] Loss: 2.6621
+[Linear Prob Epoch 4] Loss: 2.3626
+[Linear Prob Epoch 5] Loss: 2.1489
+[Linear Prob Epoch 6] Loss: 1.9667
+[Linear Prob Epoch 7] Loss: 1.8086
+[Linear Prob Epoch 8] Loss: 1.6772
+[Linear Prob Epoch 9] Loss: 1.5398
+[Linear Prob Epoch 10] Loss: 1.4436
+[Linear Prob Epoch 11] Loss: 1.3499
+[Linear Prob Epoch 12] Loss: 1.3099
+[Linear Prob Epoch 13] Loss: 1.1928
+[Linear Prob Epoch 14] Loss: 1.1464
+[Linear Prob Epoch 15] Loss: 1.0792
+[Linear Prob Epoch 16] Loss: 1.0170
+[Linear Prob Epoch 17] Loss: 0.9777
+[Linear Prob Epoch 18] Loss: 0.9179
+[Linear Prob Epoch 19] Loss: 0.8954
+[Linear Prob Epoch 20] Loss: 0.8524
+[Linear Prob Epoch 21] Loss: 0.7981
+[Linear Prob Epoch 22] Loss: 0.7857
+[Linear Prob Epoch 23] Loss: 0.7750
+[Linear Prob Epoch 24] Loss: 0.7346
+[Linear Prob Epoch 25] Loss: 0.7270
+[Linear Prob Epoch 26] Loss: 0.6701
+[Linear Prob Epoch 27] Loss: 0.6406
+[Linear Prob Epoch 28] Loss: 0.6320
+[Linear Prob Epoch 29] Loss: 0.6417
+[Linear Prob Epoch 30] Loss: 0.6094
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 3.7717
+[Enhanced Epoch 2] Loss: 2.4960
+[Enhanced Epoch 3] Loss: 2.0355
+[Enhanced Epoch 4] Loss: 1.7353
+[Enhanced Epoch 5] Loss: 1.4988
+[Enhanced Epoch 6] Loss: 1.3042
+[Enhanced Epoch 7] Loss: 1.1517
+[Enhanced Epoch 8] Loss: 1.0109
+[Enhanced Epoch 9] Loss: 0.8880
+[Enhanced Epoch 10] Loss: 0.7936
+[Enhanced Epoch 11] Loss: 0.6996
+[Enhanced Epoch 12] Loss: 0.6257
+[Enhanced Epoch 13] Loss: 0.5639
+[Enhanced Epoch 14] Loss: 0.5056
+[Enhanced Epoch 15] Loss: 0.4589
+[Enhanced Epoch 16] Loss: 0.4166
+[Enhanced Epoch 17] Loss: 0.3790
+[Enhanced Epoch 18] Loss: 0.3476
+[Enhanced Epoch 19] Loss: 0.3191
+[Enhanced Epoch 20] Loss: 0.2964
+[Enhanced Epoch 21] Loss: 0.2744
+[Enhanced Epoch 22] Loss: 0.2555
+[Enhanced Epoch 23] Loss: 0.2401
+[Enhanced Epoch 24] Loss: 0.2247
+[Enhanced Epoch 25] Loss: 0.2107
+[Enhanced Epoch 26] Loss: 0.1990
+[Enhanced Epoch 27] Loss: 0.1879
+[Enhanced Epoch 28] Loss: 0.1791
+[Enhanced Epoch 29] Loss: 0.1699
+[Enhanced Epoch 30] Loss: 0.1618
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5893
+[Epoch 2] Loss: 4.3174
+[Epoch 3] Loss: 3.8235
+[Epoch 4] Loss: 3.5002
+[Epoch 5] Loss: 3.3163
+[Epoch 6] Loss: 3.1526
+[Epoch 7] Loss: 3.0628
+[Epoch 8] Loss: 2.9917
+[Epoch 9] Loss: 2.9227
+[Epoch 10] Loss: 2.8042
+[Epoch 11] Loss: 2.7889
+[Epoch 12] Loss: 2.7071
+[Epoch 13] Loss: 2.6654
+[Epoch 14] Loss: 2.6061
+[Epoch 15] Loss: 2.5534
+[Epoch 16] Loss: 2.5400
+[Epoch 17] Loss: 2.4734
+[Epoch 18] Loss: 2.4650
+[Epoch 19] Loss: 2.4047
+[Epoch 20] Loss: 2.4019
+[Epoch 21] Loss: 2.3224
+[Epoch 22] Loss: 2.3381
+[Epoch 23] Loss: 2.2935
+[Epoch 24] Loss: 2.2305
+[Epoch 25] Loss: 2.2782
+[Epoch 26] Loss: 2.2213
+[Epoch 27] Loss: 2.1963
+[Epoch 28] Loss: 2.1838
+[Epoch 29] Loss: 2.1790
+[Epoch 30] Loss: 2.1754
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 7.3948
+[Distillation Epoch 2] Loss: 6.9540
+[Distillation Epoch 3] Loss: 6.7790
+[Distillation Epoch 4] Loss: 6.6223
+[Distillation Epoch 5] Loss: 6.4871
+[Distillation Epoch 6] Loss: 6.3808
+[Distillation Epoch 7] Loss: 6.2039
+[Distillation Epoch 8] Loss: 6.1088
+[Distillation Epoch 9] Loss: 5.9617
+[Distillation Epoch 10] Loss: 5.8678
+[Distillation Epoch 11] Loss: 5.7672
+[Distillation Epoch 12] Loss: 5.6635
+[Distillation Epoch 13] Loss: 5.6038
+[Distillation Epoch 14] Loss: 5.5175
+[Distillation Epoch 15] Loss: 5.4076
+[Distillation Epoch 16] Loss: 5.3453
+[Distillation Epoch 17] Loss: 5.2578
+[Distillation Epoch 18] Loss: 5.1767
+[Distillation Epoch 19] Loss: 5.1414
+[Distillation Epoch 20] Loss: 5.0640
+[Distillation Epoch 21] Loss: 4.9856
+[Distillation Epoch 22] Loss: 4.9790
+[Distillation Epoch 23] Loss: 4.8789
+[Distillation Epoch 24] Loss: 4.8369
+[Distillation Epoch 25] Loss: 4.7918
+[Distillation Epoch 26] Loss: 4.7037
+[Distillation Epoch 27] Loss: 4.6317
+[Distillation Epoch 28] Loss: 4.6180
+[Distillation Epoch 29] Loss: 4.6446
+[Distillation Epoch 30] Loss: 4.5211
+[Run 4 results] Base=15.04% | LP=25.33% | ENH=24.92% | ADP=24.09% | DIST=16.00%
+
+=== Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5453
+[Epoch 2] Loss: 4.3728
+[Epoch 3] Loss: 4.2777
+[Epoch 4] Loss: 4.2195
+[Epoch 5] Loss: 4.1657
+[Epoch 6] Loss: 4.0991
+[Epoch 7] Loss: 4.0542
+[Epoch 8] Loss: 4.0025
+[Epoch 9] Loss: 3.9420
+[Epoch 10] Loss: 3.8866
+[Epoch 11] Loss: 3.8315
+[Epoch 12] Loss: 3.7989
+[Epoch 13] Loss: 3.7695
+[Epoch 14] Loss: 3.7234
+[Epoch 15] Loss: 3.6477
+[Epoch 16] Loss: 3.6155
+[Epoch 17] Loss: 3.5723
+[Epoch 18] Loss: 3.5260
+[Epoch 19] Loss: 3.4887
+[Epoch 20] Loss: 3.4441
+[Epoch 21] Loss: 3.4072
+[Epoch 22] Loss: 3.3608
+[Epoch 23] Loss: 3.3263
+[Epoch 24] Loss: 3.2890
+[Epoch 25] Loss: 3.2462
+[Epoch 26] Loss: 3.2016
+[Epoch 27] Loss: 3.1675
+[Epoch 28] Loss: 3.1400
+[Epoch 29] Loss: 3.0884
+[Epoch 30] Loss: 3.0728
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 6.0943
+[Linear Prob Epoch 2] Loss: 3.1664
+[Linear Prob Epoch 3] Loss: 2.6159
+[Linear Prob Epoch 4] Loss: 2.3268
+[Linear Prob Epoch 5] Loss: 2.1453
+[Linear Prob Epoch 6] Loss: 1.9388
+[Linear Prob Epoch 7] Loss: 1.7783
+[Linear Prob Epoch 8] Loss: 1.6606
+[Linear Prob Epoch 9] Loss: 1.5438
+[Linear Prob Epoch 10] Loss: 1.4503
+[Linear Prob Epoch 11] Loss: 1.3552
+[Linear Prob Epoch 12] Loss: 1.2583
+[Linear Prob Epoch 13] Loss: 1.2093
+[Linear Prob Epoch 14] Loss: 1.1314
+[Linear Prob Epoch 15] Loss: 1.0709
+[Linear Prob Epoch 16] Loss: 1.0098
+[Linear Prob Epoch 17] Loss: 0.9961
+[Linear Prob Epoch 18] Loss: 0.9332
+[Linear Prob Epoch 19] Loss: 0.8672
+[Linear Prob Epoch 20] Loss: 0.8586
+[Linear Prob Epoch 21] Loss: 0.8307
+[Linear Prob Epoch 22] Loss: 0.8042
+[Linear Prob Epoch 23] Loss: 0.7578
+[Linear Prob Epoch 24] Loss: 0.7387
+[Linear Prob Epoch 25] Loss: 0.7191
+[Linear Prob Epoch 26] Loss: 0.6887
+[Linear Prob Epoch 27] Loss: 0.6684
+[Linear Prob Epoch 28] Loss: 0.6232
+[Linear Prob Epoch 29] Loss: 0.6539
+[Linear Prob Epoch 30] Loss: 0.6193
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 3.7551
+[Enhanced Epoch 2] Loss: 2.4569
+[Enhanced Epoch 3] Loss: 2.0131
+[Enhanced Epoch 4] Loss: 1.7204
+[Enhanced Epoch 5] Loss: 1.4943
+[Enhanced Epoch 6] Loss: 1.3089
+[Enhanced Epoch 7] Loss: 1.1431
+[Enhanced Epoch 8] Loss: 1.0070
+[Enhanced Epoch 9] Loss: 0.8919
+[Enhanced Epoch 10] Loss: 0.7882
+[Enhanced Epoch 11] Loss: 0.7068
+[Enhanced Epoch 12] Loss: 0.6275
+[Enhanced Epoch 13] Loss: 0.5607
+[Enhanced Epoch 14] Loss: 0.5045
+[Enhanced Epoch 15] Loss: 0.4571
+[Enhanced Epoch 16] Loss: 0.4167
+[Enhanced Epoch 17] Loss: 0.3812
+[Enhanced Epoch 18] Loss: 0.3481
+[Enhanced Epoch 19] Loss: 0.3207
+[Enhanced Epoch 20] Loss: 0.2951
+[Enhanced Epoch 21] Loss: 0.2746
+[Enhanced Epoch 22] Loss: 0.2567
+[Enhanced Epoch 23] Loss: 0.2415
+[Enhanced Epoch 24] Loss: 0.2252
+[Enhanced Epoch 25] Loss: 0.2105
+[Enhanced Epoch 26] Loss: 0.1994
+[Enhanced Epoch 27] Loss: 0.1879
+[Enhanced Epoch 28] Loss: 0.1791
+[Enhanced Epoch 29] Loss: 0.1716
+[Enhanced Epoch 30] Loss: 0.1624
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5927
+[Epoch 2] Loss: 4.3532
+[Epoch 3] Loss: 3.8544
+[Epoch 4] Loss: 3.4998
+[Epoch 5] Loss: 3.3171
+[Epoch 6] Loss: 3.1661
+[Epoch 7] Loss: 3.0551
+[Epoch 8] Loss: 2.9466
+[Epoch 9] Loss: 2.8882
+[Epoch 10] Loss: 2.8233
+[Epoch 11] Loss: 2.7255
+[Epoch 12] Loss: 2.6900
+[Epoch 13] Loss: 2.6407
+[Epoch 14] Loss: 2.5952
+[Epoch 15] Loss: 2.5281
+[Epoch 16] Loss: 2.5018
+[Epoch 17] Loss: 2.4841
+[Epoch 18] Loss: 2.4529
+[Epoch 19] Loss: 2.4217
+[Epoch 20] Loss: 2.3687
+[Epoch 21] Loss: 2.3331
+[Epoch 22] Loss: 2.3285
+[Epoch 23] Loss: 2.2572
+[Epoch 24] Loss: 2.2875
+[Epoch 25] Loss: 2.2725
+[Epoch 26] Loss: 2.2353
+[Epoch 27] Loss: 2.2133
+[Epoch 28] Loss: 2.1832
+[Epoch 29] Loss: 2.1607
+[Epoch 30] Loss: 2.1000
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 7.4867
+[Distillation Epoch 2] Loss: 7.0133
+[Distillation Epoch 3] Loss: 6.8329
+[Distillation Epoch 4] Loss: 6.6945
+[Distillation Epoch 5] Loss: 6.5819
+[Distillation Epoch 6] Loss: 6.4149
+[Distillation Epoch 7] Loss: 6.3095
+[Distillation Epoch 8] Loss: 6.1688
+[Distillation Epoch 9] Loss: 6.0466
+[Distillation Epoch 10] Loss: 5.9426
+[Distillation Epoch 11] Loss: 5.8262
+[Distillation Epoch 12] Loss: 5.7092
+[Distillation Epoch 13] Loss: 5.6183
+[Distillation Epoch 14] Loss: 5.5443
+[Distillation Epoch 15] Loss: 5.4778
+[Distillation Epoch 16] Loss: 5.3786
+[Distillation Epoch 17] Loss: 5.3128
+[Distillation Epoch 18] Loss: 5.2400
+[Distillation Epoch 19] Loss: 5.1514
+[Distillation Epoch 20] Loss: 5.0629
+[Distillation Epoch 21] Loss: 5.0474
+[Distillation Epoch 22] Loss: 4.9979
+[Distillation Epoch 23] Loss: 4.9273
+[Distillation Epoch 24] Loss: 4.8548
+[Distillation Epoch 25] Loss: 4.8239
+[Distillation Epoch 26] Loss: 4.7547
+[Distillation Epoch 27] Loss: 4.6944
+[Distillation Epoch 28] Loss: 4.6575
+[Distillation Epoch 29] Loss: 4.6091
+[Distillation Epoch 30] Loss: 4.5818
+[Run 5 results] Base=15.22% | LP=25.89% | ENH=26.02% | ADP=24.64% | DIST=16.13%
+
+All done. Results saved to: ./results_test100/imbalance_tf_cifar100.json
+imb_tf_test100.py completed successfully.
+Starting adversarial_tf_test100.py...
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Pretraining BigTransformer on adversarial CIFAR-100 ===
+Files already downloaded and verified
+Files already downloaded and verified
+[Epoch 1] Loss: 4.5403
+[Epoch 2] Loss: 4.4368
+[Epoch 3] Loss: 4.3947
+[Epoch 4] Loss: 4.3525
+[Epoch 5] Loss: 4.3158
+[Epoch 6] Loss: 4.2768
+[Epoch 7] Loss: 4.2479
+[Epoch 8] Loss: 4.2139
+[Epoch 9] Loss: 4.1789
+[Epoch 10] Loss: 4.1468
+[Epoch 11] Loss: 4.1326
+[Epoch 12] Loss: 4.0994
+[Epoch 13] Loss: 4.0754
+[Epoch 14] Loss: 4.0420
+[Epoch 15] Loss: 4.0132
+[Epoch 16] Loss: 3.9992
+[Epoch 17] Loss: 3.9630
+[Epoch 18] Loss: 3.9210
+[Epoch 19] Loss: 3.9206
+[Epoch 20] Loss: 3.8862
+[Epoch 21] Loss: 3.8717
+[Epoch 22] Loss: 3.8395
+[Epoch 23] Loss: 3.8037
+[Epoch 24] Loss: 3.7663
+[Epoch 25] Loss: 3.7406
+[Epoch 26] Loss: 3.7223
+[Epoch 27] Loss: 3.6811
+[Epoch 28] Loss: 3.6646
+[Epoch 29] Loss: 3.6470
+[Epoch 30] Loss: 3.6102
+[Epoch 31] Loss: 3.5782
+[Epoch 32] Loss: 3.5623
+[Epoch 33] Loss: 3.5516
+[Epoch 34] Loss: 3.5196
+[Epoch 35] Loss: 3.4841
+[Epoch 36] Loss: 3.4796
+[Epoch 37] Loss: 3.4509
+[Epoch 38] Loss: 3.4370
+[Epoch 39] Loss: 3.4053
+[Epoch 40] Loss: 3.3852
+[Epoch 41] Loss: 3.3517
+[Epoch 42] Loss: 3.3091
+[Epoch 43] Loss: 3.3001
+[Epoch 44] Loss: 3.2756
+[Epoch 45] Loss: 3.2440
+[Epoch 46] Loss: 3.2243
+[Epoch 47] Loss: 3.2134
+[Epoch 48] Loss: 3.1622
+[Epoch 49] Loss: 3.1518
+[Epoch 50] Loss: 3.1423
+[Epoch 51] Loss: 3.0932
+[Epoch 52] Loss: 3.0874
+[Epoch 53] Loss: 3.0461
+[Epoch 54] Loss: 3.0190
+[Epoch 55] Loss: 2.9834
+[Epoch 56] Loss: 2.9764
+[Epoch 57] Loss: 2.9234
+[Epoch 58] Loss: 2.9484
+[Epoch 59] Loss: 2.8944
+[Epoch 60] Loss: 2.8415
+Saved pretrained transformer to: ./model_test100/mismatch_tf.pt
+External Transformer Eval: Acc=10.63% | AUC=0.8078 | F1=0.0994 | MinCAcc=0.00%
+
+--- Run 1/5, seed=42 ---
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5059
+[Epoch 2] Loss: 4.3367
+[Epoch 3] Loss: 4.2559
+[Epoch 4] Loss: 4.1815
+[Epoch 5] Loss: 4.0959
+[Epoch 6] Loss: 4.0265
+[Epoch 7] Loss: 3.9514
+[Epoch 8] Loss: 3.8886
+[Epoch 9] Loss: 3.8108
+[Epoch 10] Loss: 3.7574
+[Epoch 11] Loss: 3.7145
+[Epoch 12] Loss: 3.6775
+[Epoch 13] Loss: 3.6431
+[Epoch 14] Loss: 3.5649
+[Epoch 15] Loss: 3.5181
+[Epoch 16] Loss: 3.4820
+[Epoch 17] Loss: 3.4517
+[Epoch 18] Loss: 3.3864
+[Epoch 19] Loss: 3.3446
+[Epoch 20] Loss: 3.2993
+[Epoch 21] Loss: 3.2248
+[Epoch 22] Loss: 3.2204
+[Epoch 23] Loss: 3.1588
+[Epoch 24] Loss: 3.1318
+[Epoch 25] Loss: 3.0658
+[Epoch 26] Loss: 3.0335
+[Epoch 27] Loss: 3.0119
+[Epoch 28] Loss: 2.9878
+[Epoch 29] Loss: 2.8905
+[Epoch 30] Loss: 2.8720
+Training linear probe on classifier head...
+[Linear Prob Epoch 1] Loss: 3.9442
+[Linear Prob Epoch 2] Loss: 3.4512
+[Linear Prob Epoch 3] Loss: 3.2309
+[Linear Prob Epoch 4] Loss: 3.0202
+[Linear Prob Epoch 5] Loss: 2.9337
+[Linear Prob Epoch 6] Loss: 2.8113
+[Linear Prob Epoch 7] Loss: 2.7174
+[Linear Prob Epoch 8] Loss: 2.6375
+[Linear Prob Epoch 9] Loss: 2.5436
+[Linear Prob Epoch 10] Loss: 2.5116
+[Linear Prob Epoch 11] Loss: 2.4182
+[Linear Prob Epoch 12] Loss: 2.3749
+[Linear Prob Epoch 13] Loss: 2.3148
+[Linear Prob Epoch 14] Loss: 2.2607
+[Linear Prob Epoch 15] Loss: 2.2206
+[Linear Prob Epoch 16] Loss: 2.1621
+[Linear Prob Epoch 17] Loss: 2.1388
+[Linear Prob Epoch 18] Loss: 2.0877
+[Linear Prob Epoch 19] Loss: 2.0632
+[Linear Prob Epoch 20] Loss: 2.0218
+[Linear Prob Epoch 21] Loss: 2.0029
+[Linear Prob Epoch 22] Loss: 1.9672
+[Linear Prob Epoch 23] Loss: 1.9306
+[Linear Prob Epoch 24] Loss: 1.9040
+[Linear Prob Epoch 25] Loss: 1.8750
+[Linear Prob Epoch 26] Loss: 1.8274
+[Linear Prob Epoch 27] Loss: 1.8224
+[Linear Prob Epoch 28] Loss: 1.7851
+[Linear Prob Epoch 29] Loss: 1.7727
+[Linear Prob Epoch 30] Loss: 1.7524
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.0959
+[Enhanced Epoch 2] Loss: 3.3299
+[Enhanced Epoch 3] Loss: 3.0091
+[Enhanced Epoch 4] Loss: 2.7932
+[Enhanced Epoch 5] Loss: 2.6434
+[Enhanced Epoch 6] Loss: 2.5020
+[Enhanced Epoch 7] Loss: 2.3869
+[Enhanced Epoch 8] Loss: 2.2797
+[Enhanced Epoch 9] Loss: 2.1912
+[Enhanced Epoch 10] Loss: 2.1057
+[Enhanced Epoch 11] Loss: 2.0254
+[Enhanced Epoch 12] Loss: 1.9481
+[Enhanced Epoch 13] Loss: 1.8797
+[Enhanced Epoch 14] Loss: 1.8145
+[Enhanced Epoch 15] Loss: 1.7555
+[Enhanced Epoch 16] Loss: 1.6970
+[Enhanced Epoch 17] Loss: 1.6389
+[Enhanced Epoch 18] Loss: 1.5883
+[Enhanced Epoch 19] Loss: 1.5414
+[Enhanced Epoch 20] Loss: 1.4871
+[Enhanced Epoch 21] Loss: 1.4464
+[Enhanced Epoch 22] Loss: 1.4031
+[Enhanced Epoch 23] Loss: 1.3562
+[Enhanced Epoch 24] Loss: 1.3255
+[Enhanced Epoch 25] Loss: 1.2874
+[Enhanced Epoch 26] Loss: 1.2487
+[Enhanced Epoch 27] Loss: 1.2113
+[Enhanced Epoch 28] Loss: 1.1771
+[Enhanced Epoch 29] Loss: 1.1437
+[Enhanced Epoch 30] Loss: 1.1190
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5866
+[Epoch 2] Loss: 4.3945
+[Epoch 3] Loss: 4.0673
+[Epoch 4] Loss: 3.7990
+[Epoch 5] Loss: 3.6475
+[Epoch 6] Loss: 3.5274
+[Epoch 7] Loss: 3.4384
+[Epoch 8] Loss: 3.3653
+[Epoch 9] Loss: 3.3171
+[Epoch 10] Loss: 3.2414
+[Epoch 11] Loss: 3.2402
+[Epoch 12] Loss: 3.1956
+[Epoch 13] Loss: 3.1295
+[Epoch 14] Loss: 3.0992
+[Epoch 15] Loss: 3.0458
+[Epoch 16] Loss: 3.0124
+[Epoch 17] Loss: 3.0007
+[Epoch 18] Loss: 2.9553
+[Epoch 19] Loss: 2.9341
+[Epoch 20] Loss: 2.9213
+[Epoch 21] Loss: 2.9283
+[Epoch 22] Loss: 2.8722
+[Epoch 23] Loss: 2.8652
+[Epoch 24] Loss: 2.8510
+[Epoch 25] Loss: 2.7979
+[Epoch 26] Loss: 2.7871
+[Epoch 27] Loss: 2.7718
+[Epoch 28] Loss: 2.7409
+[Epoch 29] Loss: 2.7269
+[Epoch 30] Loss: 2.7164
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 3.3897
+[Distillation Epoch 2] Loss: 3.2278
+[Distillation Epoch 3] Loss: 3.1577
+[Distillation Epoch 4] Loss: 3.0902
+[Distillation Epoch 5] Loss: 2.9903
+[Distillation Epoch 6] Loss: 2.8882
+[Distillation Epoch 7] Loss: 2.8137
+[Distillation Epoch 8] Loss: 2.7480
+[Distillation Epoch 9] Loss: 2.7141
+[Distillation Epoch 10] Loss: 2.6622
+[Distillation Epoch 11] Loss: 2.6217
+[Distillation Epoch 12] Loss: 2.5868
+[Distillation Epoch 13] Loss: 2.5355
+[Distillation Epoch 14] Loss: 2.5177
+[Distillation Epoch 15] Loss: 2.4783
+[Distillation Epoch 16] Loss: 2.4548
+[Distillation Epoch 17] Loss: 2.4253
+[Distillation Epoch 18] Loss: 2.4116
+[Distillation Epoch 19] Loss: 2.3812
+[Distillation Epoch 20] Loss: 2.3424
+[Distillation Epoch 21] Loss: 2.3429
+[Distillation Epoch 22] Loss: 2.3145
+[Distillation Epoch 23] Loss: 2.2935
+[Distillation Epoch 24] Loss: 2.2709
+[Distillation Epoch 25] Loss: 2.2424
+[Distillation Epoch 26] Loss: 2.2385
+[Distillation Epoch 27] Loss: 2.2209
+[Distillation Epoch 28] Loss: 2.1981
+[Distillation Epoch 29] Loss: 2.1815
+[Distillation Epoch 30] Loss: 2.1700
+[Run 1 results] Base=16.83% | LP=23.33% | ENH=22.05% | ADP=21.21% | DIST=17.93%
+
+--- Run 2/5, seed=43 ---
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5032
+[Epoch 2] Loss: 4.3130
+[Epoch 3] Loss: 4.2105
+[Epoch 4] Loss: 4.1474
+[Epoch 5] Loss: 4.0660
+[Epoch 6] Loss: 3.9884
+[Epoch 7] Loss: 3.9202
+[Epoch 8] Loss: 3.8597
+[Epoch 9] Loss: 3.7999
+[Epoch 10] Loss: 3.7600
+[Epoch 11] Loss: 3.6893
+[Epoch 12] Loss: 3.6353
+[Epoch 13] Loss: 3.5864
+[Epoch 14] Loss: 3.5384
+[Epoch 15] Loss: 3.4913
+[Epoch 16] Loss: 3.4313
+[Epoch 17] Loss: 3.3959
+[Epoch 18] Loss: 3.3287
+[Epoch 19] Loss: 3.2855
+[Epoch 20] Loss: 3.2642
+[Epoch 21] Loss: 3.1981
+[Epoch 22] Loss: 3.1555
+[Epoch 23] Loss: 3.1133
+[Epoch 24] Loss: 3.0561
+[Epoch 25] Loss: 3.0240
+[Epoch 26] Loss: 2.9703
+[Epoch 27] Loss: 2.9246
+[Epoch 28] Loss: 2.9014
+[Epoch 29] Loss: 2.8743
+[Epoch 30] Loss: 2.7975
+Training linear probe on classifier head...
+[Linear Prob Epoch 1] Loss: 3.6845
+[Linear Prob Epoch 2] Loss: 3.2242
+[Linear Prob Epoch 3] Loss: 2.9931
+[Linear Prob Epoch 4] Loss: 2.8311
+[Linear Prob Epoch 5] Loss: 2.7271
+[Linear Prob Epoch 6] Loss: 2.6191
+[Linear Prob Epoch 7] Loss: 2.5305
+[Linear Prob Epoch 8] Loss: 2.4545
+[Linear Prob Epoch 9] Loss: 2.3763
+[Linear Prob Epoch 10] Loss: 2.3176
+[Linear Prob Epoch 11] Loss: 2.2576
+[Linear Prob Epoch 12] Loss: 2.2267
+[Linear Prob Epoch 13] Loss: 2.1733
+[Linear Prob Epoch 14] Loss: 2.1095
+[Linear Prob Epoch 15] Loss: 2.0704
+[Linear Prob Epoch 16] Loss: 2.0350
+[Linear Prob Epoch 17] Loss: 1.9964
+[Linear Prob Epoch 18] Loss: 1.9574
+[Linear Prob Epoch 19] Loss: 1.9360
+[Linear Prob Epoch 20] Loss: 1.8925
+[Linear Prob Epoch 21] Loss: 1.8533
+[Linear Prob Epoch 22] Loss: 1.8330
+[Linear Prob Epoch 23] Loss: 1.7947
+[Linear Prob Epoch 24] Loss: 1.7880
+[Linear Prob Epoch 25] Loss: 1.7672
+[Linear Prob Epoch 26] Loss: 1.7145
+[Linear Prob Epoch 27] Loss: 1.6966
+[Linear Prob Epoch 28] Loss: 1.6654
+[Linear Prob Epoch 29] Loss: 1.6487
+[Linear Prob Epoch 30] Loss: 1.6331
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.0468
+[Enhanced Epoch 2] Loss: 3.2407
+[Enhanced Epoch 3] Loss: 2.9079
+[Enhanced Epoch 4] Loss: 2.6801
+[Enhanced Epoch 5] Loss: 2.5197
+[Enhanced Epoch 6] Loss: 2.3927
+[Enhanced Epoch 7] Loss: 2.2762
+[Enhanced Epoch 8] Loss: 2.1776
+[Enhanced Epoch 9] Loss: 2.0793
+[Enhanced Epoch 10] Loss: 1.9935
+[Enhanced Epoch 11] Loss: 1.9167
+[Enhanced Epoch 12] Loss: 1.8458
+[Enhanced Epoch 13] Loss: 1.7761
+[Enhanced Epoch 14] Loss: 1.7171
+[Enhanced Epoch 15] Loss: 1.6512
+[Enhanced Epoch 16] Loss: 1.6015
+[Enhanced Epoch 17] Loss: 1.5471
+[Enhanced Epoch 18] Loss: 1.4925
+[Enhanced Epoch 19] Loss: 1.4530
+[Enhanced Epoch 20] Loss: 1.3956
+[Enhanced Epoch 21] Loss: 1.3579
+[Enhanced Epoch 22] Loss: 1.3185
+[Enhanced Epoch 23] Loss: 1.2767
+[Enhanced Epoch 24] Loss: 1.2425
+[Enhanced Epoch 25] Loss: 1.2041
+[Enhanced Epoch 26] Loss: 1.1683
+[Enhanced Epoch 27] Loss: 1.1305
+[Enhanced Epoch 28] Loss: 1.0957
+[Enhanced Epoch 29] Loss: 1.0747
+[Enhanced Epoch 30] Loss: 1.0447
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5883
+[Epoch 2] Loss: 4.3643
+[Epoch 3] Loss: 3.9512
+[Epoch 4] Loss: 3.6830
+[Epoch 5] Loss: 3.4985
+[Epoch 6] Loss: 3.4136
+[Epoch 7] Loss: 3.3496
+[Epoch 8] Loss: 3.2522
+[Epoch 9] Loss: 3.2088
+[Epoch 10] Loss: 3.1674
+[Epoch 11] Loss: 3.1209
+[Epoch 12] Loss: 3.0695
+[Epoch 13] Loss: 3.0531
+[Epoch 14] Loss: 3.0164
+[Epoch 15] Loss: 2.9601
+[Epoch 16] Loss: 2.9008
+[Epoch 17] Loss: 2.8845
+[Epoch 18] Loss: 2.8742
+[Epoch 19] Loss: 2.8343
+[Epoch 20] Loss: 2.8089
+[Epoch 21] Loss: 2.7739
+[Epoch 22] Loss: 2.7788
+[Epoch 23] Loss: 2.7537
+[Epoch 24] Loss: 2.7211
+[Epoch 25] Loss: 2.6943
+[Epoch 26] Loss: 2.6536
+[Epoch 27] Loss: 2.6857
+[Epoch 28] Loss: 2.6790
+[Epoch 29] Loss: 2.6199
+[Epoch 30] Loss: 2.5929
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 3.4191
+[Distillation Epoch 2] Loss: 3.2525
+[Distillation Epoch 3] Loss: 3.1748
+[Distillation Epoch 4] Loss: 3.0920
+[Distillation Epoch 5] Loss: 2.9733
+[Distillation Epoch 6] Loss: 2.9010
+[Distillation Epoch 7] Loss: 2.8325
+[Distillation Epoch 8] Loss: 2.7717
+[Distillation Epoch 9] Loss: 2.7153
+[Distillation Epoch 10] Loss: 2.6638
+[Distillation Epoch 11] Loss: 2.6292
+[Distillation Epoch 12] Loss: 2.6072
+[Distillation Epoch 13] Loss: 2.5608
+[Distillation Epoch 14] Loss: 2.5396
+[Distillation Epoch 15] Loss: 2.5162
+[Distillation Epoch 16] Loss: 2.4769
+[Distillation Epoch 17] Loss: 2.4510
+[Distillation Epoch 18] Loss: 2.4265
+[Distillation Epoch 19] Loss: 2.4066
+[Distillation Epoch 20] Loss: 2.3851
+[Distillation Epoch 21] Loss: 2.3643
+[Distillation Epoch 22] Loss: 2.3331
+[Distillation Epoch 23] Loss: 2.3141
+[Distillation Epoch 24] Loss: 2.2875
+[Distillation Epoch 25] Loss: 2.2853
+[Distillation Epoch 26] Loss: 2.2583
+[Distillation Epoch 27] Loss: 2.2323
+[Distillation Epoch 28] Loss: 2.2179
+[Distillation Epoch 29] Loss: 2.1965
+[Distillation Epoch 30] Loss: 2.1844
+[Run 2 results] Base=16.80% | LP=24.03% | ENH=23.14% | ADP=22.11% | DIST=17.85%
+
+--- Run 3/5, seed=44 ---
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.4895
+[Epoch 2] Loss: 4.2941
+[Epoch 3] Loss: 4.2123
+[Epoch 4] Loss: 4.1345
+[Epoch 5] Loss: 4.0643
+[Epoch 6] Loss: 3.9883
+[Epoch 7] Loss: 3.9290
+[Epoch 8] Loss: 3.8794
+[Epoch 9] Loss: 3.8110
+[Epoch 10] Loss: 3.7711
+[Epoch 11] Loss: 3.7304
+[Epoch 12] Loss: 3.6567
+[Epoch 13] Loss: 3.6266
+[Epoch 14] Loss: 3.5663
+[Epoch 15] Loss: 3.5118
+[Epoch 16] Loss: 3.4679
+[Epoch 17] Loss: 3.4347
+[Epoch 18] Loss: 3.3918
+[Epoch 19] Loss: 3.3415
+[Epoch 20] Loss: 3.2738
+[Epoch 21] Loss: 3.2497
+[Epoch 22] Loss: 3.1908
+[Epoch 23] Loss: 3.1535
+[Epoch 24] Loss: 3.0907
+[Epoch 25] Loss: 3.0754
+[Epoch 26] Loss: 3.0256
+[Epoch 27] Loss: 2.9830
+[Epoch 28] Loss: 2.9496
+[Epoch 29] Loss: 2.8911
+[Epoch 30] Loss: 2.8359
+Training linear probe on classifier head...
+[Linear Prob Epoch 1] Loss: 3.7148
+[Linear Prob Epoch 2] Loss: 3.2316
+[Linear Prob Epoch 3] Loss: 2.9966
+[Linear Prob Epoch 4] Loss: 2.8439
+[Linear Prob Epoch 5] Loss: 2.7328
+[Linear Prob Epoch 6] Loss: 2.6362
+[Linear Prob Epoch 7] Loss: 2.5358
+[Linear Prob Epoch 8] Loss: 2.4606
+[Linear Prob Epoch 9] Loss: 2.3882
+[Linear Prob Epoch 10] Loss: 2.3743
+[Linear Prob Epoch 11] Loss: 2.2969
+[Linear Prob Epoch 12] Loss: 2.2403
+[Linear Prob Epoch 13] Loss: 2.1869
+[Linear Prob Epoch 14] Loss: 2.1251
+[Linear Prob Epoch 15] Loss: 2.0713
+[Linear Prob Epoch 16] Loss: 2.0507
+[Linear Prob Epoch 17] Loss: 2.0168
+[Linear Prob Epoch 18] Loss: 1.9671
+[Linear Prob Epoch 19] Loss: 1.9282
+[Linear Prob Epoch 20] Loss: 1.8911
+[Linear Prob Epoch 21] Loss: 1.8737
+[Linear Prob Epoch 22] Loss: 1.8392
+[Linear Prob Epoch 23] Loss: 1.8153
+[Linear Prob Epoch 24] Loss: 1.7965
+[Linear Prob Epoch 25] Loss: 1.7473
+[Linear Prob Epoch 26] Loss: 1.7568
+[Linear Prob Epoch 27] Loss: 1.7275
+[Linear Prob Epoch 28] Loss: 1.6786
+[Linear Prob Epoch 29] Loss: 1.6765
+[Linear Prob Epoch 30] Loss: 1.6382
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.0548
+[Enhanced Epoch 2] Loss: 3.2454
+[Enhanced Epoch 3] Loss: 2.9080
+[Enhanced Epoch 4] Loss: 2.7022
+[Enhanced Epoch 5] Loss: 2.5400
+[Enhanced Epoch 6] Loss: 2.4055
+[Enhanced Epoch 7] Loss: 2.2855
+[Enhanced Epoch 8] Loss: 2.1892
+[Enhanced Epoch 9] Loss: 2.0991
+[Enhanced Epoch 10] Loss: 2.0146
+[Enhanced Epoch 11] Loss: 1.9351
+[Enhanced Epoch 12] Loss: 1.8612
+[Enhanced Epoch 13] Loss: 1.7978
+[Enhanced Epoch 14] Loss: 1.7349
+[Enhanced Epoch 15] Loss: 1.6756
+[Enhanced Epoch 16] Loss: 1.6163
+[Enhanced Epoch 17] Loss: 1.5670
+[Enhanced Epoch 18] Loss: 1.5151
+[Enhanced Epoch 19] Loss: 1.4693
+[Enhanced Epoch 20] Loss: 1.4213
+[Enhanced Epoch 21] Loss: 1.3775
+[Enhanced Epoch 22] Loss: 1.3311
+[Enhanced Epoch 23] Loss: 1.2954
+[Enhanced Epoch 24] Loss: 1.2576
+[Enhanced Epoch 25] Loss: 1.2178
+[Enhanced Epoch 26] Loss: 1.1846
+[Enhanced Epoch 27] Loss: 1.1450
+[Enhanced Epoch 28] Loss: 1.1125
+[Enhanced Epoch 29] Loss: 1.0806
+[Enhanced Epoch 30] Loss: 1.0530
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5884
+[Epoch 2] Loss: 4.3802
+[Epoch 3] Loss: 3.9913
+[Epoch 4] Loss: 3.6910
+[Epoch 5] Loss: 3.5735
+[Epoch 6] Loss: 3.4269
+[Epoch 7] Loss: 3.3472
+[Epoch 8] Loss: 3.2693
+[Epoch 9] Loss: 3.2183
+[Epoch 10] Loss: 3.2008
+[Epoch 11] Loss: 3.1211
+[Epoch 12] Loss: 3.0401
+[Epoch 13] Loss: 3.0304
+[Epoch 14] Loss: 3.0218
+[Epoch 15] Loss: 2.9674
+[Epoch 16] Loss: 2.9611
+[Epoch 17] Loss: 2.9158
+[Epoch 18] Loss: 2.8859
+[Epoch 19] Loss: 2.8791
+[Epoch 20] Loss: 2.8346
+[Epoch 21] Loss: 2.8336
+[Epoch 22] Loss: 2.8030
+[Epoch 23] Loss: 2.7585
+[Epoch 24] Loss: 2.7555
+[Epoch 25] Loss: 2.7073
+[Epoch 26] Loss: 2.6842
+[Epoch 27] Loss: 2.6551
+[Epoch 28] Loss: 2.6707
+[Epoch 29] Loss: 2.6583
+[Epoch 30] Loss: 2.5892
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 3.4132
+[Distillation Epoch 2] Loss: 3.2392
+[Distillation Epoch 3] Loss: 3.1617
+[Distillation Epoch 4] Loss: 3.0840
+[Distillation Epoch 5] Loss: 3.0213
+[Distillation Epoch 6] Loss: 2.9473
+[Distillation Epoch 7] Loss: 2.8633
+[Distillation Epoch 8] Loss: 2.7904
+[Distillation Epoch 9] Loss: 2.7487
+[Distillation Epoch 10] Loss: 2.6935
+[Distillation Epoch 11] Loss: 2.6529
+[Distillation Epoch 12] Loss: 2.6193
+[Distillation Epoch 13] Loss: 2.5877
+[Distillation Epoch 14] Loss: 2.5514
+[Distillation Epoch 15] Loss: 2.5193
+[Distillation Epoch 16] Loss: 2.4930
+[Distillation Epoch 17] Loss: 2.4671
+[Distillation Epoch 18] Loss: 2.4428
+[Distillation Epoch 19] Loss: 2.4229
+[Distillation Epoch 20] Loss: 2.3823
+[Distillation Epoch 21] Loss: 2.3672
+[Distillation Epoch 22] Loss: 2.3336
+[Distillation Epoch 23] Loss: 2.3191
+[Distillation Epoch 24] Loss: 2.3079
+[Distillation Epoch 25] Loss: 2.2891
+[Distillation Epoch 26] Loss: 2.2664
+[Distillation Epoch 27] Loss: 2.2326
+[Distillation Epoch 28] Loss: 2.2193
+[Distillation Epoch 29] Loss: 2.2104
+[Distillation Epoch 30] Loss: 2.1815
+[Run 3 results] Base=15.46% | LP=23.66% | ENH=23.38% | ADP=21.78% | DIST=17.66%
+
+--- Run 4/5, seed=45 ---
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5024
+[Epoch 2] Loss: 4.3348
+[Epoch 3] Loss: 4.2369
+[Epoch 4] Loss: 4.1696
+[Epoch 5] Loss: 4.1172
+[Epoch 6] Loss: 4.0292
+[Epoch 7] Loss: 3.9666
+[Epoch 8] Loss: 3.8955
+[Epoch 9] Loss: 3.8449
+[Epoch 10] Loss: 3.7882
+[Epoch 11] Loss: 3.7514
+[Epoch 12] Loss: 3.7006
+[Epoch 13] Loss: 3.6549
+[Epoch 14] Loss: 3.6039
+[Epoch 15] Loss: 3.5488
+[Epoch 16] Loss: 3.4965
+[Epoch 17] Loss: 3.4605
+[Epoch 18] Loss: 3.4137
+[Epoch 19] Loss: 3.3836
+[Epoch 20] Loss: 3.3364
+[Epoch 21] Loss: 3.2570
+[Epoch 22] Loss: 3.2711
+[Epoch 23] Loss: 3.2008
+[Epoch 24] Loss: 3.1753
+[Epoch 25] Loss: 3.1068
+[Epoch 26] Loss: 3.0981
+[Epoch 27] Loss: 3.0655
+[Epoch 28] Loss: 2.9771
+[Epoch 29] Loss: 2.9579
+[Epoch 30] Loss: 2.9032
+Training linear probe on classifier head...
+[Linear Prob Epoch 1] Loss: 3.7363
+[Linear Prob Epoch 2] Loss: 3.2487
+[Linear Prob Epoch 3] Loss: 3.0516
+[Linear Prob Epoch 4] Loss: 2.8835
+[Linear Prob Epoch 5] Loss: 2.7626
+[Linear Prob Epoch 6] Loss: 2.6851
+[Linear Prob Epoch 7] Loss: 2.6068
+[Linear Prob Epoch 8] Loss: 2.5118
+[Linear Prob Epoch 9] Loss: 2.4555
+[Linear Prob Epoch 10] Loss: 2.3803
+[Linear Prob Epoch 11] Loss: 2.3200
+[Linear Prob Epoch 12] Loss: 2.2958
+[Linear Prob Epoch 13] Loss: 2.2314
+[Linear Prob Epoch 14] Loss: 2.1890
+[Linear Prob Epoch 15] Loss: 2.1317
+[Linear Prob Epoch 16] Loss: 2.0940
+[Linear Prob Epoch 17] Loss: 2.0619
+[Linear Prob Epoch 18] Loss: 2.0191
+[Linear Prob Epoch 19] Loss: 1.9871
+[Linear Prob Epoch 20] Loss: 1.9737
+[Linear Prob Epoch 21] Loss: 1.9180
+[Linear Prob Epoch 22] Loss: 1.8995
+[Linear Prob Epoch 23] Loss: 1.8600
+[Linear Prob Epoch 24] Loss: 1.8538
+[Linear Prob Epoch 25] Loss: 1.8033
+[Linear Prob Epoch 26] Loss: 1.7933
+[Linear Prob Epoch 27] Loss: 1.7816
+[Linear Prob Epoch 28] Loss: 1.7308
+[Linear Prob Epoch 29] Loss: 1.7341
+[Linear Prob Epoch 30] Loss: 1.7076
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.0549
+[Enhanced Epoch 2] Loss: 3.2795
+[Enhanced Epoch 3] Loss: 2.9468
+[Enhanced Epoch 4] Loss: 2.7387
+[Enhanced Epoch 5] Loss: 2.5807
+[Enhanced Epoch 6] Loss: 2.4461
+[Enhanced Epoch 7] Loss: 2.3324
+[Enhanced Epoch 8] Loss: 2.2300
+[Enhanced Epoch 9] Loss: 2.1447
+[Enhanced Epoch 10] Loss: 2.0588
+[Enhanced Epoch 11] Loss: 1.9824
+[Enhanced Epoch 12] Loss: 1.9148
+[Enhanced Epoch 13] Loss: 1.8458
+[Enhanced Epoch 14] Loss: 1.7825
+[Enhanced Epoch 15] Loss: 1.7174
+[Enhanced Epoch 16] Loss: 1.6661
+[Enhanced Epoch 17] Loss: 1.6075
+[Enhanced Epoch 18] Loss: 1.5623
+[Enhanced Epoch 19] Loss: 1.5159
+[Enhanced Epoch 20] Loss: 1.4697
+[Enhanced Epoch 21] Loss: 1.4217
+[Enhanced Epoch 22] Loss: 1.3821
+[Enhanced Epoch 23] Loss: 1.3393
+[Enhanced Epoch 24] Loss: 1.3016
+[Enhanced Epoch 25] Loss: 1.2623
+[Enhanced Epoch 26] Loss: 1.2228
+[Enhanced Epoch 27] Loss: 1.1884
+[Enhanced Epoch 28] Loss: 1.1570
+[Enhanced Epoch 29] Loss: 1.1254
+[Enhanced Epoch 30] Loss: 1.0956
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5919
+[Epoch 2] Loss: 4.3872
+[Epoch 3] Loss: 3.9839
+[Epoch 4] Loss: 3.7312
+[Epoch 5] Loss: 3.5659
+[Epoch 6] Loss: 3.4838
+[Epoch 7] Loss: 3.4027
+[Epoch 8] Loss: 3.3208
+[Epoch 9] Loss: 3.2889
+[Epoch 10] Loss: 3.2207
+[Epoch 11] Loss: 3.1808
+[Epoch 12] Loss: 3.1147
+[Epoch 13] Loss: 3.0828
+[Epoch 14] Loss: 3.0588
+[Epoch 15] Loss: 3.0322
+[Epoch 16] Loss: 2.9839
+[Epoch 17] Loss: 2.9805
+[Epoch 18] Loss: 2.9129
+[Epoch 19] Loss: 2.9071
+[Epoch 20] Loss: 2.8847
+[Epoch 21] Loss: 2.8643
+[Epoch 22] Loss: 2.8189
+[Epoch 23] Loss: 2.7956
+[Epoch 24] Loss: 2.7651
+[Epoch 25] Loss: 2.7988
+[Epoch 26] Loss: 2.7503
+[Epoch 27] Loss: 2.7545
+[Epoch 28] Loss: 2.7113
+[Epoch 29] Loss: 2.6764
+[Epoch 30] Loss: 2.6790
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 3.4150
+[Distillation Epoch 2] Loss: 3.2520
+[Distillation Epoch 3] Loss: 3.1638
+[Distillation Epoch 4] Loss: 3.0714
+[Distillation Epoch 5] Loss: 2.9915
+[Distillation Epoch 6] Loss: 2.9146
+[Distillation Epoch 7] Loss: 2.8509
+[Distillation Epoch 8] Loss: 2.7894
+[Distillation Epoch 9] Loss: 2.7454
+[Distillation Epoch 10] Loss: 2.6961
+[Distillation Epoch 11] Loss: 2.6594
+[Distillation Epoch 12] Loss: 2.6135
+[Distillation Epoch 13] Loss: 2.5858
+[Distillation Epoch 14] Loss: 2.5693
+[Distillation Epoch 15] Loss: 2.5281
+[Distillation Epoch 16] Loss: 2.5017
+[Distillation Epoch 17] Loss: 2.4741
+[Distillation Epoch 18] Loss: 2.4467
+[Distillation Epoch 19] Loss: 2.4192
+[Distillation Epoch 20] Loss: 2.3854
+[Distillation Epoch 21] Loss: 2.3594
+[Distillation Epoch 22] Loss: 2.3402
+[Distillation Epoch 23] Loss: 2.3231
+[Distillation Epoch 24] Loss: 2.3064
+[Distillation Epoch 25] Loss: 2.2823
+[Distillation Epoch 26] Loss: 2.2777
+[Distillation Epoch 27] Loss: 2.2394
+[Distillation Epoch 28] Loss: 2.2233
+[Distillation Epoch 29] Loss: 2.2062
+[Distillation Epoch 30] Loss: 2.1799
+[Run 4 results] Base=15.64% | LP=24.14% | ENH=23.07% | ADP=21.67% | DIST=17.89%
+
+--- Run 5/5, seed=46 ---
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier...
+[Epoch 1] Loss: 4.5241
+[Epoch 2] Loss: 4.3393
+[Epoch 3] Loss: 4.2434
+[Epoch 4] Loss: 4.1691
+[Epoch 5] Loss: 4.0824
+[Epoch 6] Loss: 3.9936
+[Epoch 7] Loss: 3.9498
+[Epoch 8] Loss: 3.8843
+[Epoch 9] Loss: 3.8250
+[Epoch 10] Loss: 3.7934
+[Epoch 11] Loss: 3.7162
+[Epoch 12] Loss: 3.6638
+[Epoch 13] Loss: 3.6410
+[Epoch 14] Loss: 3.5806
+[Epoch 15] Loss: 3.5307
+[Epoch 16] Loss: 3.4783
+[Epoch 17] Loss: 3.4516
+[Epoch 18] Loss: 3.4029
+[Epoch 19] Loss: 3.3461
+[Epoch 20] Loss: 3.3014
+[Epoch 21] Loss: 3.2849
+[Epoch 22] Loss: 3.2258
+[Epoch 23] Loss: 3.1755
+[Epoch 24] Loss: 3.1251
+[Epoch 25] Loss: 3.0926
+[Epoch 26] Loss: 3.0581
+[Epoch 27] Loss: 3.0103
+[Epoch 28] Loss: 2.9680
+[Epoch 29] Loss: 2.9655
+[Epoch 30] Loss: 2.8972
+Training linear probe on classifier head...
+[Linear Prob Epoch 1] Loss: 3.7651
+[Linear Prob Epoch 2] Loss: 3.2460
+[Linear Prob Epoch 3] Loss: 3.0520
+[Linear Prob Epoch 4] Loss: 2.8947
+[Linear Prob Epoch 5] Loss: 2.7800
+[Linear Prob Epoch 6] Loss: 2.6623
+[Linear Prob Epoch 7] Loss: 2.5826
+[Linear Prob Epoch 8] Loss: 2.4957
+[Linear Prob Epoch 9] Loss: 2.4249
+[Linear Prob Epoch 10] Loss: 2.3506
+[Linear Prob Epoch 11] Loss: 2.2989
+[Linear Prob Epoch 12] Loss: 2.2419
+[Linear Prob Epoch 13] Loss: 2.2082
+[Linear Prob Epoch 14] Loss: 2.1573
+[Linear Prob Epoch 15] Loss: 2.0873
+[Linear Prob Epoch 16] Loss: 2.0715
+[Linear Prob Epoch 17] Loss: 2.0416
+[Linear Prob Epoch 18] Loss: 1.9965
+[Linear Prob Epoch 19] Loss: 1.9530
+[Linear Prob Epoch 20] Loss: 1.9286
+[Linear Prob Epoch 21] Loss: 1.8893
+[Linear Prob Epoch 22] Loss: 1.8620
+[Linear Prob Epoch 23] Loss: 1.8327
+[Linear Prob Epoch 24] Loss: 1.8115
+[Linear Prob Epoch 25] Loss: 1.7870
+[Linear Prob Epoch 26] Loss: 1.7571
+[Linear Prob Epoch 27] Loss: 1.7288
+[Linear Prob Epoch 28] Loss: 1.7216
+[Linear Prob Epoch 29] Loss: 1.6802
+[Linear Prob Epoch 30] Loss: 1.6645
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.0772
+[Enhanced Epoch 2] Loss: 3.2735
+[Enhanced Epoch 3] Loss: 2.9372
+[Enhanced Epoch 4] Loss: 2.7255
+[Enhanced Epoch 5] Loss: 2.5645
+[Enhanced Epoch 6] Loss: 2.4304
+[Enhanced Epoch 7] Loss: 2.3237
+[Enhanced Epoch 8] Loss: 2.2194
+[Enhanced Epoch 9] Loss: 2.1245
+[Enhanced Epoch 10] Loss: 2.0402
+[Enhanced Epoch 11] Loss: 1.9638
+[Enhanced Epoch 12] Loss: 1.8924
+[Enhanced Epoch 13] Loss: 1.8203
+[Enhanced Epoch 14] Loss: 1.7586
+[Enhanced Epoch 15] Loss: 1.6996
+[Enhanced Epoch 16] Loss: 1.6477
+[Enhanced Epoch 17] Loss: 1.5934
+[Enhanced Epoch 18] Loss: 1.5363
+[Enhanced Epoch 19] Loss: 1.4916
+[Enhanced Epoch 20] Loss: 1.4378
+[Enhanced Epoch 21] Loss: 1.3980
+[Enhanced Epoch 22] Loss: 1.3555
+[Enhanced Epoch 23] Loss: 1.3155
+[Enhanced Epoch 24] Loss: 1.2807
+[Enhanced Epoch 25] Loss: 1.2315
+[Enhanced Epoch 26] Loss: 1.2032
+[Enhanced Epoch 27] Loss: 1.1634
+[Enhanced Epoch 28] Loss: 1.1343
+[Enhanced Epoch 29] Loss: 1.1016
+[Enhanced Epoch 30] Loss: 1.0679
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.5886
+[Epoch 2] Loss: 4.4006
+[Epoch 3] Loss: 4.0321
+[Epoch 4] Loss: 3.7068
+[Epoch 5] Loss: 3.5521
+[Epoch 6] Loss: 3.4752
+[Epoch 7] Loss: 3.3761
+[Epoch 8] Loss: 3.3087
+[Epoch 9] Loss: 3.2269
+[Epoch 10] Loss: 3.2096
+[Epoch 11] Loss: 3.1404
+[Epoch 12] Loss: 3.1121
+[Epoch 13] Loss: 3.0754
+[Epoch 14] Loss: 3.0527
+[Epoch 15] Loss: 2.9900
+[Epoch 16] Loss: 2.9683
+[Epoch 17] Loss: 2.9516
+[Epoch 18] Loss: 2.9031
+[Epoch 19] Loss: 2.8565
+[Epoch 20] Loss: 2.8291
+[Epoch 21] Loss: 2.8497
+[Epoch 22] Loss: 2.8358
+[Epoch 23] Loss: 2.7976
+[Epoch 24] Loss: 2.7554
+[Epoch 25] Loss: 2.7372
+[Epoch 26] Loss: 2.7441
+[Epoch 27] Loss: 2.7262
+[Epoch 28] Loss: 2.7095
+[Epoch 29] Loss: 2.6446
+[Epoch 30] Loss: 2.6716
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 3.4353
+[Distillation Epoch 2] Loss: 3.2621
+[Distillation Epoch 3] Loss: 3.1771
+[Distillation Epoch 4] Loss: 3.1148
+[Distillation Epoch 5] Loss: 3.0313
+[Distillation Epoch 6] Loss: 2.9506
+[Distillation Epoch 7] Loss: 2.8967
+[Distillation Epoch 8] Loss: 2.8275
+[Distillation Epoch 9] Loss: 2.7694
+[Distillation Epoch 10] Loss: 2.7369
+[Distillation Epoch 11] Loss: 2.6923
+[Distillation Epoch 12] Loss: 2.6424
+[Distillation Epoch 13] Loss: 2.6301
+[Distillation Epoch 14] Loss: 2.5872
+[Distillation Epoch 15] Loss: 2.5493
+[Distillation Epoch 16] Loss: 2.5137
+[Distillation Epoch 17] Loss: 2.4928
+[Distillation Epoch 18] Loss: 2.4712
+[Distillation Epoch 19] Loss: 2.4405
+[Distillation Epoch 20] Loss: 2.4114
+[Distillation Epoch 21] Loss: 2.3941
+[Distillation Epoch 22] Loss: 2.3754
+[Distillation Epoch 23] Loss: 2.3581
+[Distillation Epoch 24] Loss: 2.3243
+[Distillation Epoch 25] Loss: 2.3171
+[Distillation Epoch 26] Loss: 2.2935
+[Distillation Epoch 27] Loss: 2.2642
+[Distillation Epoch 28] Loss: 2.2563
+[Distillation Epoch 29] Loss: 2.2313
+[Distillation Epoch 30] Loss: 2.2245
+[Run 5 results] Base=16.45% | LP=23.90% | ENH=22.46% | ADP=21.60% | DIST=17.06%
+
+All done. Final mean/std results saved to: ./results_test100/adversarial_tf_cifar100_confusion.json
+adversarial_tf_test100.py completed successfully.
+Starting noise_tf_test100.py...
+Files already downloaded and verified
+Files already downloaded and verified
+[Epoch 1] Loss: 4.6594
+[Epoch 2] Loss: 4.6101
+[Epoch 3] Loss: 4.6077
+[Epoch 4] Loss: 4.6051
+[Epoch 5] Loss: 4.6011
+[Epoch 6] Loss: 4.6013
+[Epoch 7] Loss: 4.6031
+[Epoch 8] Loss: 4.6000
+[Epoch 9] Loss: 4.5998
+[Epoch 10] Loss: 4.6018
+[Epoch 11] Loss: 4.6019
+[Epoch 12] Loss: 4.5978
+[Epoch 13] Loss: 4.5980
+[Epoch 14] Loss: 4.5976
+[Epoch 15] Loss: 4.6014
+[Epoch 16] Loss: 4.5984
+[Epoch 17] Loss: 4.5970
+[Epoch 18] Loss: 4.5981
+[Epoch 19] Loss: 4.5968
+[Epoch 20] Loss: 4.6019
+[Epoch 21] Loss: 4.5981
+[Epoch 22] Loss: 4.5994
+[Epoch 23] Loss: 4.5996
+[Epoch 24] Loss: 4.5980
+[Epoch 25] Loss: 4.5984
+[Epoch 26] Loss: 4.5989
+[Epoch 27] Loss: 4.5988
+[Epoch 28] Loss: 4.5962
+[Epoch 29] Loss: 4.6004
+[Epoch 30] Loss: 4.6000
+[Epoch 31] Loss: 4.6000
+[Epoch 32] Loss: 4.5978
+[Epoch 33] Loss: 4.5969
+[Epoch 34] Loss: 4.5985
+[Epoch 35] Loss: 4.5967
+[Epoch 36] Loss: 4.5987
+[Epoch 37] Loss: 4.6015
+[Epoch 38] Loss: 4.5966
+[Epoch 39] Loss: 4.5963
+[Epoch 40] Loss: 4.5972
+[Epoch 41] Loss: 4.5965
+[Epoch 42] Loss: 4.5976
+[Epoch 43] Loss: 4.5968
+[Epoch 44] Loss: 4.5964
+[Epoch 45] Loss: 4.5967
+[Epoch 46] Loss: 4.5969
+[Epoch 47] Loss: 4.5971
+[Epoch 48] Loss: 4.5974
+[Epoch 49] Loss: 4.5955
+[Epoch 50] Loss: 4.5955
+[Epoch 51] Loss: 4.5948
+[Epoch 52] Loss: 4.5933
+[Epoch 53] Loss: 4.5971
+[Epoch 54] Loss: 4.5961
+[Epoch 55] Loss: 4.5966
+[Epoch 56] Loss: 4.5955
+[Epoch 57] Loss: 4.5945
+[Epoch 58] Loss: 4.5966
+[Epoch 59] Loss: 4.5963
+[Epoch 60] Loss: 4.5909
+Trained and saved external transformer to: ./model_test100/noise_tf_cifar100_0.8.pt
+External Transformer Eval: Acc=4.97% | AUC=0.6673 | F1=0.0235 | MinCAcc=0.00%
+
+=== Run 1/5, raw-set seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier on raw set...
+[Epoch 1] Loss: 4.5470
+[Epoch 2] Loss: 4.3579
+[Epoch 3] Loss: 4.2321
+[Epoch 4] Loss: 4.1821
+[Epoch 5] Loss: 4.1359
+[Epoch 6] Loss: 4.0900
+[Epoch 7] Loss: 4.0623
+[Epoch 8] Loss: 4.0088
+[Epoch 9] Loss: 3.9657
+[Epoch 10] Loss: 3.9157
+[Epoch 11] Loss: 3.8538
+[Epoch 12] Loss: 3.7898
+[Epoch 13] Loss: 3.7625
+[Epoch 14] Loss: 3.7286
+[Epoch 15] Loss: 3.6719
+[Epoch 16] Loss: 3.6437
+[Epoch 17] Loss: 3.5947
+[Epoch 18] Loss: 3.5460
+[Epoch 19] Loss: 3.5241
+[Epoch 20] Loss: 3.4773
+[Epoch 21] Loss: 3.4325
+[Epoch 22] Loss: 3.3588
+[Epoch 23] Loss: 3.3812
+[Epoch 24] Loss: 3.3033
+[Epoch 25] Loss: 3.2846
+[Epoch 26] Loss: 3.2536
+[Epoch 27] Loss: 3.1909
+[Epoch 28] Loss: 3.1804
+[Epoch 29] Loss: 3.1239
+[Epoch 30] Loss: 3.0900
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 4.4882
+[Linear Prob Epoch 2] Loss: 4.4342
+[Linear Prob Epoch 3] Loss: 4.3897
+[Linear Prob Epoch 4] Loss: 4.3539
+[Linear Prob Epoch 5] Loss: 4.3335
+[Linear Prob Epoch 6] Loss: 4.3084
+[Linear Prob Epoch 7] Loss: 4.2886
+[Linear Prob Epoch 8] Loss: 4.2781
+[Linear Prob Epoch 9] Loss: 4.2594
+[Linear Prob Epoch 10] Loss: 4.2497
+[Linear Prob Epoch 11] Loss: 4.2445
+[Linear Prob Epoch 12] Loss: 4.2340
+[Linear Prob Epoch 13] Loss: 4.2303
+[Linear Prob Epoch 14] Loss: 4.2257
+[Linear Prob Epoch 15] Loss: 4.2068
+[Linear Prob Epoch 16] Loss: 4.2067
+[Linear Prob Epoch 17] Loss: 4.1972
+[Linear Prob Epoch 18] Loss: 4.1997
+[Linear Prob Epoch 19] Loss: 4.1814
+[Linear Prob Epoch 20] Loss: 4.1899
+[Linear Prob Epoch 21] Loss: 4.1818
+[Linear Prob Epoch 22] Loss: 4.1776
+[Linear Prob Epoch 23] Loss: 4.1636
+[Linear Prob Epoch 24] Loss: 4.1714
+[Linear Prob Epoch 25] Loss: 4.1642
+[Linear Prob Epoch 26] Loss: 4.1653
+[Linear Prob Epoch 27] Loss: 4.1611
+[Linear Prob Epoch 28] Loss: 4.1375
+[Linear Prob Epoch 29] Loss: 4.1591
+[Linear Prob Epoch 30] Loss: 4.1452
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.5118
+[Enhanced Epoch 2] Loss: 4.2843
+[Enhanced Epoch 3] Loss: 4.1769
+[Enhanced Epoch 4] Loss: 4.1040
+[Enhanced Epoch 5] Loss: 4.0615
+[Enhanced Epoch 6] Loss: 4.0096
+[Enhanced Epoch 7] Loss: 3.9713
+[Enhanced Epoch 8] Loss: 3.9272
+[Enhanced Epoch 9] Loss: 3.8849
+[Enhanced Epoch 10] Loss: 3.8488
+[Enhanced Epoch 11] Loss: 3.8023
+[Enhanced Epoch 12] Loss: 3.7707
+[Enhanced Epoch 13] Loss: 3.7437
+[Enhanced Epoch 14] Loss: 3.6961
+[Enhanced Epoch 15] Loss: 3.6662
+[Enhanced Epoch 16] Loss: 3.6269
+[Enhanced Epoch 17] Loss: 3.5840
+[Enhanced Epoch 18] Loss: 3.5318
+[Enhanced Epoch 19] Loss: 3.5150
+[Enhanced Epoch 20] Loss: 3.4740
+[Enhanced Epoch 21] Loss: 3.4243
+[Enhanced Epoch 22] Loss: 3.3832
+[Enhanced Epoch 23] Loss: 3.3481
+[Enhanced Epoch 24] Loss: 3.3087
+[Enhanced Epoch 25] Loss: 3.2824
+[Enhanced Epoch 26] Loss: 3.2575
+[Enhanced Epoch 27] Loss: 3.2029
+[Enhanced Epoch 28] Loss: 3.1641
+[Enhanced Epoch 29] Loss: 3.0932
+[Enhanced Epoch 30] Loss: 3.0727
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.6070
+[Epoch 2] Loss: 4.5968
+[Epoch 3] Loss: 4.5826
+[Epoch 4] Loss: 4.5484
+[Epoch 5] Loss: 4.4935
+[Epoch 6] Loss: 4.4404
+[Epoch 7] Loss: 4.3892
+[Epoch 8] Loss: 4.3555
+[Epoch 9] Loss: 4.3325
+[Epoch 10] Loss: 4.3064
+[Epoch 11] Loss: 4.2782
+[Epoch 12] Loss: 4.2672
+[Epoch 13] Loss: 4.2488
+[Epoch 14] Loss: 4.2489
+[Epoch 15] Loss: 4.2122
+[Epoch 16] Loss: 4.2201
+[Epoch 17] Loss: 4.2050
+[Epoch 18] Loss: 4.2024
+[Epoch 19] Loss: 4.1878
+[Epoch 20] Loss: 4.1742
+[Epoch 21] Loss: 4.1750
+[Epoch 22] Loss: 4.1599
+[Epoch 23] Loss: 4.1656
+[Epoch 24] Loss: 4.1651
+[Epoch 25] Loss: 4.1661
+[Epoch 26] Loss: 4.1522
+[Epoch 27] Loss: 4.1533
+[Epoch 28] Loss: 4.1429
+[Epoch 29] Loss: 4.1369
+[Epoch 30] Loss: 4.1436
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 2.3099
+[Distillation Epoch 2] Loss: 2.2476
+[Distillation Epoch 3] Loss: 2.2269
+[Distillation Epoch 4] Loss: 2.2045
+[Distillation Epoch 5] Loss: 2.1889
+[Distillation Epoch 6] Loss: 2.1789
+[Distillation Epoch 7] Loss: 2.1673
+[Distillation Epoch 8] Loss: 2.1628
+[Distillation Epoch 9] Loss: 2.1534
+[Distillation Epoch 10] Loss: 2.1472
+[Distillation Epoch 11] Loss: 2.1388
+[Distillation Epoch 12] Loss: 2.1294
+[Distillation Epoch 13] Loss: 2.1261
+[Distillation Epoch 14] Loss: 2.1196
+[Distillation Epoch 15] Loss: 2.1095
+[Distillation Epoch 16] Loss: 2.1080
+[Distillation Epoch 17] Loss: 2.0952
+[Distillation Epoch 18] Loss: 2.0889
+[Distillation Epoch 19] Loss: 2.0806
+[Distillation Epoch 20] Loss: 2.0741
+[Distillation Epoch 21] Loss: 2.0681
+[Distillation Epoch 22] Loss: 2.0577
+[Distillation Epoch 23] Loss: 2.0522
+[Distillation Epoch 24] Loss: 2.0437
+[Distillation Epoch 25] Loss: 2.0374
+[Distillation Epoch 26] Loss: 2.0295
+[Distillation Epoch 27] Loss: 2.0243
+[Distillation Epoch 28] Loss: 2.0173
+[Distillation Epoch 29] Loss: 2.0135
+[Distillation Epoch 30] Loss: 2.0020
+[Run 1 Results] Base=15.44% | LP=7.23% | ENH=14.86% | ADP=6.76% | DIST=12.19%
+
+=== Run 2/5, raw-set seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier on raw set...
+[Epoch 1] Loss: 4.5504
+[Epoch 2] Loss: 4.3530
+[Epoch 3] Loss: 4.2411
+[Epoch 4] Loss: 4.1812
+[Epoch 5] Loss: 4.1398
+[Epoch 6] Loss: 4.0965
+[Epoch 7] Loss: 4.0598
+[Epoch 8] Loss: 4.0095
+[Epoch 9] Loss: 3.9539
+[Epoch 10] Loss: 3.9302
+[Epoch 11] Loss: 3.8486
+[Epoch 12] Loss: 3.8056
+[Epoch 13] Loss: 3.7490
+[Epoch 14] Loss: 3.7001
+[Epoch 15] Loss: 3.6753
+[Epoch 16] Loss: 3.6273
+[Epoch 17] Loss: 3.5995
+[Epoch 18] Loss: 3.5560
+[Epoch 19] Loss: 3.5076
+[Epoch 20] Loss: 3.4847
+[Epoch 21] Loss: 3.4361
+[Epoch 22] Loss: 3.4059
+[Epoch 23] Loss: 3.3689
+[Epoch 24] Loss: 3.3226
+[Epoch 25] Loss: 3.2723
+[Epoch 26] Loss: 3.2561
+[Epoch 27] Loss: 3.2296
+[Epoch 28] Loss: 3.1956
+[Epoch 29] Loss: 3.1394
+[Epoch 30] Loss: 3.1257
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 4.4901
+[Linear Prob Epoch 2] Loss: 4.4295
+[Linear Prob Epoch 3] Loss: 4.3889
+[Linear Prob Epoch 4] Loss: 4.3549
+[Linear Prob Epoch 5] Loss: 4.3319
+[Linear Prob Epoch 6] Loss: 4.3055
+[Linear Prob Epoch 7] Loss: 4.2935
+[Linear Prob Epoch 8] Loss: 4.2812
+[Linear Prob Epoch 9] Loss: 4.2693
+[Linear Prob Epoch 10] Loss: 4.2433
+[Linear Prob Epoch 11] Loss: 4.2444
+[Linear Prob Epoch 12] Loss: 4.2298
+[Linear Prob Epoch 13] Loss: 4.2163
+[Linear Prob Epoch 14] Loss: 4.2154
+[Linear Prob Epoch 15] Loss: 4.2145
+[Linear Prob Epoch 16] Loss: 4.2053
+[Linear Prob Epoch 17] Loss: 4.2013
+[Linear Prob Epoch 18] Loss: 4.1887
+[Linear Prob Epoch 19] Loss: 4.1826
+[Linear Prob Epoch 20] Loss: 4.1726
+[Linear Prob Epoch 21] Loss: 4.1716
+[Linear Prob Epoch 22] Loss: 4.1581
+[Linear Prob Epoch 23] Loss: 4.1738
+[Linear Prob Epoch 24] Loss: 4.1611
+[Linear Prob Epoch 25] Loss: 4.1577
+[Linear Prob Epoch 26] Loss: 4.1548
+[Linear Prob Epoch 27] Loss: 4.1421
+[Linear Prob Epoch 28] Loss: 4.1498
+[Linear Prob Epoch 29] Loss: 4.1524
+[Linear Prob Epoch 30] Loss: 4.1576
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.5078
+[Enhanced Epoch 2] Loss: 4.2785
+[Enhanced Epoch 3] Loss: 4.1739
+[Enhanced Epoch 4] Loss: 4.0927
+[Enhanced Epoch 5] Loss: 4.0393
+[Enhanced Epoch 6] Loss: 3.9907
+[Enhanced Epoch 7] Loss: 3.9492
+[Enhanced Epoch 8] Loss: 3.9053
+[Enhanced Epoch 9] Loss: 3.8767
+[Enhanced Epoch 10] Loss: 3.8523
+[Enhanced Epoch 11] Loss: 3.8046
+[Enhanced Epoch 12] Loss: 3.7802
+[Enhanced Epoch 13] Loss: 3.7453
+[Enhanced Epoch 14] Loss: 3.7127
+[Enhanced Epoch 15] Loss: 3.6741
+[Enhanced Epoch 16] Loss: 3.6361
+[Enhanced Epoch 17] Loss: 3.6014
+[Enhanced Epoch 18] Loss: 3.5645
+[Enhanced Epoch 19] Loss: 3.5285
+[Enhanced Epoch 20] Loss: 3.4943
+[Enhanced Epoch 21] Loss: 3.4657
+[Enhanced Epoch 22] Loss: 3.3959
+[Enhanced Epoch 23] Loss: 3.3736
+[Enhanced Epoch 24] Loss: 3.3104
+[Enhanced Epoch 25] Loss: 3.3001
+[Enhanced Epoch 26] Loss: 3.2432
+[Enhanced Epoch 27] Loss: 3.2281
+[Enhanced Epoch 28] Loss: 3.1575
+[Enhanced Epoch 29] Loss: 3.1313
+[Enhanced Epoch 30] Loss: 3.0822
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.6047
+[Epoch 2] Loss: 4.5973
+[Epoch 3] Loss: 4.5809
+[Epoch 4] Loss: 4.5484
+[Epoch 5] Loss: 4.4878
+[Epoch 6] Loss: 4.4296
+[Epoch 7] Loss: 4.3887
+[Epoch 8] Loss: 4.3427
+[Epoch 9] Loss: 4.3182
+[Epoch 10] Loss: 4.2845
+[Epoch 11] Loss: 4.2721
+[Epoch 12] Loss: 4.2568
+[Epoch 13] Loss: 4.2314
+[Epoch 14] Loss: 4.2372
+[Epoch 15] Loss: 4.2098
+[Epoch 16] Loss: 4.2050
+[Epoch 17] Loss: 4.2040
+[Epoch 18] Loss: 4.1914
+[Epoch 19] Loss: 4.1836
+[Epoch 20] Loss: 4.1787
+[Epoch 21] Loss: 4.1701
+[Epoch 22] Loss: 4.1611
+[Epoch 23] Loss: 4.1555
+[Epoch 24] Loss: 4.1468
+[Epoch 25] Loss: 4.1508
+[Epoch 26] Loss: 4.1540
+[Epoch 27] Loss: 4.1323
+[Epoch 28] Loss: 4.1324
+[Epoch 29] Loss: 4.1183
+[Epoch 30] Loss: 4.1138
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 2.3084
+[Distillation Epoch 2] Loss: 2.2471
+[Distillation Epoch 3] Loss: 2.2199
+[Distillation Epoch 4] Loss: 2.2007
+[Distillation Epoch 5] Loss: 2.1872
+[Distillation Epoch 6] Loss: 2.1784
+[Distillation Epoch 7] Loss: 2.1650
+[Distillation Epoch 8] Loss: 2.1586
+[Distillation Epoch 9] Loss: 2.1514
+[Distillation Epoch 10] Loss: 2.1434
+[Distillation Epoch 11] Loss: 2.1368
+[Distillation Epoch 12] Loss: 2.1271
+[Distillation Epoch 13] Loss: 2.1139
+[Distillation Epoch 14] Loss: 2.1123
+[Distillation Epoch 15] Loss: 2.1056
+[Distillation Epoch 16] Loss: 2.0985
+[Distillation Epoch 17] Loss: 2.0923
+[Distillation Epoch 18] Loss: 2.0857
+[Distillation Epoch 19] Loss: 2.0776
+[Distillation Epoch 20] Loss: 2.0689
+[Distillation Epoch 21] Loss: 2.0626
+[Distillation Epoch 22] Loss: 2.0535
+[Distillation Epoch 23] Loss: 2.0462
+[Distillation Epoch 24] Loss: 2.0392
+[Distillation Epoch 25] Loss: 2.0338
+[Distillation Epoch 26] Loss: 2.0245
+[Distillation Epoch 27] Loss: 2.0187
+[Distillation Epoch 28] Loss: 2.0086
+[Distillation Epoch 29] Loss: 2.0019
+[Distillation Epoch 30] Loss: 1.9986
+[Run 2 Results] Base=14.68% | LP=6.60% | ENH=14.30% | ADP=6.69% | DIST=11.91%
+
+=== Run 3/5, raw-set seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier on raw set...
+[Epoch 1] Loss: 4.5477
+[Epoch 2] Loss: 4.3606
+[Epoch 3] Loss: 4.2699
+[Epoch 4] Loss: 4.1961
+[Epoch 5] Loss: 4.1507
+[Epoch 6] Loss: 4.1123
+[Epoch 7] Loss: 4.0769
+[Epoch 8] Loss: 4.0303
+[Epoch 9] Loss: 3.9738
+[Epoch 10] Loss: 3.9356
+[Epoch 11] Loss: 3.8774
+[Epoch 12] Loss: 3.8373
+[Epoch 13] Loss: 3.7933
+[Epoch 14] Loss: 3.7639
+[Epoch 15] Loss: 3.7021
+[Epoch 16] Loss: 3.6700
+[Epoch 17] Loss: 3.6240
+[Epoch 18] Loss: 3.5843
+[Epoch 19] Loss: 3.5312
+[Epoch 20] Loss: 3.5005
+[Epoch 21] Loss: 3.4517
+[Epoch 22] Loss: 3.4293
+[Epoch 23] Loss: 3.3869
+[Epoch 24] Loss: 3.3367
+[Epoch 25] Loss: 3.3092
+[Epoch 26] Loss: 3.2480
+[Epoch 27] Loss: 3.2138
+[Epoch 28] Loss: 3.1972
+[Epoch 29] Loss: 3.1460
+[Epoch 30] Loss: 3.1073
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 4.4905
+[Linear Prob Epoch 2] Loss: 4.4345
+[Linear Prob Epoch 3] Loss: 4.3824
+[Linear Prob Epoch 4] Loss: 4.3574
+[Linear Prob Epoch 5] Loss: 4.3222
+[Linear Prob Epoch 6] Loss: 4.3108
+[Linear Prob Epoch 7] Loss: 4.2973
+[Linear Prob Epoch 8] Loss: 4.2791
+[Linear Prob Epoch 9] Loss: 4.2743
+[Linear Prob Epoch 10] Loss: 4.2533
+[Linear Prob Epoch 11] Loss: 4.2398
+[Linear Prob Epoch 12] Loss: 4.2383
+[Linear Prob Epoch 13] Loss: 4.2273
+[Linear Prob Epoch 14] Loss: 4.2134
+[Linear Prob Epoch 15] Loss: 4.2085
+[Linear Prob Epoch 16] Loss: 4.2133
+[Linear Prob Epoch 17] Loss: 4.2066
+[Linear Prob Epoch 18] Loss: 4.1958
+[Linear Prob Epoch 19] Loss: 4.1884
+[Linear Prob Epoch 20] Loss: 4.1843
+[Linear Prob Epoch 21] Loss: 4.1835
+[Linear Prob Epoch 22] Loss: 4.1805
+[Linear Prob Epoch 23] Loss: 4.1745
+[Linear Prob Epoch 24] Loss: 4.1768
+[Linear Prob Epoch 25] Loss: 4.1687
+[Linear Prob Epoch 26] Loss: 4.1597
+[Linear Prob Epoch 27] Loss: 4.1657
+[Linear Prob Epoch 28] Loss: 4.1559
+[Linear Prob Epoch 29] Loss: 4.1515
+[Linear Prob Epoch 30] Loss: 4.1503
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.5027
+[Enhanced Epoch 2] Loss: 4.2797
+[Enhanced Epoch 3] Loss: 4.1705
+[Enhanced Epoch 4] Loss: 4.1136
+[Enhanced Epoch 5] Loss: 4.0783
+[Enhanced Epoch 6] Loss: 4.0270
+[Enhanced Epoch 7] Loss: 3.9891
+[Enhanced Epoch 8] Loss: 3.9638
+[Enhanced Epoch 9] Loss: 3.9188
+[Enhanced Epoch 10] Loss: 3.8954
+[Enhanced Epoch 11] Loss: 3.8608
+[Enhanced Epoch 12] Loss: 3.8069
+[Enhanced Epoch 13] Loss: 3.7625
+[Enhanced Epoch 14] Loss: 3.7140
+[Enhanced Epoch 15] Loss: 3.6763
+[Enhanced Epoch 16] Loss: 3.6389
+[Enhanced Epoch 17] Loss: 3.5902
+[Enhanced Epoch 18] Loss: 3.5341
+[Enhanced Epoch 19] Loss: 3.4898
+[Enhanced Epoch 20] Loss: 3.4385
+[Enhanced Epoch 21] Loss: 3.3999
+[Enhanced Epoch 22] Loss: 3.3498
+[Enhanced Epoch 23] Loss: 3.3122
+[Enhanced Epoch 24] Loss: 3.2835
+[Enhanced Epoch 25] Loss: 3.2457
+[Enhanced Epoch 26] Loss: 3.2087
+[Enhanced Epoch 27] Loss: 3.1665
+[Enhanced Epoch 28] Loss: 3.1294
+[Enhanced Epoch 29] Loss: 3.1154
+[Enhanced Epoch 30] Loss: 3.0432
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.6048
+[Epoch 2] Loss: 4.5948
+[Epoch 3] Loss: 4.5782
+[Epoch 4] Loss: 4.5386
+[Epoch 5] Loss: 4.4814
+[Epoch 6] Loss: 4.4288
+[Epoch 7] Loss: 4.3741
+[Epoch 8] Loss: 4.3394
+[Epoch 9] Loss: 4.3190
+[Epoch 10] Loss: 4.3003
+[Epoch 11] Loss: 4.2736
+[Epoch 12] Loss: 4.2624
+[Epoch 13] Loss: 4.2480
+[Epoch 14] Loss: 4.2407
+[Epoch 15] Loss: 4.2292
+[Epoch 16] Loss: 4.2149
+[Epoch 17] Loss: 4.2144
+[Epoch 18] Loss: 4.2019
+[Epoch 19] Loss: 4.1923
+[Epoch 20] Loss: 4.1946
+[Epoch 21] Loss: 4.1798
+[Epoch 22] Loss: 4.1672
+[Epoch 23] Loss: 4.1664
+[Epoch 24] Loss: 4.1686
+[Epoch 25] Loss: 4.1601
+[Epoch 26] Loss: 4.1617
+[Epoch 27] Loss: 4.1520
+[Epoch 28] Loss: 4.1484
+[Epoch 29] Loss: 4.1457
+[Epoch 30] Loss: 4.1369
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 2.3087
+[Distillation Epoch 2] Loss: 2.2477
+[Distillation Epoch 3] Loss: 2.2184
+[Distillation Epoch 4] Loss: 2.2010
+[Distillation Epoch 5] Loss: 2.1855
+[Distillation Epoch 6] Loss: 2.1762
+[Distillation Epoch 7] Loss: 2.1693
+[Distillation Epoch 8] Loss: 2.1595
+[Distillation Epoch 9] Loss: 2.1534
+[Distillation Epoch 10] Loss: 2.1444
+[Distillation Epoch 11] Loss: 2.1435
+[Distillation Epoch 12] Loss: 2.1347
+[Distillation Epoch 13] Loss: 2.1266
+[Distillation Epoch 14] Loss: 2.1210
+[Distillation Epoch 15] Loss: 2.1122
+[Distillation Epoch 16] Loss: 2.1079
+[Distillation Epoch 17] Loss: 2.0982
+[Distillation Epoch 18] Loss: 2.0906
+[Distillation Epoch 19] Loss: 2.0840
+[Distillation Epoch 20] Loss: 2.0766
+[Distillation Epoch 21] Loss: 2.0718
+[Distillation Epoch 22] Loss: 2.0638
+[Distillation Epoch 23] Loss: 2.0569
+[Distillation Epoch 24] Loss: 2.0511
+[Distillation Epoch 25] Loss: 2.0445
+[Distillation Epoch 26] Loss: 2.0378
+[Distillation Epoch 27] Loss: 2.0302
+[Distillation Epoch 28] Loss: 2.0250
+[Distillation Epoch 29] Loss: 2.0199
+[Distillation Epoch 30] Loss: 2.0111
+[Run 3 Results] Base=15.41% | LP=6.52% | ENH=16.26% | ADP=6.48% | DIST=11.92%
+
+=== Run 4/5, raw-set seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier on raw set...
+[Epoch 1] Loss: 4.5486
+[Epoch 2] Loss: 4.3421
+[Epoch 3] Loss: 4.2413
+[Epoch 4] Loss: 4.1768
+[Epoch 5] Loss: 4.1403
+[Epoch 6] Loss: 4.0958
+[Epoch 7] Loss: 4.0436
+[Epoch 8] Loss: 3.9850
+[Epoch 9] Loss: 3.9345
+[Epoch 10] Loss: 3.9028
+[Epoch 11] Loss: 3.8377
+[Epoch 12] Loss: 3.7900
+[Epoch 13] Loss: 3.7354
+[Epoch 14] Loss: 3.6960
+[Epoch 15] Loss: 3.6542
+[Epoch 16] Loss: 3.5953
+[Epoch 17] Loss: 3.5894
+[Epoch 18] Loss: 3.5327
+[Epoch 19] Loss: 3.5104
+[Epoch 20] Loss: 3.4536
+[Epoch 21] Loss: 3.4401
+[Epoch 22] Loss: 3.4091
+[Epoch 23] Loss: 3.3805
+[Epoch 24] Loss: 3.3291
+[Epoch 25] Loss: 3.2800
+[Epoch 26] Loss: 3.2570
+[Epoch 27] Loss: 3.2066
+[Epoch 28] Loss: 3.1686
+[Epoch 29] Loss: 3.1424
+[Epoch 30] Loss: 3.1182
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 4.4943
+[Linear Prob Epoch 2] Loss: 4.4385
+[Linear Prob Epoch 3] Loss: 4.3940
+[Linear Prob Epoch 4] Loss: 4.3612
+[Linear Prob Epoch 5] Loss: 4.3359
+[Linear Prob Epoch 6] Loss: 4.3159
+[Linear Prob Epoch 7] Loss: 4.2938
+[Linear Prob Epoch 8] Loss: 4.2856
+[Linear Prob Epoch 9] Loss: 4.2626
+[Linear Prob Epoch 10] Loss: 4.2596
+[Linear Prob Epoch 11] Loss: 4.2518
+[Linear Prob Epoch 12] Loss: 4.2445
+[Linear Prob Epoch 13] Loss: 4.2313
+[Linear Prob Epoch 14] Loss: 4.2190
+[Linear Prob Epoch 15] Loss: 4.2095
+[Linear Prob Epoch 16] Loss: 4.2150
+[Linear Prob Epoch 17] Loss: 4.1963
+[Linear Prob Epoch 18] Loss: 4.1974
+[Linear Prob Epoch 19] Loss: 4.1932
+[Linear Prob Epoch 20] Loss: 4.1897
+[Linear Prob Epoch 21] Loss: 4.1820
+[Linear Prob Epoch 22] Loss: 4.1792
+[Linear Prob Epoch 23] Loss: 4.1677
+[Linear Prob Epoch 24] Loss: 4.1678
+[Linear Prob Epoch 25] Loss: 4.1617
+[Linear Prob Epoch 26] Loss: 4.1672
+[Linear Prob Epoch 27] Loss: 4.1581
+[Linear Prob Epoch 28] Loss: 4.1548
+[Linear Prob Epoch 29] Loss: 4.1561
+[Linear Prob Epoch 30] Loss: 4.1503
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.5111
+[Enhanced Epoch 2] Loss: 4.2872
+[Enhanced Epoch 3] Loss: 4.1746
+[Enhanced Epoch 4] Loss: 4.1109
+[Enhanced Epoch 5] Loss: 4.0529
+[Enhanced Epoch 6] Loss: 4.0210
+[Enhanced Epoch 7] Loss: 3.9764
+[Enhanced Epoch 8] Loss: 3.9195
+[Enhanced Epoch 9] Loss: 3.9011
+[Enhanced Epoch 10] Loss: 3.8672
+[Enhanced Epoch 11] Loss: 3.8207
+[Enhanced Epoch 12] Loss: 3.8115
+[Enhanced Epoch 13] Loss: 3.7529
+[Enhanced Epoch 14] Loss: 3.7108
+[Enhanced Epoch 15] Loss: 3.6621
+[Enhanced Epoch 16] Loss: 3.6226
+[Enhanced Epoch 17] Loss: 3.5934
+[Enhanced Epoch 18] Loss: 3.5487
+[Enhanced Epoch 19] Loss: 3.5003
+[Enhanced Epoch 20] Loss: 3.4479
+[Enhanced Epoch 21] Loss: 3.4222
+[Enhanced Epoch 22] Loss: 3.3522
+[Enhanced Epoch 23] Loss: 3.3238
+[Enhanced Epoch 24] Loss: 3.2931
+[Enhanced Epoch 25] Loss: 3.2663
+[Enhanced Epoch 26] Loss: 3.2273
+[Enhanced Epoch 27] Loss: 3.1729
+[Enhanced Epoch 28] Loss: 3.0946
+[Enhanced Epoch 29] Loss: 3.0638
+[Enhanced Epoch 30] Loss: 3.0518
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.6048
+[Epoch 2] Loss: 4.5965
+[Epoch 3] Loss: 4.5812
+[Epoch 4] Loss: 4.5459
+[Epoch 5] Loss: 4.4919
+[Epoch 6] Loss: 4.4359
+[Epoch 7] Loss: 4.3850
+[Epoch 8] Loss: 4.3493
+[Epoch 9] Loss: 4.3347
+[Epoch 10] Loss: 4.3010
+[Epoch 11] Loss: 4.2784
+[Epoch 12] Loss: 4.2646
+[Epoch 13] Loss: 4.2495
+[Epoch 14] Loss: 4.2306
+[Epoch 15] Loss: 4.2290
+[Epoch 16] Loss: 4.2137
+[Epoch 17] Loss: 4.1985
+[Epoch 18] Loss: 4.1889
+[Epoch 19] Loss: 4.1970
+[Epoch 20] Loss: 4.1804
+[Epoch 21] Loss: 4.1759
+[Epoch 22] Loss: 4.1850
+[Epoch 23] Loss: 4.1590
+[Epoch 24] Loss: 4.1637
+[Epoch 25] Loss: 4.1516
+[Epoch 26] Loss: 4.1588
+[Epoch 27] Loss: 4.1584
+[Epoch 28] Loss: 4.1520
+[Epoch 29] Loss: 4.1345
+[Epoch 30] Loss: 4.1516
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 2.3079
+[Distillation Epoch 2] Loss: 2.2470
+[Distillation Epoch 3] Loss: 2.2201
+[Distillation Epoch 4] Loss: 2.2046
+[Distillation Epoch 5] Loss: 2.1917
+[Distillation Epoch 6] Loss: 2.1816
+[Distillation Epoch 7] Loss: 2.1720
+[Distillation Epoch 8] Loss: 2.1653
+[Distillation Epoch 9] Loss: 2.1597
+[Distillation Epoch 10] Loss: 2.1502
+[Distillation Epoch 11] Loss: 2.1460
+[Distillation Epoch 12] Loss: 2.1394
+[Distillation Epoch 13] Loss: 2.1315
+[Distillation Epoch 14] Loss: 2.1237
+[Distillation Epoch 15] Loss: 2.1166
+[Distillation Epoch 16] Loss: 2.1102
+[Distillation Epoch 17] Loss: 2.1036
+[Distillation Epoch 18] Loss: 2.0952
+[Distillation Epoch 19] Loss: 2.0936
+[Distillation Epoch 20] Loss: 2.0836
+[Distillation Epoch 21] Loss: 2.0728
+[Distillation Epoch 22] Loss: 2.0593
+[Distillation Epoch 23] Loss: 2.0549
+[Distillation Epoch 24] Loss: 2.0527
+[Distillation Epoch 25] Loss: 2.0399
+[Distillation Epoch 26] Loss: 2.0377
+[Distillation Epoch 27] Loss: 2.0323
+[Distillation Epoch 28] Loss: 2.0162
+[Distillation Epoch 29] Loss: 2.0186
+[Distillation Epoch 30] Loss: 2.0169
+[Run 4 Results] Base=15.66% | LP=6.53% | ENH=15.83% | ADP=6.46% | DIST=11.69%
+
+=== Run 5/5, raw-set seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training baseline TransformerClassifier on raw set...
+[Epoch 1] Loss: 4.5431
+[Epoch 2] Loss: 4.3469
+[Epoch 3] Loss: 4.2566
+[Epoch 4] Loss: 4.1902
+[Epoch 5] Loss: 4.1529
+[Epoch 6] Loss: 4.0979
+[Epoch 7] Loss: 4.0580
+[Epoch 8] Loss: 3.9984
+[Epoch 9] Loss: 3.9645
+[Epoch 10] Loss: 3.8892
+[Epoch 11] Loss: 3.8425
+[Epoch 12] Loss: 3.7584
+[Epoch 13] Loss: 3.7117
+[Epoch 14] Loss: 3.6903
+[Epoch 15] Loss: 3.6388
+[Epoch 16] Loss: 3.5932
+[Epoch 17] Loss: 3.5385
+[Epoch 18] Loss: 3.5170
+[Epoch 19] Loss: 3.4507
+[Epoch 20] Loss: 3.4198
+[Epoch 21] Loss: 3.3872
+[Epoch 22] Loss: 3.3305
+[Epoch 23] Loss: 3.2989
+[Epoch 24] Loss: 3.2590
+[Epoch 25] Loss: 3.2113
+[Epoch 26] Loss: 3.1744
+[Epoch 27] Loss: 3.1357
+[Epoch 28] Loss: 3.0928
+[Epoch 29] Loss: 3.0961
+[Epoch 30] Loss: 3.0083
+Training linear probe (freeze all but classifier)...
+[Linear Prob Epoch 1] Loss: 4.4910
+[Linear Prob Epoch 2] Loss: 4.4279
+[Linear Prob Epoch 3] Loss: 4.3781
+[Linear Prob Epoch 4] Loss: 4.3528
+[Linear Prob Epoch 5] Loss: 4.3293
+[Linear Prob Epoch 6] Loss: 4.3105
+[Linear Prob Epoch 7] Loss: 4.2888
+[Linear Prob Epoch 8] Loss: 4.2832
+[Linear Prob Epoch 9] Loss: 4.2641
+[Linear Prob Epoch 10] Loss: 4.2478
+[Linear Prob Epoch 11] Loss: 4.2409
+[Linear Prob Epoch 12] Loss: 4.2336
+[Linear Prob Epoch 13] Loss: 4.2153
+[Linear Prob Epoch 14] Loss: 4.2222
+[Linear Prob Epoch 15] Loss: 4.2159
+[Linear Prob Epoch 16] Loss: 4.1996
+[Linear Prob Epoch 17] Loss: 4.1917
+[Linear Prob Epoch 18] Loss: 4.1908
+[Linear Prob Epoch 19] Loss: 4.1842
+[Linear Prob Epoch 20] Loss: 4.1873
+[Linear Prob Epoch 21] Loss: 4.1803
+[Linear Prob Epoch 22] Loss: 4.1771
+[Linear Prob Epoch 23] Loss: 4.1700
+[Linear Prob Epoch 24] Loss: 4.1578
+[Linear Prob Epoch 25] Loss: 4.1606
+[Linear Prob Epoch 26] Loss: 4.1647
+[Linear Prob Epoch 27] Loss: 4.1509
+[Linear Prob Epoch 28] Loss: 4.1500
+[Linear Prob Epoch 29] Loss: 4.1446
+[Linear Prob Epoch 30] Loss: 4.1506
+Training EnhancedTransformer (concat features)...
+[Enhanced Epoch 1] Loss: 4.5019
+[Enhanced Epoch 2] Loss: 4.2754
+[Enhanced Epoch 3] Loss: 4.1770
+[Enhanced Epoch 4] Loss: 4.0955
+[Enhanced Epoch 5] Loss: 4.0545
+[Enhanced Epoch 6] Loss: 4.0081
+[Enhanced Epoch 7] Loss: 3.9715
+[Enhanced Epoch 8] Loss: 3.9085
+[Enhanced Epoch 9] Loss: 3.8754
+[Enhanced Epoch 10] Loss: 3.8477
+[Enhanced Epoch 11] Loss: 3.8200
+[Enhanced Epoch 12] Loss: 3.7800
+[Enhanced Epoch 13] Loss: 3.7511
+[Enhanced Epoch 14] Loss: 3.6980
+[Enhanced Epoch 15] Loss: 3.6737
+[Enhanced Epoch 16] Loss: 3.6286
+[Enhanced Epoch 17] Loss: 3.5953
+[Enhanced Epoch 18] Loss: 3.5530
+[Enhanced Epoch 19] Loss: 3.5256
+[Enhanced Epoch 20] Loss: 3.4571
+[Enhanced Epoch 21] Loss: 3.4283
+[Enhanced Epoch 22] Loss: 3.3991
+[Enhanced Epoch 23] Loss: 3.3477
+[Enhanced Epoch 24] Loss: 3.3142
+[Enhanced Epoch 25] Loss: 3.2437
+[Enhanced Epoch 26] Loss: 3.1950
+[Enhanced Epoch 27] Loss: 3.1510
+[Enhanced Epoch 28] Loss: 3.1138
+[Enhanced Epoch 29] Loss: 3.0668
+[Enhanced Epoch 30] Loss: 3.0366
+Training BaselineAdapterTransformer...
+[Epoch 1] Loss: 4.6056
+[Epoch 2] Loss: 4.5962
+[Epoch 3] Loss: 4.5820
+[Epoch 4] Loss: 4.5450
+[Epoch 5] Loss: 4.4865
+[Epoch 6] Loss: 4.4331
+[Epoch 7] Loss: 4.3907
+[Epoch 8] Loss: 4.3602
+[Epoch 9] Loss: 4.3200
+[Epoch 10] Loss: 4.3018
+[Epoch 11] Loss: 4.2629
+[Epoch 12] Loss: 4.2643
+[Epoch 13] Loss: 4.2304
+[Epoch 14] Loss: 4.2331
+[Epoch 15] Loss: 4.2130
+[Epoch 16] Loss: 4.2020
+[Epoch 17] Loss: 4.1951
+[Epoch 18] Loss: 4.1945
+[Epoch 19] Loss: 4.1758
+[Epoch 20] Loss: 4.1689
+[Epoch 21] Loss: 4.1673
+[Epoch 22] Loss: 4.1569
+[Epoch 23] Loss: 4.1593
+[Epoch 24] Loss: 4.1541
+[Epoch 25] Loss: 4.1465
+[Epoch 26] Loss: 4.1510
+[Epoch 27] Loss: 4.1402
+[Epoch 28] Loss: 4.1378
+[Epoch 29] Loss: 4.1397
+[Epoch 30] Loss: 4.1367
+Training distillation student TransformerClassifier...
+[Distillation Epoch 1] Loss: 2.3076
+[Distillation Epoch 2] Loss: 2.2440
+[Distillation Epoch 3] Loss: 2.2192
+[Distillation Epoch 4] Loss: 2.2009
+[Distillation Epoch 5] Loss: 2.1861
+[Distillation Epoch 6] Loss: 2.1762
+[Distillation Epoch 7] Loss: 2.1681
+[Distillation Epoch 8] Loss: 2.1630
+[Distillation Epoch 9] Loss: 2.1564
+[Distillation Epoch 10] Loss: 2.1463
+[Distillation Epoch 11] Loss: 2.1413
+[Distillation Epoch 12] Loss: 2.1343
+[Distillation Epoch 13] Loss: 2.1296
+[Distillation Epoch 14] Loss: 2.1218
+[Distillation Epoch 15] Loss: 2.1136
+[Distillation Epoch 16] Loss: 2.1117
+[Distillation Epoch 17] Loss: 2.1050
+[Distillation Epoch 18] Loss: 2.0996
+[Distillation Epoch 19] Loss: 2.0896
+[Distillation Epoch 20] Loss: 2.0855
+[Distillation Epoch 21] Loss: 2.0763
+[Distillation Epoch 22] Loss: 2.0681
+[Distillation Epoch 23] Loss: 2.0636
+[Distillation Epoch 24] Loss: 2.0565
+[Distillation Epoch 25] Loss: 2.0440
+[Distillation Epoch 26] Loss: 2.0382
+[Distillation Epoch 27] Loss: 2.0339
+[Distillation Epoch 28] Loss: 2.0285
+[Distillation Epoch 29] Loss: 2.0152
+[Distillation Epoch 30] Loss: 2.0129
+[Run 5 Results] Base=15.40% | LP=6.62% | ENH=16.24% | ADP=6.33% | DIST=11.42%
+
+All done. Final mean/std results saved to: ./results_test100/noise_tf_cifar100_0.8.json
+noise_tf_test100.py completed successfully.

@@ -131,7 +131,7 @@ def main():
 
     # Adversarial parameters.
     p_flip = 0.5    # 50% chance to flip paired class labels
-    noise_std = 0.1 # Noise standard deviation
+    noise_std = 0.2 # Noise standard deviation
 
     # Load test set once (common to all runs)
     _, _, testset = load_and_split_data(seed_for_split=42)
