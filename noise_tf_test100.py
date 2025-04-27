@@ -75,7 +75,7 @@ def main():
     other_epochs    = 30
     num_runs        = 5
 
-    for flip_ratio in [0.8]:
+    for flip_ratio in [0]:
         save_path       = f"./results_test100/noise_tf_cifar100_{flip_ratio}.json"
         model_save_path = f"./model_test100/noise_tf_cifar100_{flip_ratio}.pt"
 

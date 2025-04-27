@@ -147,7 +147,7 @@ def main():
     num_runs = 5
 
     p_flip = 0.5
-    noise_std = 0.2
+    noise_std = 0.8
 
     # Load test set once
     _, _, testset = load_and_split_data(42)
