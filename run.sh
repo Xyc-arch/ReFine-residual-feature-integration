@@ -31,6 +31,16 @@ run_sequential() {
 # Define an array of Python scripts to run sequentially
 PYTHON_SCRIPTS=(
 
+    # 
+    "adversarial.py"
+    "imb.py"
+    "mismatch.py"
+    "noise.py"
+    "adversarial_test100.py"
+    "imb_test100.py"
+    "mismatch_test100.py"
+    "noise_test100.py"
+
     # "mismatch_tf_test100.py"
     # "imb_tf_test100.py"
     "adversarial_tf_test100.py"
@@ -40,17 +50,7 @@ PYTHON_SCRIPTS=(
     # "scaling_oracle.py"
     # "scaling_low_lr.py"
 
-    # "adversarial.py"
-    # "imb.py"
-    # "mismatch.py"
-    # "noise.py"
-
     # "match_stl.py"
-
-    # "adversarial_test100.py"
-    # "imb_test100.py"
-    # "mismatch_test100.py"
-    # "noise_test100.py"
 
 
     # "noise_tf.py"

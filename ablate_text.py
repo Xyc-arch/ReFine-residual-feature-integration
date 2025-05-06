@@ -221,7 +221,7 @@ for k, runs in results.items():
         "min_class_acc": {"mean": float(arr[:,3].mean()), "std": float(arr[:,3].std())},
     }
 
-with open("ablate_adapters.json", "w") as f:
+with open("./results_ablate/ablate_adapters.json", "w") as f:
     json.dump(summary, f, indent=2)
 
 print("\nSaved results to ablate_adapters.json")

@@ -67,7 +67,7 @@ def main():
     num_runs = 5
     flip_ratio = 0
     
-    for flip_ratio in [0.8, 0]:
+    for flip_ratio in [0.8, 0.4, 0]:
         
         save_path = "./results_test10/noise_{}.json".format(flip_ratio)
 

@@ -14,7 +14,7 @@ TICK_LABELSIZE    = 12
 AXIS_LABELSIZE    = 12
 TITLE_FONTSIZE    = 14
 
-OUTDIR            = "./ablate_adapters_plots"
+OUTDIR            = "./results_ablate/ablate_adapters_plots"
 os.makedirs(OUTDIR, exist_ok=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
