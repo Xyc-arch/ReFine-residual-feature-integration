@@ -19,7 +19,6 @@
 *.exe
 *.dmg
 *.bin
-*.pdf
 *.csv
 *.tsv
 *.h5
