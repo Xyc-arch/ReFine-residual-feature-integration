@@ -87,7 +87,7 @@ def load_stl_data(split="train", raw_size=None, seed=42):
 
 def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    save_path = "./results_test100/match_results.json"
+    save_path = "./results/stl.json"
 
     # Download STL-10 data
     print("Checking STL-10 dataset...")
