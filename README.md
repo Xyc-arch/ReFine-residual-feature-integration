@@ -3,6 +3,8 @@
 
 This repository contains code to reproduce the results from the manuscript **"REFINE: Residual Feature Integration is Sufficient to Prevent Negative Transfer."**
 
+![Teaser overview](./pictures/teaser.pdf)
+
 REFINE is a simple, modular, and multi-source-compatible approach that guarantees you never transfer worse than training from scratch. Despite its simplicity and comparable complexity, REFINE can outperform Adapter and Linear Probing in cross-domain transfer scenarios.
 
 
@@ -137,10 +139,20 @@ python download_digit.py
 ```
 - For DomainNet and the Multi-Domain Sentiment Dataset, follow the instructions in `download_domainnet.md` and `download_text.md`.
 
+Then running the following codes will generate results for cross domain transfer:
 ```bash
 python match_stl.py
 python match_digit.py
 python match_domainnet.py
 python match_text.py
 python match_text_elec.py
+```
+
+To obtain the plots for multi-source scaling and ablation of adapter, you can run
+```bash
+python plot_scaling.py
+python plot_scaling_hard.py
+python plot_scaling_oracle.py
+python plot_scaling.py
+python plot_ablate_adapter.py
 ```
