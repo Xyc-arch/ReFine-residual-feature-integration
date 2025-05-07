@@ -3,7 +3,7 @@
 
 This repository contains code to reproduce the results from the manuscript **"REFINE: Residual Feature Integration is Sufficient to Prevent Negative Transfer."**
 
-![ReFine](./teaser.pdf)
+![ReFine](./teaser.png)
 
 REFINE is a simple, modular, and multi-source-compatible approach that guarantees you never transfer worse than training from scratch. Despite its simplicity and comparable complexity, REFINE can outperform Adapter and Linear Probing in cross-domain transfer scenarios.
 
