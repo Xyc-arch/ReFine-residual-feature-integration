@@ -4,7 +4,7 @@ import torch.optim as optim
 import copy
 
 from train_eval import evaluate_model
-from more_baselines.base_model_def_test10 import LoRALinear, JointDiscriminator, grad_reverse
+from more_baselines.base_model_def_test10.base_model_def import LoRALinear, JointDiscriminator, grad_reverse
 
 # ------------------------------
 # LoRA adaptation (head-only)
