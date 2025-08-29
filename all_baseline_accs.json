@@ -1,0 +1,8 @@
+{
+  "source_only": 0.0884,
+  "dann_gate": 0.2291,
+  "dcoral_gate": 0.2911,
+  "lora_adapt": 0.2443,
+  "refine_adapt": 0.4113,
+  "target_only": 0.3958
+}
