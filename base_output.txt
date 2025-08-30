@@ -1,0 +1,2773 @@
+Starting more_baselines/base_adversarial.py...
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Pretraining External Model (BigCNN) on Adversarial Pretraining Data ===
+/home/ubuntu/refine/more_baselines/base_adversarial.py:121: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  external_model = torch.load(model_ckpt).to(device)
+Loaded external model from: ./model_test10/base_adversarial.pt
+External Model (Pretrained) Evaluation: Acc=44.80% | AUC=0.8847 | F1=0.3896 | MinCAcc=0.00%
+
+=== Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=1.6737
+[LoRA] Ep2/30 loss=1.4148
+[LoRA] Ep3/30 loss=1.3332
+[LoRA] Ep4/30 loss=1.3064
+[LoRA] Ep5/30 loss=1.2997
+[LoRA] Ep6/30 loss=1.2885
+[LoRA] Ep7/30 loss=1.2903
+[LoRA] Ep8/30 loss=1.2815
+[LoRA] Ep9/30 loss=1.2783
+[LoRA] Ep10/30 loss=1.2735
+[LoRA] Ep11/30 loss=1.2679
+[LoRA] Ep12/30 loss=1.2672
+[LoRA] Ep13/30 loss=1.2600
+[LoRA] Ep14/30 loss=1.2582
+[LoRA] Ep15/30 loss=1.2581
+[LoRA] Ep16/30 loss=1.2566
+[LoRA] Ep17/30 loss=1.2553
+[LoRA] Ep18/30 loss=1.2503
+[LoRA] Ep19/30 loss=1.2555
+[LoRA] Ep20/30 loss=1.2463
+[LoRA] Ep21/30 loss=1.2496
+[LoRA] Ep22/30 loss=1.2429
+[LoRA] Ep23/30 loss=1.2470
+[LoRA] Ep24/30 loss=1.2425
+[LoRA] Ep25/30 loss=1.2424
+[LoRA] Ep26/30 loss=1.2404
+[LoRA] Ep27/30 loss=1.2423
+[LoRA] Ep28/30 loss=1.2388
+[LoRA] Ep29/30 loss=1.2362
+[LoRA] Ep30/30 loss=1.2421
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=4.9876
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.6177
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.0946
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.5175
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=5.8538
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.1101
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.2830
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.4196
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.5469
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.6401
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.6915
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.7932
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.8383
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.9711
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=7.0024
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=7.0181
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=7.0721
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=7.1121
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.1358
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.1864
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.2278
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.2739
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.3267
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.3575
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.3514
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.3820
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.3971
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.4051
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.4662
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.4650
+[Run 1] LoRA Acc=49.67% | DANN-Gate Acc=49.10%
+
+=== Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=1.5409
+[LoRA] Ep2/30 loss=1.3197
+[LoRA] Ep3/30 loss=1.2547
+[LoRA] Ep4/30 loss=1.2176
+[LoRA] Ep5/30 loss=1.1940
+[LoRA] Ep6/30 loss=1.1895
+[LoRA] Ep7/30 loss=1.1852
+[LoRA] Ep8/30 loss=1.1802
+[LoRA] Ep9/30 loss=1.1780
+[LoRA] Ep10/30 loss=1.1735
+[LoRA] Ep11/30 loss=1.1694
+[LoRA] Ep12/30 loss=1.1658
+[LoRA] Ep13/30 loss=1.1656
+[LoRA] Ep14/30 loss=1.1537
+[LoRA] Ep15/30 loss=1.1566
+[LoRA] Ep16/30 loss=1.1548
+[LoRA] Ep17/30 loss=1.1596
+[LoRA] Ep18/30 loss=1.1490
+[LoRA] Ep19/30 loss=1.1506
+[LoRA] Ep20/30 loss=1.1516
+[LoRA] Ep21/30 loss=1.1463
+[LoRA] Ep22/30 loss=1.1459
+[LoRA] Ep23/30 loss=1.1441
+[LoRA] Ep24/30 loss=1.1439
+[LoRA] Ep25/30 loss=1.1419
+[LoRA] Ep26/30 loss=1.1419
+[LoRA] Ep27/30 loss=1.1398
+[LoRA] Ep28/30 loss=1.1335
+[LoRA] Ep29/30 loss=1.1403
+[LoRA] Ep30/30 loss=1.1373
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=5.0400
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.8254
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.2144
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.4421
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=5.6754
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=5.8093
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.0171
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.1124
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.1690
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.2978
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.3936
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.4657
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.5223
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.6129
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=6.7136
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=6.7666
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=6.8875
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=6.9857
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.0077
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.0756
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.0667
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.1245
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.1487
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.2438
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.2504
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.2978
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.3019
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.3571
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.3830
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.4385
+[Run 2] LoRA Acc=50.12% | DANN-Gate Acc=49.18%
+
+=== Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=1.5397
+[LoRA] Ep2/30 loss=1.3198
+[LoRA] Ep3/30 loss=1.2409
+[LoRA] Ep4/30 loss=1.2140
+[LoRA] Ep5/30 loss=1.2020
+[LoRA] Ep6/30 loss=1.1961
+[LoRA] Ep7/30 loss=1.1943
+[LoRA] Ep8/30 loss=1.1906
+[LoRA] Ep9/30 loss=1.1867
+[LoRA] Ep10/30 loss=1.1783
+[LoRA] Ep11/30 loss=1.1748
+[LoRA] Ep12/30 loss=1.1727
+[LoRA] Ep13/30 loss=1.1737
+[LoRA] Ep14/30 loss=1.1663
+[LoRA] Ep15/30 loss=1.1718
+[LoRA] Ep16/30 loss=1.1657
+[LoRA] Ep17/30 loss=1.1629
+[LoRA] Ep18/30 loss=1.1607
+[LoRA] Ep19/30 loss=1.1572
+[LoRA] Ep20/30 loss=1.1524
+[LoRA] Ep21/30 loss=1.1478
+[LoRA] Ep22/30 loss=1.1530
+[LoRA] Ep23/30 loss=1.1496
+[LoRA] Ep24/30 loss=1.1532
+[LoRA] Ep25/30 loss=1.1497
+[LoRA] Ep26/30 loss=1.1443
+[LoRA] Ep27/30 loss=1.1481
+[LoRA] Ep28/30 loss=1.1417
+[LoRA] Ep29/30 loss=1.1403
+[LoRA] Ep30/30 loss=1.1430
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=4.6669
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.9841
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.4253
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.8137
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=5.9917
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.1742
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.3045
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.3880
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.4896
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.5786
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.6582
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.6834
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.7717
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.8141
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=6.8301
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=6.9369
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=7.0293
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=7.0816
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.1223
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.1743
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.1986
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.2670
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.3515
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.3714
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.4086
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.4527
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.4686
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.4883
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.5276
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.5344
+[Run 3] LoRA Acc=49.92% | DANN-Gate Acc=48.83%
+
+=== Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=1.5203
+[LoRA] Ep2/30 loss=1.3311
+[LoRA] Ep3/30 loss=1.2501
+[LoRA] Ep4/30 loss=1.1999
+[LoRA] Ep5/30 loss=1.1916
+[LoRA] Ep6/30 loss=1.1793
+[LoRA] Ep7/30 loss=1.1723
+[LoRA] Ep8/30 loss=1.1708
+[LoRA] Ep9/30 loss=1.1704
+[LoRA] Ep10/30 loss=1.1617
+[LoRA] Ep11/30 loss=1.1624
+[LoRA] Ep12/30 loss=1.1575
+[LoRA] Ep13/30 loss=1.1530
+[LoRA] Ep14/30 loss=1.1517
+[LoRA] Ep15/30 loss=1.1535
+[LoRA] Ep16/30 loss=1.1480
+[LoRA] Ep17/30 loss=1.1493
+[LoRA] Ep18/30 loss=1.1403
+[LoRA] Ep19/30 loss=1.1409
+[LoRA] Ep20/30 loss=1.1424
+[LoRA] Ep21/30 loss=1.1378
+[LoRA] Ep22/30 loss=1.1402
+[LoRA] Ep23/30 loss=1.1349
+[LoRA] Ep24/30 loss=1.1350
+[LoRA] Ep25/30 loss=1.1356
+[LoRA] Ep26/30 loss=1.1264
+[LoRA] Ep27/30 loss=1.1324
+[LoRA] Ep28/30 loss=1.1287
+[LoRA] Ep29/30 loss=1.1247
+[LoRA] Ep30/30 loss=1.1272
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=4.6277
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.9247
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.4522
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.8874
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=6.0705
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.2821
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.4150
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.4603
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.6342
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.6711
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.7331
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.8313
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.8379
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.8897
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=6.9375
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=6.9339
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=7.0112
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=7.0844
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.1365
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.1890
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.2438
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.2928
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.3043
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.3782
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.4324
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.4660
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.5089
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.5781
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.6062
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.6297
+[Run 4] LoRA Acc=50.38% | DANN-Gate Acc=49.53%
+
+=== Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=1.5192
+[LoRA] Ep2/30 loss=1.3044
+[LoRA] Ep3/30 loss=1.2340
+[LoRA] Ep4/30 loss=1.2016
+[LoRA] Ep5/30 loss=1.1966
+[LoRA] Ep6/30 loss=1.1884
+[LoRA] Ep7/30 loss=1.1870
+[LoRA] Ep8/30 loss=1.1790
+[LoRA] Ep9/30 loss=1.1800
+[LoRA] Ep10/30 loss=1.1695
+[LoRA] Ep11/30 loss=1.1703
+[LoRA] Ep12/30 loss=1.1682
+[LoRA] Ep13/30 loss=1.1654
+[LoRA] Ep14/30 loss=1.1573
+[LoRA] Ep15/30 loss=1.1582
+[LoRA] Ep16/30 loss=1.1547
+[LoRA] Ep17/30 loss=1.1544
+[LoRA] Ep18/30 loss=1.1534
+[LoRA] Ep19/30 loss=1.1513
+[LoRA] Ep20/30 loss=1.1460
+[LoRA] Ep21/30 loss=1.1495
+[LoRA] Ep22/30 loss=1.1506
+[LoRA] Ep23/30 loss=1.1471
+[LoRA] Ep24/30 loss=1.1448
+[LoRA] Ep25/30 loss=1.1410
+[LoRA] Ep26/30 loss=1.1376
+[LoRA] Ep27/30 loss=1.1437
+[LoRA] Ep28/30 loss=1.1383
+[LoRA] Ep29/30 loss=1.1348
+[LoRA] Ep30/30 loss=1.1351
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=4.8160
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.5647
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.2044
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.6297
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=5.8284
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.0880
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.2181
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.3273
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.4174
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.4551
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.6234
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.6570
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.7678
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.7887
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=6.8737
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=6.9210
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=6.9457
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=7.0612
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.0841
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.0920
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.1237
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.1702
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.2846
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.3011
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.3675
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.3912
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.4248
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.5153
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.5155
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.5583
+[Run 5] LoRA Acc=49.72% | DANN-Gate Acc=48.54%
+
+All done. Final mean/std results saved to: ./results_test10_base/adversarial.json
+more_baselines/base_adversarial.py completed successfully.
+Starting more_baselines/base_mismatch.py...
+
+=== Pretraining Teacher (BigCNN) on CIFAR-100 subset ===
+Files already downloaded and verified
+Files already downloaded and verified
+/home/ubuntu/refine/more_baselines/base_mismatch.py:120: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher_model_100 = torch.load(teacher_ckpt).to(device)
+Loaded teacher model from: ./model_test10/base_mismatch_teacher_cifar100.pt
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (teacher -> 10-class head + LoRA) ...
+[LoRA] Ep1/30 loss=1.9203
+[LoRA] Ep2/30 loss=1.6108
+[LoRA] Ep3/30 loss=1.5778
+[LoRA] Ep4/30 loss=1.5521
+[LoRA] Ep5/30 loss=1.5455
+[LoRA] Ep6/30 loss=1.5288
+[LoRA] Ep7/30 loss=1.5221
+[LoRA] Ep8/30 loss=1.5091
+[LoRA] Ep9/30 loss=1.5057
+[LoRA] Ep10/30 loss=1.4923
+[LoRA] Ep11/30 loss=1.4906
+[LoRA] Ep12/30 loss=1.4761
+[LoRA] Ep13/30 loss=1.4720
+[LoRA] Ep14/30 loss=1.4678
+[LoRA] Ep15/30 loss=1.4643
+[LoRA] Ep16/30 loss=1.4581
+[LoRA] Ep17/30 loss=1.4428
+[LoRA] Ep18/30 loss=1.4566
+[LoRA] Ep19/30 loss=1.4328
+[LoRA] Ep20/30 loss=1.4347
+[LoRA] Ep21/30 loss=1.4330
+[LoRA] Ep22/30 loss=1.4332
+[LoRA] Ep23/30 loss=1.4218
+[LoRA] Ep24/30 loss=1.4278
+[LoRA] Ep25/30 loss=1.4254
+[LoRA] Ep26/30 loss=1.4204
+[LoRA] Ep27/30 loss=1.4251
+[LoRA] Ep28/30 loss=1.4061
+[LoRA] Ep29/30 loss=1.4051
+[LoRA] Ep30/30 loss=1.4067
+Training DANN-Gate (teacher -> 10-class head) ...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=5.6650
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.8889
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.0970
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.5876
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=5.9643
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.0867
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.1770
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.2980
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.3999
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.4189
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.4132
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.4620
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.6081
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.5635
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=6.7004
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=6.7469
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=6.7761
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=6.7919
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=6.8693
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=6.8955
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=6.9329
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=6.9894
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.0490
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.0376
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.0581
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.1190
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.1514
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.1535
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.2204
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.2631
+[Run 1] LoRA Acc=42.54% | DANN-Gate Acc=43.21%
+
+=== Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (teacher -> 10-class head + LoRA) ...
+[LoRA] Ep1/30 loss=1.9603
+[LoRA] Ep2/30 loss=1.6682
+[LoRA] Ep3/30 loss=1.6092
+[LoRA] Ep4/30 loss=1.5852
+[LoRA] Ep5/30 loss=1.5632
+[LoRA] Ep6/30 loss=1.5515
+[LoRA] Ep7/30 loss=1.5436
+[LoRA] Ep8/30 loss=1.5249
+[LoRA] Ep9/30 loss=1.5264
+[LoRA] Ep10/30 loss=1.5092
+[LoRA] Ep11/30 loss=1.5140
+[LoRA] Ep12/30 loss=1.4973
+[LoRA] Ep13/30 loss=1.4921
+[LoRA] Ep14/30 loss=1.4926
+[LoRA] Ep15/30 loss=1.4804
+[LoRA] Ep16/30 loss=1.4802
+[LoRA] Ep17/30 loss=1.4689
+[LoRA] Ep18/30 loss=1.4719
+[LoRA] Ep19/30 loss=1.4608
+[LoRA] Ep20/30 loss=1.4663
+[LoRA] Ep21/30 loss=1.4648
+[LoRA] Ep22/30 loss=1.4478
+[LoRA] Ep23/30 loss=1.4516
+[LoRA] Ep24/30 loss=1.4558
+[LoRA] Ep25/30 loss=1.4507
+[LoRA] Ep26/30 loss=1.4425
+[LoRA] Ep27/30 loss=1.4296
+[LoRA] Ep28/30 loss=1.4437
+[LoRA] Ep29/30 loss=1.4422
+[LoRA] Ep30/30 loss=1.4306
+Training DANN-Gate (teacher -> 10-class head) ...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=5.7508
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=5.1803
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.5039
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.7632
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=6.1230
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.3790
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.4258
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.5184
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.6473
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.7992
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.7670
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.8174
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.8681
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.9752
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=6.9462
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=7.0507
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=7.0104
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=7.0803
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.1036
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.1095
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.1347
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.2075
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.2003
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.2313
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.2768
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.3356
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.3144
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.4094
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.3712
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.4439
+[Run 2] LoRA Acc=43.43% | DANN-Gate Acc=43.06%
+
+=== Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (teacher -> 10-class head + LoRA) ...
+[LoRA] Ep1/30 loss=1.9418
+[LoRA] Ep2/30 loss=1.6269
+[LoRA] Ep3/30 loss=1.5979
+[LoRA] Ep4/30 loss=1.5788
+[LoRA] Ep5/30 loss=1.5612
+[LoRA] Ep6/30 loss=1.5496
+[LoRA] Ep7/30 loss=1.5314
+[LoRA] Ep8/30 loss=1.5332
+[LoRA] Ep9/30 loss=1.5279
+[LoRA] Ep10/30 loss=1.5077
+[LoRA] Ep11/30 loss=1.5047
+[LoRA] Ep12/30 loss=1.4949
+[LoRA] Ep13/30 loss=1.4970
+[LoRA] Ep14/30 loss=1.4856
+[LoRA] Ep15/30 loss=1.4865
+[LoRA] Ep16/30 loss=1.4779
+[LoRA] Ep17/30 loss=1.4731
+[LoRA] Ep18/30 loss=1.4679
+[LoRA] Ep19/30 loss=1.4561
+[LoRA] Ep20/30 loss=1.4636
+[LoRA] Ep21/30 loss=1.4573
+[LoRA] Ep22/30 loss=1.4572
+[LoRA] Ep23/30 loss=1.4510
+[LoRA] Ep24/30 loss=1.4420
+[LoRA] Ep25/30 loss=1.4370
+[LoRA] Ep26/30 loss=1.4350
+[LoRA] Ep27/30 loss=1.4276
+[LoRA] Ep28/30 loss=1.4354
+[LoRA] Ep29/30 loss=1.4176
+[LoRA] Ep30/30 loss=1.4238
+Training DANN-Gate (teacher -> 10-class head) ...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=5.6994
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.8904
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.2600
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.6998
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=5.9919
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.1511
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.2783
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.4191
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.4482
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.5216
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.5947
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.7386
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.7359
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.7620
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=6.7248
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=6.7233
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=6.7603
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=6.8203
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=6.8540
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=6.8767
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=6.9214
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.0279
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.0953
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.0971
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.1950
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.2576
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.3143
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.3116
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.3166
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.3535
+[Run 3] LoRA Acc=43.34% | DANN-Gate Acc=43.11%
+
+=== Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (teacher -> 10-class head + LoRA) ...
+[LoRA] Ep1/30 loss=1.9449
+[LoRA] Ep2/30 loss=1.6896
+[LoRA] Ep3/30 loss=1.6235
+[LoRA] Ep4/30 loss=1.5905
+[LoRA] Ep5/30 loss=1.5617
+[LoRA] Ep6/30 loss=1.5566
+[LoRA] Ep7/30 loss=1.5479
+[LoRA] Ep8/30 loss=1.5312
+[LoRA] Ep9/30 loss=1.5273
+[LoRA] Ep10/30 loss=1.5060
+[LoRA] Ep11/30 loss=1.5151
+[LoRA] Ep12/30 loss=1.5007
+[LoRA] Ep13/30 loss=1.4949
+[LoRA] Ep14/30 loss=1.4801
+[LoRA] Ep15/30 loss=1.4804
+[LoRA] Ep16/30 loss=1.4731
+[LoRA] Ep17/30 loss=1.4740
+[LoRA] Ep18/30 loss=1.4660
+[LoRA] Ep19/30 loss=1.4643
+[LoRA] Ep20/30 loss=1.4645
+[LoRA] Ep21/30 loss=1.4664
+[LoRA] Ep22/30 loss=1.4446
+[LoRA] Ep23/30 loss=1.4403
+[LoRA] Ep24/30 loss=1.4447
+[LoRA] Ep25/30 loss=1.4527
+[LoRA] Ep26/30 loss=1.4393
+[LoRA] Ep27/30 loss=1.4345
+[LoRA] Ep28/30 loss=1.4250
+[LoRA] Ep29/30 loss=1.4225
+[LoRA] Ep30/30 loss=1.4379
+Training DANN-Gate (teacher -> 10-class head) ...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=5.8560
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=5.1725
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.6502
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.9995
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=6.2815
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.4968
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.7142
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.7496
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.8982
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=7.0248
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=7.0369
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=7.0365
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=7.1020
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=7.1291
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=7.1754
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=7.1916
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=7.1996
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=7.2295
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.2399
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.3194
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.3670
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.3948
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.4143
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.4377
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.4833
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.5088
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.5871
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.5703
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.5603
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.5978
+[Run 4] LoRA Acc=43.05% | DANN-Gate Acc=43.32%
+
+=== Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (teacher -> 10-class head + LoRA) ...
+[LoRA] Ep1/30 loss=1.9498
+[LoRA] Ep2/30 loss=1.6934
+[LoRA] Ep3/30 loss=1.6258
+[LoRA] Ep4/30 loss=1.5953
+[LoRA] Ep5/30 loss=1.5765
+[LoRA] Ep6/30 loss=1.5654
+[LoRA] Ep7/30 loss=1.5560
+[LoRA] Ep8/30 loss=1.5461
+[LoRA] Ep9/30 loss=1.5296
+[LoRA] Ep10/30 loss=1.5287
+[LoRA] Ep11/30 loss=1.5168
+[LoRA] Ep12/30 loss=1.5185
+[LoRA] Ep13/30 loss=1.5107
+[LoRA] Ep14/30 loss=1.5110
+[LoRA] Ep15/30 loss=1.4991
+[LoRA] Ep16/30 loss=1.4899
+[LoRA] Ep17/30 loss=1.4794
+[LoRA] Ep18/30 loss=1.4836
+[LoRA] Ep19/30 loss=1.4885
+[LoRA] Ep20/30 loss=1.4737
+[LoRA] Ep21/30 loss=1.4752
+[LoRA] Ep22/30 loss=1.4608
+[LoRA] Ep23/30 loss=1.4632
+[LoRA] Ep24/30 loss=1.4619
+[LoRA] Ep25/30 loss=1.4623
+[LoRA] Ep26/30 loss=1.4522
+[LoRA] Ep27/30 loss=1.4393
+[LoRA] Ep28/30 loss=1.4486
+[LoRA] Ep29/30 loss=1.4360
+[LoRA] Ep30/30 loss=1.4422
+Training DANN-Gate (teacher -> 10-class head) ...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=5.6226
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=4.9851
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=5.2864
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=5.6431
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=5.9006
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=6.1796
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=6.3143
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=6.4885
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=6.5787
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=6.6731
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=6.7408
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=6.8247
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=6.8743
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=6.9653
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=7.0285
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=7.0232
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=7.0616
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=7.1058
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=7.1191
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=7.1915
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=7.2025
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=7.2312
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=7.2736
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=7.2901
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=7.3792
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=7.3488
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=7.4081
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=7.4569
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=7.4490
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=7.4946
+[Run 5] LoRA Acc=43.32% | DANN-Gate Acc=43.41%
+
+All done. Final mean/std results saved to: ./results_test10_base/mismatch.json
+more_baselines/base_mismatch.py completed successfully.
+Starting more_baselines/base_noise_test100.py...
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Pretraining External Model (BigCNN on CIFAR-100, noisy labels) ===
+/home/ubuntu/refine/more_baselines/base_noise_test100.py:78: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  external_model = torch.load(model_save_path).to(device)
+Loaded external model from: ./model_test100/base_noise_cifar100_0.8.pt
+External Model Evaluation: Acc=1.00% | AUC=0.6726 | F1=0.0002 | MinCAcc=0.00%
+
+=== flip_ratio=0.8 | Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=4.6064
+[LoRA] Ep2/30 loss=4.6062
+[LoRA] Ep3/30 loss=4.6022
+[LoRA] Ep4/30 loss=4.6000
+[LoRA] Ep5/30 loss=4.5989
+[LoRA] Ep6/30 loss=4.5984
+[LoRA] Ep7/30 loss=4.5974
+[LoRA] Ep8/30 loss=4.5967
+[LoRA] Ep9/30 loss=4.5951
+[LoRA] Ep10/30 loss=4.5937
+[LoRA] Ep11/30 loss=4.5918
+[LoRA] Ep12/30 loss=4.5890
+[LoRA] Ep13/30 loss=4.5843
+[LoRA] Ep14/30 loss=4.5794
+[LoRA] Ep15/30 loss=4.5731
+[LoRA] Ep16/30 loss=4.5685
+[LoRA] Ep17/30 loss=4.5632
+[LoRA] Ep18/30 loss=4.5555
+[LoRA] Ep19/30 loss=4.5486
+[LoRA] Ep20/30 loss=4.5419
+[LoRA] Ep21/30 loss=4.5360
+[LoRA] Ep22/30 loss=4.5299
+[LoRA] Ep23/30 loss=4.5238
+[LoRA] Ep24/30 loss=4.5210
+[LoRA] Ep25/30 loss=4.5167
+[LoRA] Ep26/30 loss=4.5125
+[LoRA] Ep27/30 loss=4.5086
+[LoRA] Ep28/30 loss=4.5017
+[LoRA] Ep29/30 loss=4.4998
+[LoRA] Ep30/30 loss=4.4987
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=10.1053
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=13.5945
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=39.3333
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=38.7404
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.3834
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=39.5643
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=40.0203
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=40.1115
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=39.9293
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=40.1844
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=40.3495
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=40.3267
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=40.3397
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=40.2343
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=40.2837
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=40.4501
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=40.2978
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=40.3678
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=40.3100
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=40.2189
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=40.3506
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=40.4512
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=40.4824
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=40.3922
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=40.2669
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=40.4076
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=40.4208
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=40.3765
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=40.1389
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=40.2866
+[Run 1] LoRA Acc=1.86% | DANN-Gate Acc=1.00%
+
+=== flip_ratio=0.8 | Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=4.6051
+[LoRA] Ep2/30 loss=4.6048
+[LoRA] Ep3/30 loss=4.6024
+[LoRA] Ep4/30 loss=4.6005
+[LoRA] Ep5/30 loss=4.5995
+[LoRA] Ep6/30 loss=4.5991
+[LoRA] Ep7/30 loss=4.5987
+[LoRA] Ep8/30 loss=4.5983
+[LoRA] Ep9/30 loss=4.5982
+[LoRA] Ep10/30 loss=4.5974
+[LoRA] Ep11/30 loss=4.5965
+[LoRA] Ep12/30 loss=4.5955
+[LoRA] Ep13/30 loss=4.5946
+[LoRA] Ep14/30 loss=4.5926
+[LoRA] Ep15/30 loss=4.5900
+[LoRA] Ep16/30 loss=4.5868
+[LoRA] Ep17/30 loss=4.5830
+[LoRA] Ep18/30 loss=4.5796
+[LoRA] Ep19/30 loss=4.5748
+[LoRA] Ep20/30 loss=4.5700
+[LoRA] Ep21/30 loss=4.5656
+[LoRA] Ep22/30 loss=4.5594
+[LoRA] Ep23/30 loss=4.5532
+[LoRA] Ep24/30 loss=4.5471
+[LoRA] Ep25/30 loss=4.5417
+[LoRA] Ep26/30 loss=4.5371
+[LoRA] Ep27/30 loss=4.5346
+[LoRA] Ep28/30 loss=4.5270
+[LoRA] Ep29/30 loss=4.5211
+[LoRA] Ep30/30 loss=4.5167
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=10.3201
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=12.8624
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=39.3757
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=38.5253
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.2026
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=39.3679
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=39.5879
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=39.9032
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=40.1092
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=39.9833
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=40.2636
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=40.0003
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=39.9941
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=40.1231
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=40.1260
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=40.3338
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=40.4050
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=40.1832
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=40.1539
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=40.0194
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=40.1773
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=40.0781
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=40.3081
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=40.3306
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=40.0140
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=40.1485
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=40.2443
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=40.1303
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=40.1515
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=40.1790
+[Run 2] LoRA Acc=2.04% | DANN-Gate Acc=1.00%
+
+=== flip_ratio=0.8 | Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=4.6054
+[LoRA] Ep2/30 loss=4.6044
+[LoRA] Ep3/30 loss=4.6005
+[LoRA] Ep4/30 loss=4.5982
+[LoRA] Ep5/30 loss=4.5974
+[LoRA] Ep6/30 loss=4.5973
+[LoRA] Ep7/30 loss=4.5959
+[LoRA] Ep8/30 loss=4.5960
+[LoRA] Ep9/30 loss=4.5956
+[LoRA] Ep10/30 loss=4.5958
+[LoRA] Ep11/30 loss=4.5950
+[LoRA] Ep12/30 loss=4.5950
+[LoRA] Ep13/30 loss=4.5945
+[LoRA] Ep14/30 loss=4.5943
+[LoRA] Ep15/30 loss=4.5930
+[LoRA] Ep16/30 loss=4.5910
+[LoRA] Ep17/30 loss=4.5889
+[LoRA] Ep18/30 loss=4.5860
+[LoRA] Ep19/30 loss=4.5830
+[LoRA] Ep20/30 loss=4.5796
+[LoRA] Ep21/30 loss=4.5747
+[LoRA] Ep22/30 loss=4.5684
+[LoRA] Ep23/30 loss=4.5630
+[LoRA] Ep24/30 loss=4.5558
+[LoRA] Ep25/30 loss=4.5521
+[LoRA] Ep26/30 loss=4.5444
+[LoRA] Ep27/30 loss=4.5378
+[LoRA] Ep28/30 loss=4.5335
+[LoRA] Ep29/30 loss=4.5268
+[LoRA] Ep30/30 loss=4.5195
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=10.1891
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=13.6855
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=39.4603
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=38.8518
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.2223
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=39.5729
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=39.8392
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=40.1007
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=40.4729
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=40.3282
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=40.3443
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=40.4904
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=40.2974
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=40.3137
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=40.6686
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=40.3975
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=40.6129
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=40.6349
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=40.4000
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=40.3604
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=40.4052
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=40.5590
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=40.3863
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=40.6389
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=40.4261
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=40.3458
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=40.1888
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=40.3440
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=40.6267
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=40.3949
+[Run 3] LoRA Acc=2.01% | DANN-Gate Acc=1.00%
+
+=== flip_ratio=0.8 | Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=4.6052
+[LoRA] Ep2/30 loss=4.6044
+[LoRA] Ep3/30 loss=4.6004
+[LoRA] Ep4/30 loss=4.5981
+[LoRA] Ep5/30 loss=4.5971
+[LoRA] Ep6/30 loss=4.5958
+[LoRA] Ep7/30 loss=4.5948
+[LoRA] Ep8/30 loss=4.5930
+[LoRA] Ep9/30 loss=4.5909
+[LoRA] Ep10/30 loss=4.5883
+[LoRA] Ep11/30 loss=4.5849
+[LoRA] Ep12/30 loss=4.5796
+[LoRA] Ep13/30 loss=4.5734
+[LoRA] Ep14/30 loss=4.5659
+[LoRA] Ep15/30 loss=4.5593
+[LoRA] Ep16/30 loss=4.5513
+[LoRA] Ep17/30 loss=4.5431
+[LoRA] Ep18/30 loss=4.5352
+[LoRA] Ep19/30 loss=4.5276
+[LoRA] Ep20/30 loss=4.5235
+[LoRA] Ep21/30 loss=4.5136
+[LoRA] Ep22/30 loss=4.5088
+[LoRA] Ep23/30 loss=4.5085
+[LoRA] Ep24/30 loss=4.4967
+[LoRA] Ep25/30 loss=4.4955
+[LoRA] Ep26/30 loss=4.4894
+[LoRA] Ep27/30 loss=4.4886
+[LoRA] Ep28/30 loss=4.4810
+[LoRA] Ep29/30 loss=4.4798
+[LoRA] Ep30/30 loss=4.4768
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=10.2468
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=12.9205
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=39.4245
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=38.6254
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.2512
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=39.8041
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=39.8038
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=40.1955
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=40.3042
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=40.0374
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=40.3976
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=40.4453
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=40.5353
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=40.4605
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=40.6718
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=40.7293
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=40.5073
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=40.6706
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=40.8530
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=40.6032
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=40.4945
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=40.7651
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=40.4787
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=40.6277
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=40.5117
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=40.7014
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=40.5987
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=40.6786
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=40.6971
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=40.8314
+[Run 4] LoRA Acc=2.32% | DANN-Gate Acc=1.00%
+
+=== flip_ratio=0.8 | Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=4.6057
+[LoRA] Ep2/30 loss=4.6043
+[LoRA] Ep3/30 loss=4.6002
+[LoRA] Ep4/30 loss=4.5988
+[LoRA] Ep5/30 loss=4.5971
+[LoRA] Ep6/30 loss=4.5972
+[LoRA] Ep7/30 loss=4.5968
+[LoRA] Ep8/30 loss=4.5968
+[LoRA] Ep9/30 loss=4.5961
+[LoRA] Ep10/30 loss=4.5958
+[LoRA] Ep11/30 loss=4.5958
+[LoRA] Ep12/30 loss=4.5951
+[LoRA] Ep13/30 loss=4.5942
+[LoRA] Ep14/30 loss=4.5927
+[LoRA] Ep15/30 loss=4.5916
+[LoRA] Ep16/30 loss=4.5893
+[LoRA] Ep17/30 loss=4.5868
+[LoRA] Ep18/30 loss=4.5841
+[LoRA] Ep19/30 loss=4.5811
+[LoRA] Ep20/30 loss=4.5758
+[LoRA] Ep21/30 loss=4.5721
+[LoRA] Ep22/30 loss=4.5679
+[LoRA] Ep23/30 loss=4.5626
+[LoRA] Ep24/30 loss=4.5568
+[LoRA] Ep25/30 loss=4.5520
+[LoRA] Ep26/30 loss=4.5460
+[LoRA] Ep27/30 loss=4.5416
+[LoRA] Ep28/30 loss=4.5355
+[LoRA] Ep29/30 loss=4.5301
+[LoRA] Ep30/30 loss=4.5245
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=10.2763
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=13.1328
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=39.2174
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=38.5041
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=38.9714
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=39.4711
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=39.6609
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=39.9573
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=39.8959
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=39.9490
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=40.1116
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=40.1049
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=40.3703
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=40.3418
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=40.1090
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=40.2105
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=40.4852
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=40.4111
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=40.2370
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=40.5121
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=40.3119
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=40.6470
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=40.3425
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=40.5459
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=40.4830
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=40.4226
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=40.4390
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=40.3551
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=40.5434
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=40.4437
+[Run 5] LoRA Acc=1.82% | DANN-Gate Acc=1.00%
+
+All done. Final mean/std results saved to: ./results_test100_base/noise_cifar100_0.8.json
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Pretraining External Model (BigCNN on CIFAR-100, noisy labels) ===
+/home/ubuntu/refine/more_baselines/base_noise_test100.py:78: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  external_model = torch.load(model_save_path).to(device)
+Loaded external model from: ./model_test100/base_noise_cifar100_0.4.pt
+External Model Evaluation: Acc=14.47% | AUC=0.8532 | F1=0.1095 | MinCAcc=0.00%
+
+=== flip_ratio=0.4 | Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.6708
+[LoRA] Ep2/30 loss=3.5545
+[LoRA] Ep3/30 loss=3.4780
+[LoRA] Ep4/30 loss=3.4341
+[LoRA] Ep5/30 loss=3.4088
+[LoRA] Ep6/30 loss=3.3865
+[LoRA] Ep7/30 loss=3.3707
+[LoRA] Ep8/30 loss=3.3608
+[LoRA] Ep9/30 loss=3.3554
+[LoRA] Ep10/30 loss=3.3421
+[LoRA] Ep11/30 loss=3.3298
+[LoRA] Ep12/30 loss=3.3305
+[LoRA] Ep13/30 loss=3.3292
+[LoRA] Ep14/30 loss=3.3149
+[LoRA] Ep15/30 loss=3.3067
+[LoRA] Ep16/30 loss=3.3056
+[LoRA] Ep17/30 loss=3.3043
+[LoRA] Ep18/30 loss=3.2998
+[LoRA] Ep19/30 loss=3.2935
+[LoRA] Ep20/30 loss=3.2881
+[LoRA] Ep21/30 loss=3.2829
+[LoRA] Ep22/30 loss=3.2764
+[LoRA] Ep23/30 loss=3.2876
+[LoRA] Ep24/30 loss=3.2746
+[LoRA] Ep25/30 loss=3.2710
+[LoRA] Ep26/30 loss=3.2644
+[LoRA] Ep27/30 loss=3.2598
+[LoRA] Ep28/30 loss=3.2651
+[LoRA] Ep29/30 loss=3.2572
+[LoRA] Ep30/30 loss=3.2486
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.5158
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=9.8550
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=34.2087
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=42.3936
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=45.0240
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=47.8012
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=49.6968
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=51.0243
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=51.8803
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=52.9709
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=53.4220
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=53.8132
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=54.9695
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=53.7570
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=54.8724
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=54.2976
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=55.6477
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=55.8523
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=55.5876
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=56.2263
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=56.3147
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=55.7526
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=56.4548
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=56.2471
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=56.3637
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=56.1025
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=55.4472
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=56.0740
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=56.9614
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=55.7485
+[Run 1] LoRA Acc=16.65% | DANN-Gate Acc=15.17%
+
+=== flip_ratio=0.4 | Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.6350
+[LoRA] Ep2/30 loss=3.5200
+[LoRA] Ep3/30 loss=3.4356
+[LoRA] Ep4/30 loss=3.3945
+[LoRA] Ep5/30 loss=3.3718
+[LoRA] Ep6/30 loss=3.3463
+[LoRA] Ep7/30 loss=3.3333
+[LoRA] Ep8/30 loss=3.3116
+[LoRA] Ep9/30 loss=3.3015
+[LoRA] Ep10/30 loss=3.2919
+[LoRA] Ep11/30 loss=3.2864
+[LoRA] Ep12/30 loss=3.2784
+[LoRA] Ep13/30 loss=3.2749
+[LoRA] Ep14/30 loss=3.2655
+[LoRA] Ep15/30 loss=3.2558
+[LoRA] Ep16/30 loss=3.2495
+[LoRA] Ep17/30 loss=3.2484
+[LoRA] Ep18/30 loss=3.2489
+[LoRA] Ep19/30 loss=3.2369
+[LoRA] Ep20/30 loss=3.2426
+[LoRA] Ep21/30 loss=3.2363
+[LoRA] Ep22/30 loss=3.2293
+[LoRA] Ep23/30 loss=3.2212
+[LoRA] Ep24/30 loss=3.2204
+[LoRA] Ep25/30 loss=3.2131
+[LoRA] Ep26/30 loss=3.2122
+[LoRA] Ep27/30 loss=3.2128
+[LoRA] Ep28/30 loss=3.2132
+[LoRA] Ep29/30 loss=3.2113
+[LoRA] Ep30/30 loss=3.2032
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.8058
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=8.0943
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=30.4293
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=39.7728
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=43.2215
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=45.2656
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=46.9825
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=48.0035
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=48.8698
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=49.7627
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=50.1266
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=51.0133
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=50.4245
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=50.7531
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=51.2218
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=51.4235
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=51.4664
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=50.7708
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=51.3179
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=51.4209
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=51.2189
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=51.0766
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=51.5974
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=51.6985
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=51.6627
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=51.9570
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=51.4285
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=51.2755
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=51.5172
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=51.8265
+[Run 2] LoRA Acc=17.42% | DANN-Gate Acc=14.91%
+
+=== flip_ratio=0.4 | Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.6635
+[LoRA] Ep2/30 loss=3.5567
+[LoRA] Ep3/30 loss=3.4862
+[LoRA] Ep4/30 loss=3.4514
+[LoRA] Ep5/30 loss=3.4246
+[LoRA] Ep6/30 loss=3.3961
+[LoRA] Ep7/30 loss=3.3812
+[LoRA] Ep8/30 loss=3.3579
+[LoRA] Ep9/30 loss=3.3468
+[LoRA] Ep10/30 loss=3.3437
+[LoRA] Ep11/30 loss=3.3352
+[LoRA] Ep12/30 loss=3.3262
+[LoRA] Ep13/30 loss=3.3178
+[LoRA] Ep14/30 loss=3.3123
+[LoRA] Ep15/30 loss=3.3081
+[LoRA] Ep16/30 loss=3.3024
+[LoRA] Ep17/30 loss=3.3004
+[LoRA] Ep18/30 loss=3.2943
+[LoRA] Ep19/30 loss=3.2942
+[LoRA] Ep20/30 loss=3.2872
+[LoRA] Ep21/30 loss=3.2875
+[LoRA] Ep22/30 loss=3.2814
+[LoRA] Ep23/30 loss=3.2765
+[LoRA] Ep24/30 loss=3.2782
+[LoRA] Ep25/30 loss=3.2719
+[LoRA] Ep26/30 loss=3.2757
+[LoRA] Ep27/30 loss=3.2643
+[LoRA] Ep28/30 loss=3.2640
+[LoRA] Ep29/30 loss=3.2621
+[LoRA] Ep30/30 loss=3.2607
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.4827
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=11.6558
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=35.8499
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=41.0289
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=44.3920
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=46.1062
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=47.5520
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=48.3402
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=48.8736
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=49.5300
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=50.4018
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=50.3024
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=50.6849
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=50.8389
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=51.4167
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=51.6572
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=51.9588
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=52.3580
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=51.7803
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=52.2057
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=52.0873
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=52.0058
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=52.3227
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=52.0482
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=51.8400
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=52.8109
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=52.1058
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=52.1077
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=52.2925
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=52.3846
+[Run 3] LoRA Acc=17.60% | DANN-Gate Acc=15.34%
+
+=== flip_ratio=0.4 | Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.6450
+[LoRA] Ep2/30 loss=3.5175
+[LoRA] Ep3/30 loss=3.4323
+[LoRA] Ep4/30 loss=3.3921
+[LoRA] Ep5/30 loss=3.3621
+[LoRA] Ep6/30 loss=3.3468
+[LoRA] Ep7/30 loss=3.3290
+[LoRA] Ep8/30 loss=3.3235
+[LoRA] Ep9/30 loss=3.3082
+[LoRA] Ep10/30 loss=3.3019
+[LoRA] Ep11/30 loss=3.2840
+[LoRA] Ep12/30 loss=3.2875
+[LoRA] Ep13/30 loss=3.2783
+[LoRA] Ep14/30 loss=3.2722
+[LoRA] Ep15/30 loss=3.2716
+[LoRA] Ep16/30 loss=3.2678
+[LoRA] Ep17/30 loss=3.2594
+[LoRA] Ep18/30 loss=3.2531
+[LoRA] Ep19/30 loss=3.2496
+[LoRA] Ep20/30 loss=3.2480
+[LoRA] Ep21/30 loss=3.2488
+[LoRA] Ep22/30 loss=3.2362
+[LoRA] Ep23/30 loss=3.2355
+[LoRA] Ep24/30 loss=3.2341
+[LoRA] Ep25/30 loss=3.2307
+[LoRA] Ep26/30 loss=3.2280
+[LoRA] Ep27/30 loss=3.2299
+[LoRA] Ep28/30 loss=3.2211
+[LoRA] Ep29/30 loss=3.2173
+[LoRA] Ep30/30 loss=3.2198
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.7461
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=10.3299
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=34.7825
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=41.5096
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=44.8833
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=47.4982
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=50.0598
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=50.6642
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=51.7814
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=51.8855
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=51.8271
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=52.2114
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=52.9634
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=53.4495
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=53.8754
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=52.8657
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=53.7692
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=54.1689
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=53.9070
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=53.5882
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=53.5187
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=54.3664
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=53.3931
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=53.1324
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=53.8729
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=53.6757
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=53.0585
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=53.6852
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=54.0044
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=53.3719
+[Run 4] LoRA Acc=17.14% | DANN-Gate Acc=15.35%
+
+=== flip_ratio=0.4 | Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.6501
+[LoRA] Ep2/30 loss=3.5382
+[LoRA] Ep3/30 loss=3.4469
+[LoRA] Ep4/30 loss=3.4000
+[LoRA] Ep5/30 loss=3.3563
+[LoRA] Ep6/30 loss=3.3401
+[LoRA] Ep7/30 loss=3.3262
+[LoRA] Ep8/30 loss=3.3157
+[LoRA] Ep9/30 loss=3.3025
+[LoRA] Ep10/30 loss=3.2909
+[LoRA] Ep11/30 loss=3.2857
+[LoRA] Ep12/30 loss=3.2763
+[LoRA] Ep13/30 loss=3.2755
+[LoRA] Ep14/30 loss=3.2605
+[LoRA] Ep15/30 loss=3.2622
+[LoRA] Ep16/30 loss=3.2534
+[LoRA] Ep17/30 loss=3.2425
+[LoRA] Ep18/30 loss=3.2388
+[LoRA] Ep19/30 loss=3.2405
+[LoRA] Ep20/30 loss=3.2319
+[LoRA] Ep21/30 loss=3.2300
+[LoRA] Ep22/30 loss=3.2316
+[LoRA] Ep23/30 loss=3.2279
+[LoRA] Ep24/30 loss=3.2181
+[LoRA] Ep25/30 loss=3.2279
+[LoRA] Ep26/30 loss=3.2188
+[LoRA] Ep27/30 loss=3.2141
+[LoRA] Ep28/30 loss=3.2077
+[LoRA] Ep29/30 loss=3.2097
+[LoRA] Ep30/30 loss=3.2077
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=8.0407
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=9.0034
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=32.2998
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=41.5878
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=45.0156
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=46.8281
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=48.6583
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=49.5832
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=50.3756
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=51.2712
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=51.8138
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=52.0756
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=52.6021
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=52.4636
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=52.9426
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=52.1411
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=52.8329
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=53.7037
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=53.2265
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=53.9138
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=54.6043
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=53.6013
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=54.5926
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=54.2026
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=54.5778
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=54.6290
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=55.1037
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=54.6342
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=54.0478
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=53.7517
+[Run 5] LoRA Acc=17.41% | DANN-Gate Acc=14.31%
+
+All done. Final mean/std results saved to: ./results_test100_base/noise_cifar100_0.4.json
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Pretraining External Model (BigCNN on CIFAR-100, noisy labels) ===
+/home/ubuntu/refine/more_baselines/base_noise_test100.py:78: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  external_model = torch.load(model_save_path).to(device)
+Loaded external model from: ./model_test100/base_noise_cifar100_0.0.pt
+External Model Evaluation: Acc=23.95% | AUC=0.8738 | F1=0.2434 | MinCAcc=3.00%
+
+=== flip_ratio=0.0 | Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=6.7542
+[LoRA] Ep2/30 loss=6.1991
+[LoRA] Ep3/30 loss=5.7275
+[LoRA] Ep4/30 loss=5.2053
+[LoRA] Ep5/30 loss=4.7847
+[LoRA] Ep6/30 loss=4.4634
+[LoRA] Ep7/30 loss=4.2353
+[LoRA] Ep8/30 loss=4.0677
+[LoRA] Ep9/30 loss=3.8916
+[LoRA] Ep10/30 loss=3.8036
+[LoRA] Ep11/30 loss=3.7477
+[LoRA] Ep12/30 loss=3.6672
+[LoRA] Ep13/30 loss=3.6454
+[LoRA] Ep14/30 loss=3.6181
+[LoRA] Ep15/30 loss=3.6049
+[LoRA] Ep16/30 loss=3.5821
+[LoRA] Ep17/30 loss=3.5711
+[LoRA] Ep18/30 loss=3.5644
+[LoRA] Ep19/30 loss=3.5370
+[LoRA] Ep20/30 loss=3.5552
+[LoRA] Ep21/30 loss=3.5369
+[LoRA] Ep22/30 loss=3.5304
+[LoRA] Ep23/30 loss=3.4863
+[LoRA] Ep24/30 loss=3.5003
+[LoRA] Ep25/30 loss=3.4955
+[LoRA] Ep26/30 loss=3.4693
+[LoRA] Ep27/30 loss=3.4894
+[LoRA] Ep28/30 loss=3.4588
+[LoRA] Ep29/30 loss=3.4544
+[LoRA] Ep30/30 loss=3.4477
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=13.1224
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=14.3331
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=23.1261
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=37.0230
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=42.9852
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=47.4260
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=49.6639
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=51.1800
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=53.2928
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=53.6562
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=54.6282
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=54.4844
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=55.0547
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=56.0937
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=55.8587
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=56.0898
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=56.8227
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=56.9471
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=56.5328
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=56.9254
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=57.6057
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=57.0792
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=57.8040
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=57.6955
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=58.0469
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=58.2495
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=57.8696
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=57.8613
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=57.3353
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=57.3988
+[Run 1] LoRA Acc=26.05% | DANN-Gate Acc=23.74%
+
+=== flip_ratio=0.0 | Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=5.4704
+[LoRA] Ep2/30 loss=5.0205
+[LoRA] Ep3/30 loss=4.6307
+[LoRA] Ep4/30 loss=4.1971
+[LoRA] Ep5/30 loss=3.9415
+[LoRA] Ep6/30 loss=3.7016
+[LoRA] Ep7/30 loss=3.4946
+[LoRA] Ep8/30 loss=3.3397
+[LoRA] Ep9/30 loss=3.2470
+[LoRA] Ep10/30 loss=3.1476
+[LoRA] Ep11/30 loss=3.1036
+[LoRA] Ep12/30 loss=3.0318
+[LoRA] Ep13/30 loss=3.0215
+[LoRA] Ep14/30 loss=2.9872
+[LoRA] Ep15/30 loss=2.9690
+[LoRA] Ep16/30 loss=2.9395
+[LoRA] Ep17/30 loss=2.9406
+[LoRA] Ep18/30 loss=2.9068
+[LoRA] Ep19/30 loss=2.9092
+[LoRA] Ep20/30 loss=2.9048
+[LoRA] Ep21/30 loss=2.8764
+[LoRA] Ep22/30 loss=2.8907
+[LoRA] Ep23/30 loss=2.8827
+[LoRA] Ep24/30 loss=2.8717
+[LoRA] Ep25/30 loss=2.8527
+[LoRA] Ep26/30 loss=2.8573
+[LoRA] Ep27/30 loss=2.8410
+[LoRA] Ep28/30 loss=2.8398
+[LoRA] Ep29/30 loss=2.8059
+[LoRA] Ep30/30 loss=2.8166
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=12.1465
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=13.9378
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=25.5449
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=36.8735
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=41.8067
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=45.7334
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=47.7450
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=50.1236
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=51.7032
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=52.3819
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=53.0271
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=53.7696
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=55.0351
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=55.1293
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=54.5554
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=54.5697
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=55.9772
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=56.0632
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=55.7220
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=56.1597
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=55.5306
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=55.4041
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=56.0573
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=56.5112
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=55.9710
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=56.5317
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=57.0369
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=56.9634
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=57.1927
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=56.6541
+[Run 2] LoRA Acc=26.18% | DANN-Gate Acc=23.88%
+
+=== flip_ratio=0.0 | Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=5.3660
+[LoRA] Ep2/30 loss=4.8960
+[LoRA] Ep3/30 loss=4.4161
+[LoRA] Ep4/30 loss=4.0747
+[LoRA] Ep5/30 loss=3.8627
+[LoRA] Ep6/30 loss=3.7269
+[LoRA] Ep7/30 loss=3.5755
+[LoRA] Ep8/30 loss=3.4634
+[LoRA] Ep9/30 loss=3.3372
+[LoRA] Ep10/30 loss=3.2423
+[LoRA] Ep11/30 loss=3.1321
+[LoRA] Ep12/30 loss=3.1050
+[LoRA] Ep13/30 loss=3.0191
+[LoRA] Ep14/30 loss=2.9817
+[LoRA] Ep15/30 loss=2.9682
+[LoRA] Ep16/30 loss=2.9299
+[LoRA] Ep17/30 loss=2.9124
+[LoRA] Ep18/30 loss=2.9178
+[LoRA] Ep19/30 loss=2.8972
+[LoRA] Ep20/30 loss=2.8927
+[LoRA] Ep21/30 loss=2.8678
+[LoRA] Ep22/30 loss=2.8582
+[LoRA] Ep23/30 loss=2.8140
+[LoRA] Ep24/30 loss=2.8300
+[LoRA] Ep25/30 loss=2.8306
+[LoRA] Ep26/30 loss=2.8376
+[LoRA] Ep27/30 loss=2.7874
+[LoRA] Ep28/30 loss=2.8053
+[LoRA] Ep29/30 loss=2.8020
+[LoRA] Ep30/30 loss=2.8223
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=11.3218
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=12.6534
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=22.6938
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=35.4041
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.8594
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=43.6539
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=45.8924
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=48.4025
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=49.2001
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=50.1729
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=51.1420
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=51.7310
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=52.2783
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=52.9899
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=53.5318
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=53.7422
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=53.9001
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=53.6814
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=53.6858
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=53.5588
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=54.4987
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=55.0652
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=54.6937
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=54.7586
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=54.7976
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=56.0409
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=54.7534
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=55.0790
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=55.7183
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=55.5697
+[Run 3] LoRA Acc=26.17% | DANN-Gate Acc=23.53%
+
+=== flip_ratio=0.0 | Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=5.2581
+[LoRA] Ep2/30 loss=4.7957
+[LoRA] Ep3/30 loss=4.3358
+[LoRA] Ep4/30 loss=3.9604
+[LoRA] Ep5/30 loss=3.7377
+[LoRA] Ep6/30 loss=3.5404
+[LoRA] Ep7/30 loss=3.3908
+[LoRA] Ep8/30 loss=3.2743
+[LoRA] Ep9/30 loss=3.1945
+[LoRA] Ep10/30 loss=3.0786
+[LoRA] Ep11/30 loss=3.0387
+[LoRA] Ep12/30 loss=2.9642
+[LoRA] Ep13/30 loss=2.9072
+[LoRA] Ep14/30 loss=2.9011
+[LoRA] Ep15/30 loss=2.8800
+[LoRA] Ep16/30 loss=2.8532
+[LoRA] Ep17/30 loss=2.8170
+[LoRA] Ep18/30 loss=2.8051
+[LoRA] Ep19/30 loss=2.7997
+[LoRA] Ep20/30 loss=2.7865
+[LoRA] Ep21/30 loss=2.8061
+[LoRA] Ep22/30 loss=2.7631
+[LoRA] Ep23/30 loss=2.7744
+[LoRA] Ep24/30 loss=2.7527
+[LoRA] Ep25/30 loss=2.7316
+[LoRA] Ep26/30 loss=2.7600
+[LoRA] Ep27/30 loss=2.7468
+[LoRA] Ep28/30 loss=2.7290
+[LoRA] Ep29/30 loss=2.7132
+[LoRA] Ep30/30 loss=2.7060
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=15.0297
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=14.7343
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=27.1013
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=34.3693
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.8184
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=43.5585
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=45.7108
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=47.0464
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=48.7907
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=50.0144
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=50.3120
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=51.2734
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=51.9939
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=52.6495
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=52.8397
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=51.9037
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=53.5591
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=53.5551
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=53.5354
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=53.0214
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=54.9635
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=54.1003
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=54.9982
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=54.2676
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=55.0872
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=54.8398
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=54.3757
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=55.1499
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=55.1094
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=55.9966
+[Run 4] LoRA Acc=26.09% | DANN-Gate Acc=24.43%
+
+=== flip_ratio=0.0 | Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=5.4140
+[LoRA] Ep2/30 loss=4.9060
+[LoRA] Ep3/30 loss=4.3979
+[LoRA] Ep4/30 loss=4.0428
+[LoRA] Ep5/30 loss=3.8099
+[LoRA] Ep6/30 loss=3.5999
+[LoRA] Ep7/30 loss=3.4313
+[LoRA] Ep8/30 loss=3.3198
+[LoRA] Ep9/30 loss=3.1960
+[LoRA] Ep10/30 loss=3.1294
+[LoRA] Ep11/30 loss=3.0700
+[LoRA] Ep12/30 loss=3.0260
+[LoRA] Ep13/30 loss=3.0037
+[LoRA] Ep14/30 loss=2.9710
+[LoRA] Ep15/30 loss=2.9380
+[LoRA] Ep16/30 loss=2.9210
+[LoRA] Ep17/30 loss=2.9007
+[LoRA] Ep18/30 loss=2.8785
+[LoRA] Ep19/30 loss=2.8705
+[LoRA] Ep20/30 loss=2.8525
+[LoRA] Ep21/30 loss=2.8688
+[LoRA] Ep22/30 loss=2.8761
+[LoRA] Ep23/30 loss=2.8501
+[LoRA] Ep24/30 loss=2.8308
+[LoRA] Ep25/30 loss=2.8556
+[LoRA] Ep26/30 loss=2.8288
+[LoRA] Ep27/30 loss=2.8017
+[LoRA] Ep28/30 loss=2.8095
+[LoRA] Ep29/30 loss=2.7986
+[LoRA] Ep30/30 loss=2.8046
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=12.9309
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=14.0402
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=24.6683
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=34.8982
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=40.3650
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=44.2085
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=46.0352
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=48.7876
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=50.1502
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=51.3663
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=51.1900
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=52.5351
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=52.0752
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=52.8419
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=53.0760
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=53.9750
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=53.8463
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=54.4393
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=53.6505
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=54.4318
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=54.3171
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=54.2623
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=54.4364
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=54.7128
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=55.5931
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=55.2019
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=55.5449
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=54.8882
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=55.5957
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=55.0132
+[Run 5] LoRA Acc=26.09% | DANN-Gate Acc=24.43%
+
+All done. Final mean/std results saved to: ./results_test100_base/noise_cifar100_0.0.json
+more_baselines/base_noise_test100.py completed successfully.
+Starting more_baselines/base_adversarial_test100.py...
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Pretraining External Model (BigCNN) on Adversarial CIFAR-100 ===
+/home/ubuntu/refine/more_baselines/base_adversarial_test100.py:168: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  external_model = torch.load(model_ckpt).to(device)
+Loaded external model from: ./model_test100/base_adversarial_cifar100.pt
+External Model (Pretrained) Evaluation: Acc=12.42% | AUC=0.8020 | F1=0.1092 | MinCAcc=0.00%
+
+=== Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=4.1206
+[LoRA] Ep2/30 loss=3.8928
+[LoRA] Ep3/30 loss=3.7548
+[LoRA] Ep4/30 loss=3.6802
+[LoRA] Ep5/30 loss=3.6153
+[LoRA] Ep6/30 loss=3.5603
+[LoRA] Ep7/30 loss=3.5262
+[LoRA] Ep8/30 loss=3.4919
+[LoRA] Ep9/30 loss=3.4716
+[LoRA] Ep10/30 loss=3.4535
+[LoRA] Ep11/30 loss=3.4534
+[LoRA] Ep12/30 loss=3.4396
+[LoRA] Ep13/30 loss=3.4298
+[LoRA] Ep14/30 loss=3.4200
+[LoRA] Ep15/30 loss=3.4161
+[LoRA] Ep16/30 loss=3.4063
+[LoRA] Ep17/30 loss=3.4044
+[LoRA] Ep18/30 loss=3.4108
+[LoRA] Ep19/30 loss=3.3863
+[LoRA] Ep20/30 loss=3.3804
+[LoRA] Ep21/30 loss=3.3741
+[LoRA] Ep22/30 loss=3.3772
+[LoRA] Ep23/30 loss=3.3768
+[LoRA] Ep24/30 loss=3.3728
+[LoRA] Ep25/30 loss=3.3661
+[LoRA] Ep26/30 loss=3.3675
+[LoRA] Ep27/30 loss=3.3556
+[LoRA] Ep28/30 loss=3.3508
+[LoRA] Ep29/30 loss=3.3412
+[LoRA] Ep30/30 loss=3.3468
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.9099
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=17.4139
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=37.7845
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=40.9290
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=42.3163
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=43.0914
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=43.8284
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=44.0620
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=44.0421
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=44.8939
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=44.9206
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=44.7752
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=45.4901
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=45.2493
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=45.3454
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=45.3940
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=45.6512
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=45.4420
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=45.6883
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=45.7051
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=45.6145
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=46.2407
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=46.1358
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=45.4001
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=45.9771
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=46.3245
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=46.4298
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=46.0630
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=46.3503
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=45.8371
+[Run 1] LoRA Acc=20.09% | DANN-Gate Acc=17.52%
+
+=== Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.4309
+[LoRA] Ep2/30 loss=3.2555
+[LoRA] Ep3/30 loss=3.1505
+[LoRA] Ep4/30 loss=3.0806
+[LoRA] Ep5/30 loss=3.0289
+[LoRA] Ep6/30 loss=2.9882
+[LoRA] Ep7/30 loss=2.9593
+[LoRA] Ep8/30 loss=2.9301
+[LoRA] Ep9/30 loss=2.9223
+[LoRA] Ep10/30 loss=2.9067
+[LoRA] Ep11/30 loss=2.8916
+[LoRA] Ep12/30 loss=2.8794
+[LoRA] Ep13/30 loss=2.8695
+[LoRA] Ep14/30 loss=2.8623
+[LoRA] Ep15/30 loss=2.8533
+[LoRA] Ep16/30 loss=2.8472
+[LoRA] Ep17/30 loss=2.8413
+[LoRA] Ep18/30 loss=2.8368
+[LoRA] Ep19/30 loss=2.8318
+[LoRA] Ep20/30 loss=2.8180
+[LoRA] Ep21/30 loss=2.8242
+[LoRA] Ep22/30 loss=2.8096
+[LoRA] Ep23/30 loss=2.8035
+[LoRA] Ep24/30 loss=2.8007
+[LoRA] Ep25/30 loss=2.8007
+[LoRA] Ep26/30 loss=2.7986
+[LoRA] Ep27/30 loss=2.7850
+[LoRA] Ep28/30 loss=2.7871
+[LoRA] Ep29/30 loss=2.7894
+[LoRA] Ep30/30 loss=2.7789
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.1108
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=11.1393
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=35.1731
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=39.3508
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=41.5242
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=43.1388
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=44.3212
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=44.6922
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=45.6508
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=45.4620
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=46.2183
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=46.3303
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=46.7432
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=46.9665
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=46.6391
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=46.9565
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=46.8512
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=47.1130
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=47.8778
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=47.4486
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=47.3237
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=47.5078
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=47.8859
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=47.9356
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=47.9384
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=47.7737
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=47.8784
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=47.6258
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=47.0419
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=47.9318
+[Run 2] LoRA Acc=20.08% | DANN-Gate Acc=17.68%
+
+=== Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.4499
+[LoRA] Ep2/30 loss=3.2960
+[LoRA] Ep3/30 loss=3.1737
+[LoRA] Ep4/30 loss=3.0886
+[LoRA] Ep5/30 loss=3.0253
+[LoRA] Ep6/30 loss=2.9785
+[LoRA] Ep7/30 loss=2.9722
+[LoRA] Ep8/30 loss=2.9481
+[LoRA] Ep9/30 loss=2.9198
+[LoRA] Ep10/30 loss=2.9121
+[LoRA] Ep11/30 loss=2.8982
+[LoRA] Ep12/30 loss=2.8861
+[LoRA] Ep13/30 loss=2.8692
+[LoRA] Ep14/30 loss=2.8568
+[LoRA] Ep15/30 loss=2.8557
+[LoRA] Ep16/30 loss=2.8419
+[LoRA] Ep17/30 loss=2.8363
+[LoRA] Ep18/30 loss=2.8345
+[LoRA] Ep19/30 loss=2.8294
+[LoRA] Ep20/30 loss=2.8176
+[LoRA] Ep21/30 loss=2.8127
+[LoRA] Ep22/30 loss=2.8153
+[LoRA] Ep23/30 loss=2.8011
+[LoRA] Ep24/30 loss=2.7965
+[LoRA] Ep25/30 loss=2.7960
+[LoRA] Ep26/30 loss=2.7906
+[LoRA] Ep27/30 loss=2.7949
+[LoRA] Ep28/30 loss=2.7820
+[LoRA] Ep29/30 loss=2.7827
+[LoRA] Ep30/30 loss=2.7794
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.2350
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=15.7282
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=36.8808
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=39.8606
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=41.9535
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=42.8358
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=43.1243
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=44.2654
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=44.5080
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=44.9077
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=45.7195
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=45.7597
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=46.0489
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=45.6908
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=45.7177
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=46.0676
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=46.1294
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=46.4719
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=45.9246
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=46.0652
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=45.7848
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=45.8470
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=46.2058
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=45.9695
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=46.0512
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=46.0293
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=46.5499
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=45.9420
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=46.0450
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=46.7433
+[Run 3] LoRA Acc=19.86% | DANN-Gate Acc=17.08%
+
+=== Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.4636
+[LoRA] Ep2/30 loss=3.2935
+[LoRA] Ep3/30 loss=3.1599
+[LoRA] Ep4/30 loss=3.0900
+[LoRA] Ep5/30 loss=3.0380
+[LoRA] Ep6/30 loss=3.0162
+[LoRA] Ep7/30 loss=2.9707
+[LoRA] Ep8/30 loss=2.9467
+[LoRA] Ep9/30 loss=2.9355
+[LoRA] Ep10/30 loss=2.9128
+[LoRA] Ep11/30 loss=2.9047
+[LoRA] Ep12/30 loss=2.8933
+[LoRA] Ep13/30 loss=2.8837
+[LoRA] Ep14/30 loss=2.8797
+[LoRA] Ep15/30 loss=2.8765
+[LoRA] Ep16/30 loss=2.8660
+[LoRA] Ep17/30 loss=2.8560
+[LoRA] Ep18/30 loss=2.8467
+[LoRA] Ep19/30 loss=2.8506
+[LoRA] Ep20/30 loss=2.8351
+[LoRA] Ep21/30 loss=2.8354
+[LoRA] Ep22/30 loss=2.8259
+[LoRA] Ep23/30 loss=2.8155
+[LoRA] Ep24/30 loss=2.8182
+[LoRA] Ep25/30 loss=2.8035
+[LoRA] Ep26/30 loss=2.8196
+[LoRA] Ep27/30 loss=2.7999
+[LoRA] Ep28/30 loss=2.8054
+[LoRA] Ep29/30 loss=2.7968
+[LoRA] Ep30/30 loss=2.7958
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.2046
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=14.7699
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=37.2027
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=40.6622
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=43.2152
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=44.5913
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=45.6599
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=45.9573
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=46.7467
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=46.7165
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=47.4884
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=47.6340
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=47.3124
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=47.9981
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=47.5325
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=47.9554
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=48.4461
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=48.4847
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=48.7229
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=48.3504
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=48.9383
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=48.9783
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=48.8882
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=49.3767
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=48.7684
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=48.8679
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=48.5249
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=48.6945
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=49.5451
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=49.2966
+[Run 4] LoRA Acc=19.87% | DANN-Gate Acc=17.43%
+
+=== Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=3.4208
+[LoRA] Ep2/30 loss=3.2580
+[LoRA] Ep3/30 loss=3.1434
+[LoRA] Ep4/30 loss=3.0666
+[LoRA] Ep5/30 loss=3.0141
+[LoRA] Ep6/30 loss=2.9671
+[LoRA] Ep7/30 loss=2.9385
+[LoRA] Ep8/30 loss=2.9152
+[LoRA] Ep9/30 loss=2.9039
+[LoRA] Ep10/30 loss=2.8872
+[LoRA] Ep11/30 loss=2.8699
+[LoRA] Ep12/30 loss=2.8677
+[LoRA] Ep13/30 loss=2.8599
+[LoRA] Ep14/30 loss=2.8430
+[LoRA] Ep15/30 loss=2.8324
+[LoRA] Ep16/30 loss=2.8336
+[LoRA] Ep17/30 loss=2.8199
+[LoRA] Ep18/30 loss=2.8251
+[LoRA] Ep19/30 loss=2.8183
+[LoRA] Ep20/30 loss=2.8146
+[LoRA] Ep21/30 loss=2.8119
+[LoRA] Ep22/30 loss=2.8062
+[LoRA] Ep23/30 loss=2.7990
+[LoRA] Ep24/30 loss=2.7996
+[LoRA] Ep25/30 loss=2.7974
+[LoRA] Ep26/30 loss=2.7806
+[LoRA] Ep27/30 loss=2.7825
+[LoRA] Ep28/30 loss=2.7800
+[LoRA] Ep29/30 loss=2.7773
+[LoRA] Ep30/30 loss=2.7770
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=7.0994
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=17.4403
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=37.9632
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=41.4472
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=43.4794
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=45.2312
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=46.1823
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=47.0024
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=47.5330
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=47.7595
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=48.0412
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=47.9807
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=47.1694
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=47.0822
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=48.2306
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=47.3582
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=47.8238
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=47.9102
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=48.5773
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=48.5920
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=48.5711
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=48.3980
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=48.4984
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=49.0879
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=49.6991
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=48.5418
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=48.7298
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=48.8121
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=49.1326
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=48.1847
+[Run 5] LoRA Acc=20.34% | DANN-Gate Acc=18.08%
+
+All done. Final mean/std results saved to: ./results_test100_base/adversarial_cifar100_confusion.json
+more_baselines/base_adversarial_test100.py completed successfully.
+Starting more_baselines/base_imb_test100.py...
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Pretraining External Model (BigCNN) on Imbalanced CIFAR-100 ===
+/home/ubuntu/refine/more_baselines/base_imb_test100.py:97: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  external_model = torch.load(model_ckpt).to(device)
+Loaded external model from: ./model_test100/base_imbalance_cifar100.pt
+External Model Evaluation: Acc=21.49% | AUC=0.7744 | F1=0.1813 | MinCAcc=0.00%
+
+=== Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=11.2868
+[LoRA] Ep2/30 loss=5.7810
+[LoRA] Ep3/30 loss=5.6185
+[LoRA] Ep4/30 loss=5.3898
+[LoRA] Ep5/30 loss=5.2629
+[LoRA] Ep6/30 loss=5.1216
+[LoRA] Ep7/30 loss=4.9756
+[LoRA] Ep8/30 loss=4.7956
+[LoRA] Ep9/30 loss=4.7297
+[LoRA] Ep10/30 loss=4.5334
+[LoRA] Ep11/30 loss=4.3866
+[LoRA] Ep12/30 loss=4.2043
+[LoRA] Ep13/30 loss=4.1308
+[LoRA] Ep14/30 loss=3.9813
+[LoRA] Ep15/30 loss=3.8209
+[LoRA] Ep16/30 loss=3.7011
+[LoRA] Ep17/30 loss=3.5772
+[LoRA] Ep18/30 loss=3.4741
+[LoRA] Ep19/30 loss=3.4375
+[LoRA] Ep20/30 loss=3.3582
+[LoRA] Ep21/30 loss=3.2922
+[LoRA] Ep22/30 loss=3.2269
+[LoRA] Ep23/30 loss=3.1979
+[LoRA] Ep24/30 loss=3.1560
+[LoRA] Ep25/30 loss=3.1291
+[LoRA] Ep26/30 loss=3.1251
+[LoRA] Ep27/30 loss=3.1092
+[LoRA] Ep28/30 loss=3.0762
+[LoRA] Ep29/30 loss=3.0350
+[LoRA] Ep30/30 loss=3.0404
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=22.7765
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=26.5996
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=34.1119
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=38.2639
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=41.0988
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=43.5216
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=45.8134
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=47.5565
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=48.2942
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=50.7319
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=52.4017
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=53.1527
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=54.7078
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=55.3611
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=55.7437
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=55.8952
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=57.0199
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=57.0107
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=57.4130
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=57.1598
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=58.0474
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=57.8444
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=57.9893
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=57.8626
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=58.7843
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=58.3362
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=58.8642
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=58.6302
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=59.1540
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=58.2918
+[Run 1] LoRA Acc=22.02% | DANN-Gate Acc=21.14%
+
+=== Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=11.2860
+[LoRA] Ep2/30 loss=5.9387
+[LoRA] Ep3/30 loss=5.7246
+[LoRA] Ep4/30 loss=5.6381
+[LoRA] Ep5/30 loss=5.4796
+[LoRA] Ep6/30 loss=5.2913
+[LoRA] Ep7/30 loss=5.1234
+[LoRA] Ep8/30 loss=4.9253
+[LoRA] Ep9/30 loss=4.6716
+[LoRA] Ep10/30 loss=4.4984
+[LoRA] Ep11/30 loss=4.3172
+[LoRA] Ep12/30 loss=4.0923
+[LoRA] Ep13/30 loss=3.9329
+[LoRA] Ep14/30 loss=3.7932
+[LoRA] Ep15/30 loss=3.6814
+[LoRA] Ep16/30 loss=3.5299
+[LoRA] Ep17/30 loss=3.4688
+[LoRA] Ep18/30 loss=3.3884
+[LoRA] Ep19/30 loss=3.3333
+[LoRA] Ep20/30 loss=3.2744
+[LoRA] Ep21/30 loss=3.2102
+[LoRA] Ep22/30 loss=3.1923
+[LoRA] Ep23/30 loss=3.1874
+[LoRA] Ep24/30 loss=3.1386
+[LoRA] Ep25/30 loss=3.1084
+[LoRA] Ep26/30 loss=3.1006
+[LoRA] Ep27/30 loss=3.0725
+[LoRA] Ep28/30 loss=3.0732
+[LoRA] Ep29/30 loss=3.0401
+[LoRA] Ep30/30 loss=3.0417
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=22.4574
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=20.6390
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=28.1992
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=35.2476
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.1270
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=41.6694
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=45.2976
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=46.6670
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=48.9675
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=50.6426
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=51.3784
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=52.2803
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=52.7864
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=53.3427
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=53.8316
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=53.9734
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=54.1463
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=53.4376
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=54.4080
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=54.2319
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=54.4168
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=55.1001
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=55.8370
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=54.7400
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=55.1697
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=55.4181
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=56.0797
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=56.2069
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=55.1890
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=55.7841
+[Run 2] LoRA Acc=22.36% | DANN-Gate Acc=20.72%
+
+=== Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=10.8836
+[LoRA] Ep2/30 loss=5.9841
+[LoRA] Ep3/30 loss=5.8929
+[LoRA] Ep4/30 loss=5.8212
+[LoRA] Ep5/30 loss=5.7152
+[LoRA] Ep6/30 loss=5.6205
+[LoRA] Ep7/30 loss=5.4888
+[LoRA] Ep8/30 loss=5.3386
+[LoRA] Ep9/30 loss=5.1600
+[LoRA] Ep10/30 loss=4.9480
+[LoRA] Ep11/30 loss=4.7509
+[LoRA] Ep12/30 loss=4.5482
+[LoRA] Ep13/30 loss=4.3369
+[LoRA] Ep14/30 loss=4.2025
+[LoRA] Ep15/30 loss=4.0645
+[LoRA] Ep16/30 loss=3.8766
+[LoRA] Ep17/30 loss=3.7589
+[LoRA] Ep18/30 loss=3.6899
+[LoRA] Ep19/30 loss=3.5912
+[LoRA] Ep20/30 loss=3.5108
+[LoRA] Ep21/30 loss=3.4643
+[LoRA] Ep22/30 loss=3.4041
+[LoRA] Ep23/30 loss=3.3621
+[LoRA] Ep24/30 loss=3.3176
+[LoRA] Ep25/30 loss=3.2858
+[LoRA] Ep26/30 loss=3.2558
+[LoRA] Ep27/30 loss=3.1981
+[LoRA] Ep28/30 loss=3.1846
+[LoRA] Ep29/30 loss=3.1662
+[LoRA] Ep30/30 loss=3.1586
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=18.8897
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=22.4233
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=29.6721
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=35.0985
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=39.0303
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=41.8592
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=45.0311
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=47.3566
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=49.0479
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=50.7491
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=51.7610
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=51.9727
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=53.2213
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=53.2013
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=53.6700
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=54.2573
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=55.0833
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=55.1915
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=55.4662
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=55.1544
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=54.9804
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=55.1323
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=55.6267
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=55.1625
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=56.0806
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=56.3839
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=55.7166
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=57.0054
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=56.9887
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=56.7299
+[Run 3] LoRA Acc=22.85% | DANN-Gate Acc=20.64%
+
+=== Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=11.1443
+[LoRA] Ep2/30 loss=5.5819
+[LoRA] Ep3/30 loss=5.2735
+[LoRA] Ep4/30 loss=5.1537
+[LoRA] Ep5/30 loss=5.0239
+[LoRA] Ep6/30 loss=4.8444
+[LoRA] Ep7/30 loss=4.7429
+[LoRA] Ep8/30 loss=4.5862
+[LoRA] Ep9/30 loss=4.4710
+[LoRA] Ep10/30 loss=4.3284
+[LoRA] Ep11/30 loss=4.2059
+[LoRA] Ep12/30 loss=4.1138
+[LoRA] Ep13/30 loss=3.9921
+[LoRA] Ep14/30 loss=3.8819
+[LoRA] Ep15/30 loss=3.7457
+[LoRA] Ep16/30 loss=3.5860
+[LoRA] Ep17/30 loss=3.5308
+[LoRA] Ep18/30 loss=3.4123
+[LoRA] Ep19/30 loss=3.3557
+[LoRA] Ep20/30 loss=3.2705
+[LoRA] Ep21/30 loss=3.2126
+[LoRA] Ep22/30 loss=3.1672
+[LoRA] Ep23/30 loss=3.1334
+[LoRA] Ep24/30 loss=3.1209
+[LoRA] Ep25/30 loss=3.1070
+[LoRA] Ep26/30 loss=3.0593
+[LoRA] Ep27/30 loss=3.0329
+[LoRA] Ep28/30 loss=3.0180
+[LoRA] Ep29/30 loss=2.9846
+[LoRA] Ep30/30 loss=2.9896
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=18.8716
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=25.8423
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=33.8390
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=38.8809
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=42.6885
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=45.2599
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=47.8709
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=49.7967
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=50.9247
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=50.9703
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=52.1380
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=53.8950
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=54.0515
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=53.9778
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=54.6542
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=54.5528
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=55.4860
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=54.9879
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=55.6876
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=55.2588
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=55.9232
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=56.4934
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=57.0561
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=56.8830
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=57.1685
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=56.8828
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=56.7540
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=56.7502
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=56.7793
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=57.5403
+[Run 4] LoRA Acc=23.13% | DANN-Gate Acc=20.70%
+
+=== Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA...
+[LoRA] Ep1/30 loss=11.0435
+[LoRA] Ep2/30 loss=6.0028
+[LoRA] Ep3/30 loss=5.7608
+[LoRA] Ep4/30 loss=5.6151
+[LoRA] Ep5/30 loss=5.5633
+[LoRA] Ep6/30 loss=5.3722
+[LoRA] Ep7/30 loss=5.2632
+[LoRA] Ep8/30 loss=5.0840
+[LoRA] Ep9/30 loss=4.8896
+[LoRA] Ep10/30 loss=4.6770
+[LoRA] Ep11/30 loss=4.4181
+[LoRA] Ep12/30 loss=4.2130
+[LoRA] Ep13/30 loss=3.9889
+[LoRA] Ep14/30 loss=3.8552
+[LoRA] Ep15/30 loss=3.7240
+[LoRA] Ep16/30 loss=3.6234
+[LoRA] Ep17/30 loss=3.5382
+[LoRA] Ep18/30 loss=3.4479
+[LoRA] Ep19/30 loss=3.3834
+[LoRA] Ep20/30 loss=3.3277
+[LoRA] Ep21/30 loss=3.2912
+[LoRA] Ep22/30 loss=3.2579
+[LoRA] Ep23/30 loss=3.1981
+[LoRA] Ep24/30 loss=3.1969
+[LoRA] Ep25/30 loss=3.1413
+[LoRA] Ep26/30 loss=3.1226
+[LoRA] Ep27/30 loss=3.1037
+[LoRA] Ep28/30 loss=3.0952
+[LoRA] Ep29/30 loss=3.0601
+[LoRA] Ep30/30 loss=3.0752
+Training DANN-Gate...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=22.3049
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=24.2073
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=31.6857
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=37.3015
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=42.1673
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=45.5363
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=46.6586
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=49.9308
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=51.0092
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=52.9787
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=54.4178
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=55.8046
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=56.5847
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=57.4328
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=57.5530
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=58.0613
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=58.4224
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=58.8818
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=59.2021
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=58.8097
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=58.6954
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=58.8017
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=59.6315
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=59.6113
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=58.8945
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=59.2697
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=58.9582
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=58.9875
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=59.1314
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=59.4680
+[Run 5] LoRA Acc=22.43% | DANN-Gate Acc=20.41%
+
+All done. Final mean/std results saved to: ./results_test100_base/imbalance_cifar100.json
+more_baselines/base_imb_test100.py completed successfully.
+Starting more_baselines/base_mismatch_test100.py...
+
+=== Pretraining Teacher (BigCNN-10) on CIFAR-10 subset ===
+Files already downloaded and verified
+/home/ubuntu/refine/more_baselines/base_mismatch_test100.py:112: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  teacher_10 = torch.load(teacher_ckpt).to(device)
+Loaded teacher model from: ./model_test100/base_mismatch_teacher_cifar10.pt
+Files already downloaded and verified
+Files already downloaded and verified
+
+=== Run 1/5, seed=42 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (convert teacher head to 100, then LoRA)...
+[LoRA] Ep1/30 loss=4.4769
+[LoRA] Ep2/30 loss=4.2530
+[LoRA] Ep3/30 loss=4.1661
+[LoRA] Ep4/30 loss=4.1292
+[LoRA] Ep5/30 loss=4.1083
+[LoRA] Ep6/30 loss=4.0803
+[LoRA] Ep7/30 loss=4.0600
+[LoRA] Ep8/30 loss=4.0570
+[LoRA] Ep9/30 loss=4.0508
+[LoRA] Ep10/30 loss=4.0489
+[LoRA] Ep11/30 loss=4.0355
+[LoRA] Ep12/30 loss=4.0375
+[LoRA] Ep13/30 loss=4.0289
+[LoRA] Ep14/30 loss=4.0260
+[LoRA] Ep15/30 loss=4.0159
+[LoRA] Ep16/30 loss=4.0100
+[LoRA] Ep17/30 loss=4.0006
+[LoRA] Ep18/30 loss=4.0009
+[LoRA] Ep19/30 loss=4.0030
+[LoRA] Ep20/30 loss=4.0010
+[LoRA] Ep21/30 loss=3.9886
+[LoRA] Ep22/30 loss=3.9892
+[LoRA] Ep23/30 loss=3.9791
+[LoRA] Ep24/30 loss=3.9724
+[LoRA] Ep25/30 loss=3.9767
+[LoRA] Ep26/30 loss=3.9754
+[LoRA] Ep27/30 loss=3.9733
+[LoRA] Ep28/30 loss=3.9741
+[LoRA] Ep29/30 loss=3.9693
+[LoRA] Ep30/30 loss=3.9607
+Training DANN-Gate (convert teacher head to 100)...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=9.4476
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=15.7011
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=43.0834
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=46.9429
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=48.8517
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=50.0302
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=51.1797
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=51.9489
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=51.9874
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=53.1571
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=53.7845
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=54.8238
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=55.4294
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=55.8503
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=56.3616
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=56.5857
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=57.5669
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=57.4922
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=57.5967
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=58.3682
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=58.8493
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=59.2228
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=58.8488
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=58.7324
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=58.4192
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=57.7597
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=57.8611
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=58.2907
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=57.7974
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=58.6136
+[Run 1] LoRA Acc=6.96% | DANN-Gate Acc=5.75%
+
+=== Run 2/5, seed=43 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (convert teacher head to 100, then LoRA)...
+[LoRA] Ep1/30 loss=4.4965
+[LoRA] Ep2/30 loss=4.2698
+[LoRA] Ep3/30 loss=4.2002
+[LoRA] Ep4/30 loss=4.1650
+[LoRA] Ep5/30 loss=4.1318
+[LoRA] Ep6/30 loss=4.1086
+[LoRA] Ep7/30 loss=4.0929
+[LoRA] Ep8/30 loss=4.0846
+[LoRA] Ep9/30 loss=4.0715
+[LoRA] Ep10/30 loss=4.0556
+[LoRA] Ep11/30 loss=4.0520
+[LoRA] Ep12/30 loss=4.0547
+[LoRA] Ep13/30 loss=4.0497
+[LoRA] Ep14/30 loss=4.0444
+[LoRA] Ep15/30 loss=4.0298
+[LoRA] Ep16/30 loss=4.0337
+[LoRA] Ep17/30 loss=4.0232
+[LoRA] Ep18/30 loss=4.0213
+[LoRA] Ep19/30 loss=4.0282
+[LoRA] Ep20/30 loss=4.0228
+[LoRA] Ep21/30 loss=4.0127
+[LoRA] Ep22/30 loss=4.0134
+[LoRA] Ep23/30 loss=4.0120
+[LoRA] Ep24/30 loss=4.0015
+[LoRA] Ep25/30 loss=4.0000
+[LoRA] Ep26/30 loss=3.9925
+[LoRA] Ep27/30 loss=3.9925
+[LoRA] Ep28/30 loss=3.9972
+[LoRA] Ep29/30 loss=3.9933
+[LoRA] Ep30/30 loss=3.9915
+Training DANN-Gate (convert teacher head to 100)...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=9.6096
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=14.5503
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=42.2825
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=46.5134
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=47.5598
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=49.4921
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=49.8424
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=50.6692
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=50.8335
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=51.2639
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=52.0163
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=52.4889
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=52.1355
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=51.6109
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=52.5669
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=52.9588
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=53.2547
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=53.2496
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=52.4335
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=53.0581
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=53.5373
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=52.8614
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=53.4549
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=53.1077
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=53.5880
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=54.0797
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=53.8849
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=53.4941
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=53.5903
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=53.8805
+[Run 2] LoRA Acc=6.73% | DANN-Gate Acc=4.94%
+
+=== Run 3/5, seed=44 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (convert teacher head to 100, then LoRA)...
+[LoRA] Ep1/30 loss=4.4932
+[LoRA] Ep2/30 loss=4.2227
+[LoRA] Ep3/30 loss=4.1590
+[LoRA] Ep4/30 loss=4.1355
+[LoRA] Ep5/30 loss=4.1122
+[LoRA] Ep6/30 loss=4.0948
+[LoRA] Ep7/30 loss=4.0788
+[LoRA] Ep8/30 loss=4.0647
+[LoRA] Ep9/30 loss=4.0571
+[LoRA] Ep10/30 loss=4.0453
+[LoRA] Ep11/30 loss=4.0440
+[LoRA] Ep12/30 loss=4.0406
+[LoRA] Ep13/30 loss=4.0320
+[LoRA] Ep14/30 loss=4.0243
+[LoRA] Ep15/30 loss=4.0204
+[LoRA] Ep16/30 loss=4.0197
+[LoRA] Ep17/30 loss=4.0234
+[LoRA] Ep18/30 loss=4.0136
+[LoRA] Ep19/30 loss=4.0052
+[LoRA] Ep20/30 loss=4.0092
+[LoRA] Ep21/30 loss=3.9998
+[LoRA] Ep22/30 loss=3.9968
+[LoRA] Ep23/30 loss=3.9926
+[LoRA] Ep24/30 loss=3.9943
+[LoRA] Ep25/30 loss=3.9918
+[LoRA] Ep26/30 loss=3.9864
+[LoRA] Ep27/30 loss=3.9756
+[LoRA] Ep28/30 loss=3.9771
+[LoRA] Ep29/30 loss=3.9708
+[LoRA] Ep30/30 loss=3.9655
+Training DANN-Gate (convert teacher head to 100)...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=9.5366
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=17.9948
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=40.9428
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=44.9853
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=47.0231
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=49.0586
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=49.2898
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=50.4455
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=50.4258
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=51.1255
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=50.6822
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=50.5413
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=51.1385
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=51.4740
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=51.8529
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=51.9142
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=51.8962
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=51.7885
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=51.8662
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=52.4279
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=51.8554
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=51.7193
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=52.5777
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=52.6834
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=52.2199
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=53.0722
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=53.3003
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=52.8459
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=53.1957
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=53.5300
+[Run 3] LoRA Acc=6.76% | DANN-Gate Acc=4.67%
+
+=== Run 4/5, seed=45 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (convert teacher head to 100, then LoRA)...
+[LoRA] Ep1/30 loss=4.5041
+[LoRA] Ep2/30 loss=4.2280
+[LoRA] Ep3/30 loss=4.1737
+[LoRA] Ep4/30 loss=4.1451
+[LoRA] Ep5/30 loss=4.1228
+[LoRA] Ep6/30 loss=4.0994
+[LoRA] Ep7/30 loss=4.0807
+[LoRA] Ep8/30 loss=4.0646
+[LoRA] Ep9/30 loss=4.0611
+[LoRA] Ep10/30 loss=4.0463
+[LoRA] Ep11/30 loss=4.0518
+[LoRA] Ep12/30 loss=4.0370
+[LoRA] Ep13/30 loss=4.0382
+[LoRA] Ep14/30 loss=4.0310
+[LoRA] Ep15/30 loss=4.0267
+[LoRA] Ep16/30 loss=4.0215
+[LoRA] Ep17/30 loss=4.0184
+[LoRA] Ep18/30 loss=4.0082
+[LoRA] Ep19/30 loss=4.0025
+[LoRA] Ep20/30 loss=4.0017
+[LoRA] Ep21/30 loss=3.9943
+[LoRA] Ep22/30 loss=4.0055
+[LoRA] Ep23/30 loss=3.9923
+[LoRA] Ep24/30 loss=3.9974
+[LoRA] Ep25/30 loss=3.9934
+[LoRA] Ep26/30 loss=3.9858
+[LoRA] Ep27/30 loss=3.9890
+[LoRA] Ep28/30 loss=3.9893
+[LoRA] Ep29/30 loss=3.9847
+[LoRA] Ep30/30 loss=3.9793
+Training DANN-Gate (convert teacher head to 100)...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=9.8546
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=11.9875
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=40.1963
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=45.0822
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=46.9887
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=47.8633
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=48.9706
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=49.2178
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=49.5773
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=50.0457
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=50.2017
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=50.7572
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=50.9559
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=50.7124
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=50.8222
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=51.3508
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=51.4198
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=50.6514
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=50.5501
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=51.0089
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=51.4327
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=51.2123
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=50.9704
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=51.4826
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=51.6940
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=51.1673
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=52.2438
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=52.2978
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=51.9666
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=51.5436
+[Run 4] LoRA Acc=6.73% | DANN-Gate Acc=5.10%
+
+=== Run 5/5, seed=46 ===
+Files already downloaded and verified
+Files already downloaded and verified
+Training LoRA (convert teacher head to 100, then LoRA)...
+[LoRA] Ep1/30 loss=4.5070
+[LoRA] Ep2/30 loss=4.2548
+[LoRA] Ep3/30 loss=4.1866
+[LoRA] Ep4/30 loss=4.1535
+[LoRA] Ep5/30 loss=4.1243
+[LoRA] Ep6/30 loss=4.1067
+[LoRA] Ep7/30 loss=4.0907
+[LoRA] Ep8/30 loss=4.0757
+[LoRA] Ep9/30 loss=4.0684
+[LoRA] Ep10/30 loss=4.0550
+[LoRA] Ep11/30 loss=4.0546
+[LoRA] Ep12/30 loss=4.0541
+[LoRA] Ep13/30 loss=4.0485
+[LoRA] Ep14/30 loss=4.0427
+[LoRA] Ep15/30 loss=4.0369
+[LoRA] Ep16/30 loss=4.0372
+[LoRA] Ep17/30 loss=4.0320
+[LoRA] Ep18/30 loss=4.0152
+[LoRA] Ep19/30 loss=4.0249
+[LoRA] Ep20/30 loss=4.0185
+[LoRA] Ep21/30 loss=4.0159
+[LoRA] Ep22/30 loss=4.0136
+[LoRA] Ep23/30 loss=4.0049
+[LoRA] Ep24/30 loss=4.0109
+[LoRA] Ep25/30 loss=4.0064
+[LoRA] Ep26/30 loss=3.9952
+[LoRA] Ep27/30 loss=3.9919
+[LoRA] Ep28/30 loss=3.9914
+[LoRA] Ep29/30 loss=3.9854
+[LoRA] Ep30/30 loss=3.9924
+Training DANN-Gate (convert teacher head to 100)...
+[DANN-Gate-Head] Ep1/30 λ_grl=0.000 loss=9.8725
+[DANN-Gate-Head] Ep2/30 λ_grl=0.171 loss=12.9490
+[DANN-Gate-Head] Ep3/30 λ_grl=0.332 loss=37.8839
+[DANN-Gate-Head] Ep4/30 λ_grl=0.476 loss=44.7264
+[DANN-Gate-Head] Ep5/30 λ_grl=0.598 loss=47.7680
+[DANN-Gate-Head] Ep6/30 λ_grl=0.697 loss=49.0499
+[DANN-Gate-Head] Ep7/30 λ_grl=0.776 loss=49.2745
+[DANN-Gate-Head] Ep8/30 λ_grl=0.836 loss=49.3912
+[DANN-Gate-Head] Ep9/30 λ_grl=0.881 loss=49.4282
+[DANN-Gate-Head] Ep10/30 λ_grl=0.914 loss=49.6303
+[DANN-Gate-Head] Ep11/30 λ_grl=0.938 loss=49.8517
+[DANN-Gate-Head] Ep12/30 λ_grl=0.956 loss=50.4802
+[DANN-Gate-Head] Ep13/30 λ_grl=0.969 loss=50.7576
+[DANN-Gate-Head] Ep14/30 λ_grl=0.978 loss=50.8916
+[DANN-Gate-Head] Ep15/30 λ_grl=0.984 loss=50.8769
+[DANN-Gate-Head] Ep16/30 λ_grl=0.989 loss=51.1187
+[DANN-Gate-Head] Ep17/30 λ_grl=0.992 loss=51.1214
+[DANN-Gate-Head] Ep18/30 λ_grl=0.994 loss=51.3179
+[DANN-Gate-Head] Ep19/30 λ_grl=0.996 loss=51.2463
+[DANN-Gate-Head] Ep20/30 λ_grl=0.997 loss=50.4371
+[DANN-Gate-Head] Ep21/30 λ_grl=0.998 loss=51.3769
+[DANN-Gate-Head] Ep22/30 λ_grl=0.999 loss=50.6045
+[DANN-Gate-Head] Ep23/30 λ_grl=0.999 loss=51.0317
+[DANN-Gate-Head] Ep24/30 λ_grl=0.999 loss=51.0128
+[DANN-Gate-Head] Ep25/30 λ_grl=0.999 loss=51.7241
+[DANN-Gate-Head] Ep26/30 λ_grl=1.000 loss=51.1476
+[DANN-Gate-Head] Ep27/30 λ_grl=1.000 loss=51.6187
+[DANN-Gate-Head] Ep28/30 λ_grl=1.000 loss=52.1249
+[DANN-Gate-Head] Ep29/30 λ_grl=1.000 loss=51.2777
+[DANN-Gate-Head] Ep30/30 λ_grl=1.000 loss=51.0823
+[Run 5] LoRA Acc=6.94% | DANN-Gate Acc=5.53%
+
+All runs complete. Results saved to ./results_test100_base/mismatch_test100.json
+more_baselines/base_mismatch_test100.py completed successfully.

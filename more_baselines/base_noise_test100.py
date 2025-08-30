@@ -62,7 +62,7 @@ def main():
     num_runs = 5
 
     # mirror your noise_test100: run 0.8 only (change list if you want others)
-    flip_ratios = [0.4, 0.0]
+    flip_ratios = [0.8, 0.4, 0.0]
 
     for flip_ratio in flip_ratios:
         save_path = f"./results_test100_base/noise_cifar100_{flip_ratio}.json"
