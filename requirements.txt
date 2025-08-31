@@ -1,0 +1,14 @@
+# Core scientific stack
+numpy==1.26.4
+scipy==1.15.3
+scikit-learn==1.6.1
+networkx>=3.5
+pillow>=10.0
+requests>=2.31
+PyYAML>=6.0
+
+# PyTorch ecosystem
+# NOTE: install with the appropriate index-url for your hardware (see README)
+torch==2.5.1
+torchvision==0.20.1
+torchaudio==2.5.1

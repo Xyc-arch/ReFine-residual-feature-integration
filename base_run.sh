@@ -38,15 +38,28 @@ PYTHON_SCRIPTS=(
 
     ## stress test with CNN on CIFAR-10 and CIFAR-100:
     # more_baselines/base_noise.py
-    more_baselines/base_adversarial.py
-    more_baselines/base_mismatch.py
-    more_baselines/base_noise_test100.py
-    more_baselines/base_adversarial_test100.py
-    more_baselines/base_imb_test100.py
-    more_baselines/base_mismatch_test100.py
+    # more_baselines/base_adversarial.py
+    # more_baselines/base_mismatch.py
+    # more_baselines/base_noise_test100.py
+    # more_baselines/base_adversarial_test100.py
+    # more_baselines/base_imb_test100.py
+    # more_baselines/base_mismatch_test100.py
 
     ## optional:
-    # more_baselines/base_match_digit.py
+    # more_baselines/base_match_digit.
+    
+    ## TF
+    # -------------------
+    # Transformer baselines
+    # -------------------
+    more_baselines/base_noise_tf.py
+    more_baselines/base_adversarial_tf.py
+    more_baselines/base_imb_tf.py
+    more_baselines/base_mismatch_tf.py
+    # more_baselines/base_noise_tf_test100.py
+    more_baselines/base_adversarial_tf_test100.py
+    more_baselines/base_imb_tf_test100.py
+    more_baselines/base_mismatch_tf_test100.py
 
 )
 
