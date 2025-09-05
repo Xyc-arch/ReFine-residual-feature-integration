@@ -391,7 +391,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Pretrain teacher on USPS
-    teacher_path = "models/usps_teacher_base.pt"
+    teacher_path = "models/usps_teacher.pt"
     if os.path.exists(teacher_path):
         print(f"\nLoading pretrained teacher from {teacher_path}")
         teacher = torch.load(teacher_path, map_location=device)

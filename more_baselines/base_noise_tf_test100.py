@@ -75,7 +75,7 @@ def main():
 
     for flip_ratio in flip_ratios:
         save_path       = f"./results_test100_base/noise_tf_cifar100_{flip_ratio}.json"
-        model_save_path = f"./model_test100/base_noise_tf_cifar100_{flip_ratio}.pt"
+        model_save_path = f"./model_test100/noise_tf_cifar100_{flip_ratio}.pt"
 
         pretrain_dataset, raw_set_common, testset = load_data_split(seed=42, flip_ratio=flip_ratio)
         pretrain_loader = DataLoader(pretrain_dataset, batch_size=64, shuffle=True,  num_workers=2)

@@ -85,7 +85,7 @@ def main():
     batch_size      = 64
 
     save_path  = "./results_test100_base/imbalance_cifar100.json"
-    model_ckpt = "./model_test100/base_imbalance_cifar100.pt"
+    model_ckpt = "./model_test100/imbalance_cifar100.pt"
 
     # Build fixed imbalanced pretrain set and test loader
     pretrain_dataset, raw_set_seed42, testset = load_data_split_imb_cifar100(seed=42)

@@ -101,7 +101,7 @@ def main():
     }
 
     save_path       = "./results_test10_base/imb_tf.json"
-    model_save_path = "./model_test10/base_imb_tf.pt"
+    model_save_path = "./model_test10/imb_tf.pt"
 
     # Build datasets/loaders
     pretrain_dataset, raw_set, test_dataset = load_data_split_imbalanced(seed=42, imbalance_dict=imbalance_dict)

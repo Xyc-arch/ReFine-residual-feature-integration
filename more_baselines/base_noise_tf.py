@@ -82,7 +82,7 @@ def main():
         test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=2)
 
         print("\n=== Pretraining External Model (BigTransformer) on 10k Random (Corrupted) Samples ===")
-        model_save_path = f"./model_test10/base_noise_tf_{flip_ratio}.pt"
+        model_save_path = f"./model_test10/noise_tf_{flip_ratio}.pt"
         if os.path.exists(model_save_path):
             external_model = torch.load(model_save_path).to(device)
             print("Loaded external model from:", model_save_path)

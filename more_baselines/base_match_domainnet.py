@@ -397,7 +397,7 @@ def main():
         results["LoRA-Head"]["auc"].append(auc)
         results["LoRA-Head"]["f1"].append(f1)
         results["LoRA-Head"]["minc"].append(minc)
-        print(f"→ LoRA(head): Acc={acc:.2f}% AUC={auc:.2f}% F1={f1:.2f}% MinC={minc:.2f}%")
+        print(f"LoRA(head): Acc={acc:.2f}% AUC={auc:.2f}% F1={f1:.2f}% MinC={minc:.2f}%")
 
         # DANN-Gate: source+target with LoRA head; backbone frozen
         dann_model = train_dann_gate_head(teacher, src_loader, tgt_loader, dev,
@@ -407,7 +407,7 @@ def main():
         results["DANN-Gate"]["auc"].append(auc)
         results["DANN-Gate"]["f1"].append(f1)
         results["DANN-Gate"]["minc"].append(minc)
-        print(f"→ DANN-Gate:  Acc={acc:.2f}% AUC={auc:.2f}% F1={f1:.2f}% MinC={minc:.2f}%")
+        print(f"DANN-Gate:  Acc={acc:.2f}% AUC={auc:.2f}% F1={f1:.2f}% MinC={minc:.2f}%")
 
     # 3) Aggregate & save
     summary = {}

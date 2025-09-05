@@ -104,7 +104,7 @@ def main():
     test_loader     = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=2)
 
     print("\n=== Pretraining External Model (BigCNN) on 10k Imbalanced Samples ===")
-    ckpt_path = "./model_test10/base_imb.pt"
+    ckpt_path = "./model_test10/imb.pt"
     if os.path.exists(ckpt_path):
         external_model = torch.load(ckpt_path).to(device)
         print("Loaded external model from:", ckpt_path)

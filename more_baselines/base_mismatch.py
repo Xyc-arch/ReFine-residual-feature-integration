@@ -109,7 +109,7 @@ def main():
     num_runs        = 5
 
     save_path    = "./results_test10_base/mismatch.json"
-    teacher_ckpt = "./model_test10/base_mismatch_teacher_cifar100.pt"
+    teacher_ckpt = "./model_test10/mismatch_teacher_cifar100.pt"
 
     # 1) Pretrain teacher on CIFAR-100 subset
     print("\n=== Pretraining Teacher (BigCNN) on CIFAR-100 subset ===")

@@ -116,7 +116,7 @@ def main():
 
     # ----- Pretrain or load external model (BigCNN) on adversarial augment_set -----
     print("\n=== Pretraining External Model (BigCNN) on Adversarial Pretraining Data ===")
-    model_ckpt = "./model_test10/base_adversarial.pt"
+    model_ckpt = "./model_test10/adversarial.pt"
     if os.path.exists(model_ckpt):
         external_model = torch.load(model_ckpt).to(device)
         print("Loaded external model from:", model_ckpt)

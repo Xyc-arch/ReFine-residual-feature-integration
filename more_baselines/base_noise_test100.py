@@ -73,7 +73,7 @@ def main():
         test_loader     = DataLoader(test_dataset, batch_size=64, shuffle=False, num_workers=2)
 
         print("\n=== Pretraining External Model (BigCNN on CIFAR-100, noisy labels) ===")
-        model_save_path = f"./model_test100/base_noise_cifar100_{flip_ratio}.pt"
+        model_save_path = f"./model_test100/noise_cifar100_{flip_ratio}.pt"
         if os.path.exists(model_save_path):
             external_model = torch.load(model_save_path).to(device)
             print("Loaded external model from:", model_save_path)

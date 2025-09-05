@@ -81,7 +81,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     save_path       = "./results_test100_base/imbalance_tf_cifar100.json"
-    model_save_path = "./model_test100/base_imbalance_tf_cifar100.pt"
+    model_save_path = "./model_test100/imbalance_tf_cifar100.pt"
 
     pretrain_epochs = 60
     other_epochs    = 30

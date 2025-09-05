@@ -156,7 +156,7 @@ def main():
     noise_sd = 0.2
 
     save_path  = "./results_test100_base/adversarial_cifar100_confusion.json"
-    model_ckpt = "./model_test100/base_adversarial_cifar100.pt"
+    model_ckpt = "./model_test100/adversarial_cifar100.pt"
 
     # Test loader (common)
     _, _, testset = load_and_split_data(seed_for_split=42)

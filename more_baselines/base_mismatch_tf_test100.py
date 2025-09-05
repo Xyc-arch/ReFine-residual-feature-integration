@@ -102,7 +102,7 @@ def main():
 
     # Paths
     save_path    = "./results_test100_base/mismatch_tf_test100.json"
-    teacher_ckpt = "./model_test100/base_mismatch_tf_teacher_cifar10.pt"
+    teacher_ckpt = "./model_test100/mismatch_tf_teacher_cifar10.pt"
 
     # 1) Pretrain teacher Transformer on CIFAR-10 subset (10k)
     print("\n=== Pretraining Teacher (BigTransformer-10) on CIFAR-10 subset ===")

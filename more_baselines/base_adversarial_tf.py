@@ -102,7 +102,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     save_path       = "./results_test10_base/adversarial_tf.json"
-    model_save_path = "./model_test10/base_adversarial_tf.pt"
+    model_save_path = "./model_test10/adversarial_tf.pt"
 
     pretrain_epochs = 60
     other_epochs    = 30
